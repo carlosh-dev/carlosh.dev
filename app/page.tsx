@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl'
 import TerminalWrapper from '@/components/terminal'
+import Stacks from '../components/stacks'
 
 export default function Home() {
     // const t = useTranslations('HomePage')
@@ -26,42 +27,49 @@ export default function Home() {
                     </div>
                 </TerminalWrapper>
 
-                <div className="flex gap-4  flex-wrap">
-                    <span className="w-fit bg-transparent font-semibold p-2 rounded-lg  transition-colors cursor-default border border-violet-500 hover:bg-zinc-600 text-violet-500 hover:text-white">
-                        NextJS
-                    </span>
-
-                    <span className="w-fit bg-transparent font-semibold p-2 rounded-lg  transition-colors cursor-default border border-violet-500 hover:bg-zinc-600 text-violet-500 hover:text-white">
-                        TypeScript
-                    </span>
-
-                    <span className="w-fit bg-transparent font-semibold p-2 rounded-lg  transition-colors cursor-default border border-violet-500 hover:bg-zinc-600 text-violet-500 hover:text-white">
-                        TailwindCSS
-                    </span>
-
-                    <span className="w-fit bg-transparent font-semibold p-2 rounded-lg  transition-colors cursor-default border border-violet-500 hover:bg-zinc-600 text-violet-500 hover:text-white">
-                        NodeJS
-                    </span>
-
-                    <span className="w-fit bg-transparent font-semibold p-2 rounded-lg  transition-colors cursor-default border border-violet-500 hover:bg-zinc-600 text-violet-500 hover:text-white">
-                        SQL
-                    </span>
-
-                    <span className="w-fit bg-transparent font-semibold p-2 rounded-lg  transition-colors cursor-default border border-violet-500 hover:bg-zinc-600 text-violet-500 hover:text-white">
-                        AI
-                    </span>
-                </div>
+                <Stacks />
             </div>
 
             <div className="flex flex-col gap-4 mb-8 mt-20">
                 <TerminalWrapper title={'about-me.txt'}>
-                    <p className="text-violet-300 p-10">
-                        Sou um desenvolvedor de software apaixonado por
-                        tecnologia e inovação. Com experiência em
-                        desenvolvimento web, estou sempre buscando aprender
-                        novas tecnologias e aprimorar minhas habilidades para
-                        criar soluções eficientes e impactantes.
-                    </p>
+                    <div className="grid grid-cols-[1fr_auto] gap-4 p-5">
+                        <div className="flex flex-col gap-4 w-full">
+                            <p className="text-violet-300 p-10 w-full">
+                                Sou um desenvolvedor de software apaixonado por
+                                tecnologia e inovação. Com experiência em
+                                desenvolvimento web, estou sempre buscando
+                                aprender novas tecnologias e aprimorar minhas
+                                habilidades para criar soluções eficientes e
+                                impactantes.
+                            </p>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4 w-fit">
+                            <div className="bg-zinc-800 p-4 rounded-lg flex flex-col ">
+                                <p className="text-4xl font-bold text-violet-500">
+                                    05+
+                                </p>
+                                <p className="max-w-50 text-sm text-violet-300">
+                                    YEARS_OF_EXPERIENCE
+                                </p>
+                            </div>
+                            <div className="bg-zinc-800 p-4 rounded-lg flex flex-col ">
+                                <p className="text-4xl font-bold text-violet-500">
+                                    10+
+                                </p>
+                                <p className="max-w-50 text-sm text-violet-300">
+                                    PROJECTS_COMPLETEDS
+                                </p>
+                            </div>
+                            <div className="bg-zinc-800 p-4 rounded-lg flex flex-col ">
+                                <p className="text-4xl font-bold text-violet-500">
+                                    12k+
+                                </p>
+                                <p className="max-w-50 text-sm text-violet-300">
+                                    COMMITS_LOGGED
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </TerminalWrapper>
             </div>
         </main>
