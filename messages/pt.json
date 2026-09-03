@@ -1,6 +1,221 @@
-
 {
-  "HomePage": {
-    "title": "Olá mundo!"
-  }
+    "nav": {
+        "skip": "Pular para o conteúdo",
+        "logo": "Início",
+        "openMenu": "Abrir menu de navegação",
+        "closeMenu": "Fechar menu de navegação",
+        "cta": "Fale Comigo",
+        "language": "Idioma",
+        "items": {
+            "inicio": "Início",
+            "sobre": "Sobre",
+            "competencias": "Competências",
+            "experiencia": "Experiência",
+            "formacao": "Formação",
+            "contato": "Contato"
+        }
+    },
+    "hero": {
+        "status": "Disponível para novos desafios / projetos",
+        "headline": "Construindo aplicações web <g>escaláveis</g>, resilientes e de alta performance.",
+        "subheadline": "Software Engineer com mais de <b>5 anos de experiência</b> especialista em <v>React, Next.js, TypeScript, Node.js</v> e <s>Ruby on Rails</s>. Foco rigoroso em arquitetura frontend, Web Vitals, cobertura de testes automatizados e sustentação de produtos SaaS de alto tráfego.",
+        "ctaPrimary": "Ver Experiência & Timeline",
+        "ctaSecondary": "Entrar em Contato",
+        "shellStatus": "production_ready",
+        "portraitAlt": "Retrato de Carlos Henrique, Software Engineer",
+        "microPill": "-50% Re-renders",
+        "highlights": {
+            "years": { "value": "+5 Anos", "label": "de Experiência" },
+            "users": { "value": "80k+ / 100k", "label": "Usuários Ativos" }
+        }
+    },
+    "metrics": {
+        "title": "Indicadores de impacto",
+        "items": {
+            "experience": {
+                "value": "5+ Anos",
+                "description": "Experiência sólida em produção contínua"
+            },
+            "scale": {
+                "value": "80k+",
+                "suffix": "/ 100k",
+                "description": "Usuários em arquitetura escalada"
+            },
+            "performance": {
+                "value": "-50%",
+                "description": "Re-renderizações desnecessárias"
+            },
+            "tests": {
+                "value": "80%",
+                "description": "Cobertura de testes (Jest / RTL)"
+            },
+            "cache": {
+                "value": "-90%",
+                "description": "Latência de API com cache inteligente"
+            }
+        }
+    },
+    "about": {
+        "eyebrow": "01 // Filosofia de Engenharia",
+        "title": "Engenharia orientada a resultados e performance extrema.",
+        "description": "Combinando pragmatismo no ecossistema web moderno com rigor arquitetural. Minha abordagem une padrões sólidos de engenharia de software com foco incansável na experiência final do usuário e no ROI do produto SaaS.",
+        "stackCard": {
+            "title": "Stack de Especialidade",
+            "description": "Ecossistema JavaScript/TypeScript de ponta a ponta (React, Next.js, Node.js) complementado por soluções robustas de backend corporativo com Ruby on Rails e Redis."
+        },
+        "pillars": {
+            "frontend": {
+                "title": "Arquitetura Frontend & Web Vitals",
+                "description": "Especialista na redução do LCP, FID e CLS através de Server Components, otimização de bundle, estratégias de data-fetching com React Query e controle cirúrgico do ciclo de re-renderização de componentes.",
+                "tag": "Core Web Vitals 95+"
+            },
+            "designSystems": {
+                "title": "Design Systems Escaláveis",
+                "description": "Criação e governança de bibliotecas de componentes atômicos em Storybook e TailwindCSS, garantindo coerência visual, acessibilidade (a11y) e aceleração de squads de produto.",
+                "tag": "Storybook + Tailwind Docs"
+            },
+            "quality": {
+                "title": "Cultura de Qualidade & Testes",
+                "description": "Implementação de testes unitários e de integração com Jest e React Testing Library, garantindo esteiras CI/CD confiáveis e redução drástica de incidentes e regressões críticas em produção.",
+                "tag": "Zero Critical Regressions"
+            },
+            "ai": {
+                "title": "Produtividade com IA & DevEx",
+                "description": "Integração pragmática de LLMs (Claude, GitHub Copilot) em fluxos de code review e geração de testes de estresse, gerando até 25% de agilidade no ciclo de entrega contínua.",
+                "tag": "-25% Code Review Time"
+            }
+        }
+    },
+    "skills": {
+        "eyebrow": "02 // Competências Técnicas",
+        "title": "Stack Tecnológico & Arquitetural",
+        "description": "Ferramentas e tecnologias aplicadas em escala diária em ambientes corporativos de alta demanda.",
+        "categories": {
+            "frontend": {
+                "title": "Frontend Architecture",
+                "subtitle": "Especialidade Central"
+            },
+            "backend": {
+                "title": "Backend & APIs",
+                "subtitle": "Serviços & Comunicação"
+            },
+            "data": {
+                "title": "Bancos & Cache",
+                "subtitle": "Persistência & Velocidade"
+            },
+            "testing": {
+                "title": "Testes & Qualidade",
+                "subtitle": "Resiliência de Código"
+            },
+            "practices": {
+                "title": "Práticas de Engenharia & IA Aplicada",
+                "subtitle": "Metodologias & Ferramental Moderno"
+            }
+        }
+    },
+    "experience": {
+        "eyebrow": "03 // Trajetória Profissional",
+        "title": "Experiência em Escala & Produção",
+        "description": "Histórico comprovado de impacto técnico direto no faturamento, retenção de usuários e estabilidade de sistemas distribuídos.",
+        "present": "Presente",
+        "currentBadge": "ATUAL",
+        "roles": {
+            "penzack": {
+                "role": "Frontend Software Engineer",
+                "company": "Penzack",
+                "bullets": {
+                    "0": "<b>Redução de 50% em re-renderizações</b> através de gerenciamento avançado de estado via React Query e memoização refinada de componentes críticos.",
+                    "1": "<b>Melhoria de 35% no tempo de carregamento</b> inicial de páginas com foco em Core Web Vitals e code splitting por rota.",
+                    "2": "Padronização e evolução da biblioteca de componentes e Design System corporativo em <b>Storybook & TailwindCSS</b>.",
+                    "3": "Elevação expressiva da cobertura de testes automatizados de <b>50% para 80%</b> utilizando Jest e React Testing Library.",
+                    "4": "<b>Redução de 25% no tempo médio de code review</b> com adoção estruturada de assistentes de IA (Claude e GitHub Copilot)."
+                }
+            },
+            "kirvano": {
+                "role": "Frontend Software Engineer",
+                "company": "Kirvano",
+                "bullets": {
+                    "0": "<b>Fundação do ecossistema frontend do zero</b>, acompanhando e sustentando a escalabilidade da plataforma de 0 para <b>80.000 usuários em 18 meses</b>, culminando em mais de <b>100.000 clientes</b> ativos sem degradação arquitetural.",
+                    "1": "Criação, arquitetura e documentação completa do primeiro <b>Design System centralizado</b> da empresa com Storybook.",
+                    "2": "Implementação da suíte de testes com Jest e RTL partindo de 0% para 70% de cobertura, gerando <b>redução de 40% em regressões</b> pós-deploy."
+                }
+            },
+            "cloudfox": {
+                "role": "Frontend Developer",
+                "company": "Cloudfox",
+                "bullets": {
+                    "0": "Desenvolvimento e implantação do módulo de checkout personalizado com microinterações rápidas, gerando <b>+35% de taxa de conclusão de compra</b>.",
+                    "1": "Manutenção evolutiva e refatoração de sistemas administrativos internos em arquitetura distribuída.",
+                    "2": "Atuação em squads ágeis multidisciplinares entregando features com cadência semanal contínua."
+                }
+            },
+            "laager": {
+                "role": "Full Stack Software Engineer",
+                "company": "LAAGER Tecnologias Sustentáveis",
+                "bullets": {
+                    "0": "<b>Redução de 90% no tempo de chamadas de API</b> via padrão cache-aside implementado em Ruby on Rails e Redis.",
+                    "1": "Desenvolvimento de motor de otimização logística com Google Maps APIs integradas, reduzindo <b>tempo de deslocamento em 40%</b> para rotas de campo.",
+                    "2": "Gerenciamento de tarefas assíncronas em segundo plano com Sidekiq e testes de automação em RSpec."
+                }
+            },
+            "elaw": {
+                "role": "Analista de Dados / BI",
+                "company": "Elaw Tecnologia S.A.",
+                "bullets": {
+                    "0": "Consultoria técnica em Business Intelligence e estruturação de dashboards analíticos executivos.",
+                    "1": "Ingestão, modelagem e indexação de dados com Elasticsearch, Kibana e bancos de dados Oracle.",
+                    "2": "Scripts de automação em PHP para processamento de planilhas complexas de clientes corporativos."
+                }
+            }
+        }
+    },
+    "education": {
+        "eyebrow": "04 // Formação & Fundamentos",
+        "title": "Base acadêmica aliada à prática de mercado.",
+        "description": "Formação estruturada em Ciência da Computação complementada por base técnica prática em programação de software, lógica algorítmica e comunicação internacional.",
+        "languagesTitle": "Proficiência em Idiomas",
+        "languages": {
+            "portuguese": { "name": "Português", "level": "Nativo" },
+            "english": {
+                "name": "Inglês",
+                "level": "Intermediário / Técnico (B1-B2)",
+                "note": "Leitura técnica diária de RFCs, escrita de PRs e comunicação em squads globais."
+            }
+        },
+        "degrees": {
+            "computerScience": {
+                "title": "Bacharelado em Ciência da Computação",
+                "institution": "UNIP — Universidade Paulista",
+                "description": "Formação profunda em estrutura de dados, algoritmos avançados, engenharia de software, sistemas operacionais, bancos de dados relacionais e não-relacionais, e teoria da computação."
+            },
+            "technical": {
+                "title": "Técnico em Programação",
+                "institution": "SENAI — São Caetano do Sul",
+                "description": "Base sólida em lógica de programação, orientação a objetos, SQL fundamental, desenvolvimento de software orientado a boas práticas industriais e versionamento de código com Git."
+            }
+        }
+    },
+    "contact": {
+        "eyebrow": "Vamos Conectar",
+        "title": "Vamos construir algo incrível juntos?",
+        "description": "Seja para liderar a arquitetura frontend de um novo produto, escalar sua stack SaaS existente ou colaborar em projetos de alto impacto, estou pronto para somar.",
+        "responseTime": "Resposta média em menos de 24 horas úteis.",
+        "channels": {
+            "email": { "label": "Email Direto", "value": "Enviar Mensagem" },
+            "linkedin": { "label": "Networking", "value": "LinkedIn Profile" },
+            "github": {
+                "label": "Repositórios",
+                "value": "GitHub Open Source"
+            },
+            "whatsapp": {
+                "label": "Mensagem Rápida",
+                "value": "WhatsApp Comercial"
+            }
+        }
+    },
+    "footer": {
+        "tagline": "Software Engineer & Frontend Architect",
+        "copyright": "© {year} Carlos Henrique. Todos os direitos reservados.",
+        "available": "Disponível para Projetos"
+    }
 }

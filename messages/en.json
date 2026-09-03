@@ -1,6 +1,221 @@
-
 {
-  "HomePage": {
-    "title": "Hello world!"
-  }
+    "nav": {
+        "skip": "Skip to content",
+        "logo": "Home",
+        "openMenu": "Open navigation menu",
+        "closeMenu": "Close navigation menu",
+        "cta": "Get in Touch",
+        "language": "Language",
+        "items": {
+            "inicio": "Home",
+            "sobre": "About",
+            "competencias": "Skills",
+            "experiencia": "Experience",
+            "formacao": "Education",
+            "contato": "Contact"
+        }
+    },
+    "hero": {
+        "status": "Available for new challenges / projects",
+        "headline": "Building <g>scalable</g>, resilient and high-performance web applications.",
+        "subheadline": "Software Engineer with over <b>5 years of experience</b>, specialized in <v>React, Next.js, TypeScript, Node.js</v> and <s>Ruby on Rails</s>. Rigorous focus on frontend architecture, Web Vitals, automated test coverage and sustaining high-traffic SaaS products.",
+        "ctaPrimary": "See Experience & Timeline",
+        "ctaSecondary": "Get in Touch",
+        "shellStatus": "production_ready",
+        "portraitAlt": "Portrait of Carlos Henrique, Software Engineer",
+        "microPill": "-50% Re-renders",
+        "highlights": {
+            "years": { "value": "+5 Years", "label": "of Experience" },
+            "users": { "value": "80k+ / 100k", "label": "Active Users" }
+        }
+    },
+    "metrics": {
+        "title": "Impact indicators",
+        "items": {
+            "experience": {
+                "value": "5+ Years",
+                "description": "Solid experience in continuous production"
+            },
+            "scale": {
+                "value": "80k+",
+                "suffix": "/ 100k",
+                "description": "Users on a scaled architecture"
+            },
+            "performance": {
+                "value": "-50%",
+                "description": "Unnecessary re-renders"
+            },
+            "tests": {
+                "value": "80%",
+                "description": "Test coverage (Jest / RTL)"
+            },
+            "cache": {
+                "value": "-90%",
+                "description": "API latency with smart caching"
+            }
+        }
+    },
+    "about": {
+        "eyebrow": "01 // Engineering Philosophy",
+        "title": "Engineering driven by results and extreme performance.",
+        "description": "Combining pragmatism in the modern web ecosystem with architectural rigor. My approach pairs solid software engineering patterns with a relentless focus on the end-user experience and on SaaS product ROI.",
+        "stackCard": {
+            "title": "Specialty Stack",
+            "description": "End-to-end JavaScript/TypeScript ecosystem (React, Next.js, Node.js) complemented by robust enterprise backend solutions with Ruby on Rails and Redis."
+        },
+        "pillars": {
+            "frontend": {
+                "title": "Frontend Architecture & Web Vitals",
+                "description": "Specialized in reducing LCP, FID and CLS through Server Components, bundle optimization, data-fetching strategies with React Query and surgical control of the component re-render cycle.",
+                "tag": "Core Web Vitals 95+"
+            },
+            "designSystems": {
+                "title": "Scalable Design Systems",
+                "description": "Building and governing atomic component libraries in Storybook and TailwindCSS, ensuring visual consistency, accessibility (a11y) and faster product squads.",
+                "tag": "Storybook + Tailwind Docs"
+            },
+            "quality": {
+                "title": "Quality Culture & Testing",
+                "description": "Unit and integration testing with Jest and React Testing Library, delivering reliable CI/CD pipelines and a sharp drop in critical incidents and regressions in production.",
+                "tag": "Zero Critical Regressions"
+            },
+            "ai": {
+                "title": "AI Productivity & DevEx",
+                "description": "Pragmatic integration of LLMs (Claude, GitHub Copilot) into code review flows and stress-test generation, yielding up to 25% more agility in the continuous delivery cycle.",
+                "tag": "-25% Code Review Time"
+            }
+        }
+    },
+    "skills": {
+        "eyebrow": "02 // Technical Skills",
+        "title": "Technology & Architecture Stack",
+        "description": "Tools and technologies applied daily at scale in high-demand enterprise environments.",
+        "categories": {
+            "frontend": {
+                "title": "Frontend Architecture",
+                "subtitle": "Core Specialty"
+            },
+            "backend": {
+                "title": "Backend & APIs",
+                "subtitle": "Services & Communication"
+            },
+            "data": {
+                "title": "Databases & Cache",
+                "subtitle": "Persistence & Speed"
+            },
+            "testing": {
+                "title": "Testing & Quality",
+                "subtitle": "Code Resilience"
+            },
+            "practices": {
+                "title": "Engineering Practices & Applied AI",
+                "subtitle": "Methodologies & Modern Tooling"
+            }
+        }
+    },
+    "experience": {
+        "eyebrow": "03 // Professional Track Record",
+        "title": "Experience at Scale & in Production",
+        "description": "Proven track record of technical impact directly on revenue, user retention and the stability of distributed systems.",
+        "present": "Present",
+        "currentBadge": "CURRENT",
+        "roles": {
+            "penzack": {
+                "role": "Frontend Software Engineer",
+                "company": "Penzack",
+                "bullets": {
+                    "0": "<b>50% reduction in re-renders</b> through advanced state management with React Query and fine-grained memoization of critical components.",
+                    "1": "<b>35% improvement in initial page load time</b>, focused on Core Web Vitals and per-route code splitting.",
+                    "2": "Standardized and evolved the component library and corporate Design System in <b>Storybook & TailwindCSS</b>.",
+                    "3": "Raised automated test coverage significantly from <b>50% to 80%</b> using Jest and React Testing Library.",
+                    "4": "<b>25% reduction in average code review time</b> through structured adoption of AI assistants (Claude and GitHub Copilot)."
+                }
+            },
+            "kirvano": {
+                "role": "Frontend Software Engineer",
+                "company": "Kirvano",
+                "bullets": {
+                    "0": "<b>Founded the frontend ecosystem from scratch</b>, supporting and sustaining platform scalability from 0 to <b>80,000 users in 18 months</b>, reaching over <b>100,000 active customers</b> with no architectural degradation.",
+                    "1": "Designed, architected and fully documented the company's first <b>centralized Design System</b> with Storybook.",
+                    "2": "Built the test suite with Jest and RTL from 0% to 70% coverage, driving a <b>40% reduction in post-deploy regressions</b>."
+                }
+            },
+            "cloudfox": {
+                "role": "Frontend Developer",
+                "company": "Cloudfox",
+                "bullets": {
+                    "0": "Built and shipped a custom checkout module with fast micro-interactions, driving <b>+35% purchase completion rate</b>.",
+                    "1": "Evolutionary maintenance and refactoring of internal admin systems in a distributed architecture.",
+                    "2": "Worked in cross-functional agile squads delivering features on a continuous weekly cadence."
+                }
+            },
+            "laager": {
+                "role": "Full Stack Software Engineer",
+                "company": "LAAGER Tecnologias Sustentáveis",
+                "bullets": {
+                    "0": "<b>90% reduction in API call time</b> via a cache-aside pattern implemented with Ruby on Rails and Redis.",
+                    "1": "Developed a logistics optimization engine integrated with Google Maps APIs, cutting <b>travel time by 40%</b> on field routes.",
+                    "2": "Managed asynchronous background jobs with Sidekiq and automated testing with RSpec."
+                }
+            },
+            "elaw": {
+                "role": "Data / BI Analyst",
+                "company": "Elaw Tecnologia S.A.",
+                "bullets": {
+                    "0": "Technical consulting on Business Intelligence and structuring of executive analytics dashboards.",
+                    "1": "Data ingestion, modeling and indexing with Elasticsearch, Kibana and Oracle databases.",
+                    "2": "PHP automation scripts for processing complex enterprise client spreadsheets."
+                }
+            }
+        }
+    },
+    "education": {
+        "eyebrow": "04 // Education & Fundamentals",
+        "title": "Academic foundation paired with real-world practice.",
+        "description": "Structured education in Computer Science complemented by hands-on technical grounding in software programming, algorithmic logic and international communication.",
+        "languagesTitle": "Language Proficiency",
+        "languages": {
+            "portuguese": { "name": "Portuguese", "level": "Native" },
+            "english": {
+                "name": "English",
+                "level": "Intermediate / Technical (B1-B2)",
+                "note": "Daily technical reading of RFCs, writing PRs and communicating in global squads."
+            }
+        },
+        "degrees": {
+            "computerScience": {
+                "title": "Bachelor's Degree in Computer Science",
+                "institution": "UNIP — Universidade Paulista",
+                "description": "In-depth grounding in data structures, advanced algorithms, software engineering, operating systems, relational and non-relational databases, and computation theory."
+            },
+            "technical": {
+                "title": "Technical Degree in Programming",
+                "institution": "SENAI — São Caetano do Sul",
+                "description": "Solid foundation in programming logic, object orientation, fundamental SQL, software development guided by industry best practices and version control with Git."
+            }
+        }
+    },
+    "contact": {
+        "eyebrow": "Let's Connect",
+        "title": "Shall we build something great together?",
+        "description": "Whether it's leading the frontend architecture of a new product, scaling your existing SaaS stack or collaborating on high-impact projects, I'm ready to contribute.",
+        "responseTime": "Average response in under 24 business hours.",
+        "channels": {
+            "email": { "label": "Direct Email", "value": "Send a Message" },
+            "linkedin": { "label": "Networking", "value": "LinkedIn Profile" },
+            "github": {
+                "label": "Repositories",
+                "value": "GitHub Open Source"
+            },
+            "whatsapp": {
+                "label": "Quick Message",
+                "value": "WhatsApp Business"
+            }
+        }
+    },
+    "footer": {
+        "tagline": "Software Engineer & Frontend Architect",
+        "copyright": "© {year} Carlos Henrique. All rights reserved.",
+        "available": "Available for Projects"
+    }
 }

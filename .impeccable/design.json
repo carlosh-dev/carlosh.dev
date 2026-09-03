@@ -1,0 +1,429 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-03T23:08:30Z",
+  "title": "Design System: Carlos Henrique — Terminal Violet",
+  "extensions": {
+    "colorMeta": {
+      "obsidian-base": {
+        "role": "neutral",
+        "displayName": "Obsidian Base",
+        "canonical": "oklch(0.09 0.005 285)",
+        "tonalRamp": [
+          "oklch(0.15 0.005 285)",
+          "oklch(0.26 0.005 285)",
+          "oklch(0.37 0.005 285)",
+          "oklch(0.48 0.005 285)",
+          "oklch(0.59 0.005 285)",
+          "oklch(0.70 0.005 285)",
+          "oklch(0.81 0.005 285)",
+          "oklch(0.92 0.005 285)"
+        ]
+      },
+      "obsidian-raised": {
+        "role": "neutral",
+        "displayName": "Obsidian Raised",
+        "canonical": "oklch(0.13 0.021 295)",
+        "tonalRamp": [
+          "oklch(0.15 0.021 295)",
+          "oklch(0.26 0.021 295)",
+          "oklch(0.37 0.021 295)",
+          "oklch(0.48 0.021 295)",
+          "oklch(0.59 0.021 295)",
+          "oklch(0.70 0.021 295)",
+          "oklch(0.81 0.021 295)",
+          "oklch(0.92 0.021 295)"
+        ]
+      },
+      "console-text": {
+        "role": "neutral",
+        "displayName": "Console Text",
+        "canonical": "oklch(0.91 0.005 325)",
+        "tonalRamp": [
+          "oklch(0.15 0.005 325)",
+          "oklch(0.26 0.005 325)",
+          "oklch(0.37 0.005 325)",
+          "oklch(0.48 0.005 325)",
+          "oklch(0.59 0.005 325)",
+          "oklch(0.70 0.005 325)",
+          "oklch(0.81 0.005 325)",
+          "oklch(0.92 0.005 325)"
+        ]
+      },
+      "terminal-violet": {
+        "role": "primary",
+        "displayName": "Terminal Violet",
+        "canonical": "oklch(0.82 0.079 305)",
+        "tonalRamp": [
+          "oklch(0.15 0.079 305)",
+          "oklch(0.26 0.079 305)",
+          "oklch(0.37 0.079 305)",
+          "oklch(0.48 0.079 305)",
+          "oklch(0.59 0.079 305)",
+          "oklch(0.70 0.079 305)",
+          "oklch(0.81 0.079 305)",
+          "oklch(0.92 0.079 305)"
+        ]
+      },
+      "violet-container": {
+        "role": "primary",
+        "displayName": "Violet Container",
+        "canonical": "oklch(0.65 0.190 295)",
+        "tonalRamp": [
+          "oklch(0.15 0.190 295)",
+          "oklch(0.26 0.190 295)",
+          "oklch(0.37 0.190 295)",
+          "oklch(0.48 0.190 295)",
+          "oklch(0.59 0.190 295)",
+          "oklch(0.70 0.190 295)",
+          "oklch(0.81 0.190 295)",
+          "oklch(0.92 0.190 295)"
+        ]
+      },
+      "violet-intense": {
+        "role": "primary",
+        "displayName": "Violet Intense",
+        "canonical": "oklch(0.54 0.243 293)",
+        "tonalRamp": [
+          "oklch(0.15 0.243 293)",
+          "oklch(0.26 0.243 293)",
+          "oklch(0.37 0.243 293)",
+          "oklch(0.48 0.243 293)",
+          "oklch(0.59 0.243 293)",
+          "oklch(0.70 0.243 293)",
+          "oklch(0.81 0.243 293)",
+          "oklch(0.92 0.243 293)"
+        ]
+      },
+      "lilac-secondary": {
+        "role": "secondary",
+        "displayName": "Lilac Secondary",
+        "canonical": "oklch(0.83 0.090 300)",
+        "tonalRamp": [
+          "oklch(0.15 0.090 300)",
+          "oklch(0.26 0.090 300)",
+          "oklch(0.37 0.090 300)",
+          "oklch(0.48 0.090 300)",
+          "oklch(0.59 0.090 300)",
+          "oklch(0.70 0.090 300)",
+          "oklch(0.81 0.090 300)",
+          "oklch(0.92 0.090 300)"
+        ]
+      },
+      "prompt-green": {
+        "role": "tertiary",
+        "displayName": "Prompt Green",
+        "canonical": "oklch(0.81 0.213 148)",
+        "tonalRamp": [
+          "oklch(0.15 0.213 148)",
+          "oklch(0.26 0.213 148)",
+          "oklch(0.37 0.213 148)",
+          "oklch(0.48 0.213 148)",
+          "oklch(0.59 0.213 148)",
+          "oklch(0.70 0.213 148)",
+          "oklch(0.81 0.213 148)",
+          "oklch(0.92 0.213 148)"
+        ]
+      },
+      "signal-cyan": {
+        "role": "tertiary",
+        "displayName": "Signal Cyan",
+        "canonical": "oklch(0.87 0.089 210)",
+        "tonalRamp": [
+          "oklch(0.15 0.089 210)",
+          "oklch(0.26 0.089 210)",
+          "oklch(0.37 0.089 210)",
+          "oklch(0.48 0.089 210)",
+          "oklch(0.59 0.089 210)",
+          "oklch(0.70 0.089 210)",
+          "oklch(0.81 0.089 210)",
+          "oklch(0.92 0.089 210)"
+        ]
+      },
+      "query-pink": {
+        "role": "tertiary",
+        "displayName": "Query Pink",
+        "canonical": "oklch(0.75 0.190 349)",
+        "tonalRamp": [
+          "oklch(0.15 0.190 349)",
+          "oklch(0.26 0.190 349)",
+          "oklch(0.37 0.190 349)",
+          "oklch(0.48 0.190 349)",
+          "oklch(0.59 0.190 349)",
+          "oklch(0.70 0.190 349)",
+          "oklch(0.81 0.190 349)",
+          "oklch(0.92 0.190 349)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The hero headline. Once per page, pure white, with a violet-to-pink gradient span on the emphasized words."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles and the contact panel title. Always pure white, always preceded by a mono eyebrow."
+      },
+      "subtitle": {
+        "displayName": "Subtitle",
+        "purpose": "Job titles in the experience timeline."
+      },
+      "card-title": {
+        "displayName": "Card Title",
+        "purpose": "Card headings, always paired with a 20px accent-colored icon to their left."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Section descriptions and card prose, capped around max-w-2xl for line length."
+      },
+      "metric": {
+        "displayName": "Metric",
+        "purpose": "The five impact numbers. Pure white; any suffix drops to 14px regular in Console Text Dim."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Every machine artifact — metric keys, section eyebrows, statuses, date ranges, stack chips, locale codes. Mono, 11px, 0.06em tracking, usually uppercase."
+      },
+      "code": {
+        "displayName": "Code",
+        "purpose": "Inline code fragments inside prose."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-bloom",
+        "value": "0 0 35px -5px rgb(139 92 246 / 0.12)",
+        "purpose": "Ambient violet under every card surface. The negative spread keeps it from leaking past the corners."
+      },
+      {
+        "name": "cta-aura",
+        "value": "0 0 28px rgb(139 92 246 / 0.45)",
+        "purpose": "The primary button only. The strongest emission in the system; it makes the CTA the brightest object on screen."
+      },
+      {
+        "name": "status-bloom",
+        "value": "0 0 24px rgb(139 92 246 / 0.18)",
+        "purpose": "The hero availability pill."
+      },
+      {
+        "name": "live-node",
+        "value": "0 0 16px rgb(139 92 246 / 0.8)",
+        "purpose": "Tight and near-opaque, on the current role's timeline node alone. The only burning point in a column of dark ones."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default easing for every state transition."
+      },
+      {
+        "name": "duration-fast",
+        "value": "200ms",
+        "purpose": "Buttons, chips, nav links, locale switcher — anything the pointer touches directly."
+      },
+      {
+        "name": "duration-surface",
+        "value": "300ms",
+        "purpose": "Card border lighting from Border Subtle to Border Active. Slower than a button so surfaces feel heavier than controls."
+      },
+      {
+        "name": "duration-image",
+        "value": "500ms",
+        "purpose": "The portrait's grayscale-to-color release on hover."
+      },
+      {
+        "name": "float",
+        "value": "float 4s ease-in-out infinite",
+        "purpose": "The hero's first floating highlight card drifts translateY(0) to -6px and back. Only one element floats."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation-duration: 0.01ms; transition-duration: 0.01ms; scroll-behavior: auto",
+        "purpose": "Global clamp under prefers-reduced-motion. Every animation in the system is decorative and safe to kill."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The site's single conversion control. Gradient fill plus aura; the brightest object in any region it appears in.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#contato\">Get in Touch<svg class=\"ds-btn-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 5v14\"/><path d=\"m19 12-7 7-7-7\"/></svg></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; border: 1px solid rgb(255 255 255 / 0.2); border-radius: 8px; background: linear-gradient(to right, var(--color-violet-intense, #7c3aed), var(--color-violet-deep, #6d28d9)); color: #ffffff; font-family: var(--font-sans, 'Plus Jakarta Sans', system-ui, sans-serif); font-size: 13px; font-weight: 600; line-height: 20px; letter-spacing: 0.005em; text-decoration: none; box-shadow: 0 0 28px rgb(139 92 246 / 0.45); transition: transform 200ms cubic-bezier(0.4,0,0.2,1), box-shadow 200ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-primary:hover { transform: scale(1.01); } .ds-btn-primary:focus-visible { outline: 2px solid var(--color-primary, #d0bcff); outline-offset: 2px; } .ds-btn-icon { width: 18px; height: 18px; flex-shrink: 0; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "The secondary CTA. Same geometry as primary, but it lights its border instead of emitting.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#experiencia\"><svg class=\"ds-btn-icon ds-btn-icon-accent\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m4 17 6-6-6-6\"/><path d=\"M12 19h8\"/></svg>See Experience</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; border: 1px solid rgb(255 255 255 / 0.08); border-radius: 8px; background: var(--color-surface-raised, #0f0e17); color: var(--color-on-surface, #e5e1e4); font-family: var(--font-sans, 'Plus Jakarta Sans', system-ui, sans-serif); font-size: 13px; font-weight: 600; line-height: 20px; letter-spacing: 0.005em; text-decoration: none; transition: border-color 200ms cubic-bezier(0.4,0,0.2,1), background-color 200ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-ghost:hover { border-color: rgb(139 92 246 / 0.4); background: var(--color-surface-card, #13111c); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--color-primary, #d0bcff); outline-offset: 2px; } .ds-btn-ghost .ds-btn-icon { width: 18px; height: 18px; flex-shrink: 0; } .ds-btn-icon-accent { color: var(--color-primary, #d0bcff); }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "The universal surface. Obsidian Raised over a hairline border, lit violet on hover, with an ambient bloom instead of a drop shadow.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\"><svg class=\"ds-card-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/><path d=\"M3 9h18\"/><path d=\"M9 21V9\"/></svg>Frontend Architecture</h3><p class=\"ds-card-body\">Specialized in reducing LCP, FID and CLS through Server Components and surgical control of the re-render cycle.</p></div>",
+      "css": ".ds-card { border: 1px solid rgb(255 255 255 / 0.08); border-radius: 12px; background: var(--color-surface-raised, #0f0e17); padding: 24px; box-shadow: 0 0 35px -5px rgb(139 92 246 / 0.12); transition: border-color 300ms cubic-bezier(0.4,0,0.2,1); } .ds-card:hover { border-color: rgb(139 92 246 / 0.4); } .ds-card-title { display: flex; align-items: center; gap: 8px; margin: 0 0 4px; font-family: var(--font-sans, 'Plus Jakarta Sans', system-ui, sans-serif); font-size: 18px; font-weight: 600; line-height: 26px; letter-spacing: -0.01em; color: #ffffff; } .ds-card-icon { width: 20px; height: 20px; flex-shrink: 0; color: var(--color-primary, #d0bcff); } .ds-card-body { margin: 0; font-family: var(--font-sans, 'Plus Jakarta Sans', system-ui, sans-serif); font-size: 13px; line-height: 20px; color: var(--color-on-surface-variant, #cbc3d7); }"
+    },
+    {
+      "name": "Tech Badge",
+      "kind": "chip",
+      "refersTo": "tech-badge",
+      "description": "The skills-grid pill. A syntax-colored dot leads when the technology belongs to a color family; lead technologies take that accent as their text color.",
+      "html": "<span class=\"ds-badge ds-badge-lead\"><span class=\"ds-badge-dot\"></span>React.js</span> <span class=\"ds-badge\"><span class=\"ds-badge-dot ds-badge-dot-cyan\"></span>Jest</span> <span class=\"ds-badge ds-badge-plain\">Zustand</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border: 1px solid rgb(255 255 255 / 0.08); border-radius: 6px; background: var(--color-surface-base, #0a0a0c); font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 11px; font-weight: 600; line-height: 16px; letter-spacing: 0.06em; color: var(--color-on-surface, #e5e1e4); } .ds-badge-lead { color: var(--color-primary, #d0bcff); } .ds-badge-plain { color: var(--color-on-surface-variant, #cbc3d7); } .ds-badge-dot { width: 6px; height: 6px; flex-shrink: 0; border-radius: 9999px; background: var(--color-primary, #d0bcff); } .ds-badge-dot-cyan { background: var(--color-accent-cyan, #8be9fd); }"
+    },
+    {
+      "name": "Stack Chip",
+      "kind": "chip",
+      "refersTo": "stack-chip",
+      "description": "The flatter chip in each timeline entry's footer. Colored strictly by the Token Color Rule, with Console Text Dim as the fallback for unmapped technologies.",
+      "html": "<span class=\"ds-chip ds-chip-violet\">Next.js</span> <span class=\"ds-chip ds-chip-pink\">Storybook</span> <span class=\"ds-chip ds-chip-green\">PostgreSQL</span> <span class=\"ds-chip\">Docker</span>",
+      "css": ".ds-chip { display: inline-block; padding: 2px 8px; border: 1px solid rgb(255 255 255 / 0.08); border-radius: 4px; background: var(--color-surface-base, #0a0a0c); font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 11px; line-height: 16px; color: var(--color-on-surface-variant, #cbc3d7); } .ds-chip-violet { color: var(--color-primary, #d0bcff); } .ds-chip-pink { color: var(--color-accent-pink, #ff79c6); } .ds-chip-green { color: var(--color-tertiary, #31e368); }"
+    },
+    {
+      "name": "Navigation Links",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header navigation. The active section fills with Violet Container over Violet Ink Deep — the only place in the system a violet fill carries text.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link ds-nav-link-active\" href=\"#inicio\" aria-current=\"page\">Home</a><a class=\"ds-nav-link\" href=\"#sobre\">About</a><a class=\"ds-nav-link\" href=\"#experiencia\">Experience</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 4px; } .ds-nav-link { padding: 8px 12px; border-radius: 8px; font-family: var(--font-sans, 'Plus Jakarta Sans', system-ui, sans-serif); font-size: 13px; line-height: 20px; text-decoration: none; color: var(--color-on-surface-variant, #cbc3d7); transition: color 200ms cubic-bezier(0.4,0,0.2,1), background-color 200ms cubic-bezier(0.4,0,0.2,1); } .ds-nav-link:hover { color: var(--color-on-surface, #e5e1e4); } .ds-nav-link-active { background: var(--color-primary-container, #a078ff); color: var(--color-on-primary-container, #340080); font-weight: 600; } .ds-nav-link:focus-visible { outline: 2px solid var(--color-primary, #d0bcff); outline-offset: 2px; }"
+    },
+    {
+      "name": "Locale Switcher",
+      "kind": "custom",
+      "refersTo": "nav-link-active",
+      "description": "Two-cell segmented control. The active locale matches the active nav link exactly; the whole group drops to 60% opacity during the server-action transition.",
+      "html": "<div class=\"ds-locale\" role=\"group\" aria-label=\"Language\"><button class=\"ds-locale-cell ds-locale-cell-active\" type=\"button\" aria-current=\"true\">pt</button><button class=\"ds-locale-cell\" type=\"button\">en</button></div>",
+      "css": ".ds-locale { display: inline-flex; align-items: center; gap: 2px; padding: 2px; border: 1px solid rgb(255 255 255 / 0.08); border-radius: 8px; background: var(--color-surface-raised, #0f0e17); } .ds-locale-cell { padding: 4px 8px; border: 0; border-radius: 6px; background: transparent; font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 11px; font-weight: 600; line-height: 16px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-on-surface-variant, #cbc3d7); cursor: pointer; transition: color 200ms cubic-bezier(0.4,0,0.2,1), background-color 200ms cubic-bezier(0.4,0,0.2,1); } .ds-locale-cell:hover { color: var(--color-on-surface, #e5e1e4); } .ds-locale-cell-active { background: var(--color-primary-container, #a078ff); color: var(--color-on-primary-container, #340080); } .ds-locale-cell:focus-visible { outline: 2px solid var(--color-primary, #d0bcff); outline-offset: 2px; }"
+    },
+    {
+      "name": "Metric Card",
+      "kind": "card",
+      "refersTo": "card-compact",
+      "description": "One of five in the full-bleed band below the fold. Mono key in its accent color, a dim corner icon, then the number at full white weight.",
+      "html": "<div class=\"ds-metric\"><div class=\"ds-metric-head\"><span class=\"ds-metric-key\">SCALE_USERS</span><svg class=\"ds-metric-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"/></svg></div><p class=\"ds-metric-value\">80k+<span class=\"ds-metric-suffix\"> / 100k</span></p><p class=\"ds-metric-desc\">Users on a scaled architecture</p></div>",
+      "css": ".ds-metric { border: 1px solid rgb(255 255 255 / 0.08); border-radius: 12px; background: var(--color-surface-raised, #0f0e17); padding: 16px; box-shadow: 0 0 35px -5px rgb(139 92 246 / 0.12); transition: border-color 300ms cubic-bezier(0.4,0,0.2,1); } .ds-metric:hover { border-color: rgb(139 92 246 / 0.4); } .ds-metric-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px; } .ds-metric-key { font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 11px; font-weight: 600; line-height: 16px; letter-spacing: 0.06em; color: var(--color-tertiary, #31e368); } .ds-metric-icon { width: 16px; height: 16px; flex-shrink: 0; color: var(--color-outline, #958ea0); } .ds-metric-value { margin: 0; font-family: var(--font-sans, 'Plus Jakarta Sans', system-ui, sans-serif); font-size: 32px; font-weight: 800; line-height: 38px; letter-spacing: -0.02em; color: #ffffff; } .ds-metric-suffix { font-size: 14px; font-weight: 400; color: var(--color-on-surface-variant, #cbc3d7); } .ds-metric-desc { margin: 4px 0 0; font-family: var(--font-sans, 'Plus Jakarta Sans', system-ui, sans-serif); font-size: 13px; line-height: 20px; color: var(--color-on-surface-variant, #cbc3d7); }"
+    },
+    {
+      "name": "Shell Prompt Strip",
+      "kind": "custom",
+      "refersTo": "card-compact",
+      "description": "Signature component. A single mono bar under the hero CTAs doing the work of a paragraph — the line that names the whole system.",
+      "html": "<div class=\"ds-shell\"><span class=\"ds-shell-left\"><span class=\"ds-shell-arrow\">&#10145;</span><span class=\"ds-shell-token\">engineer.stack</span><span class=\"ds-shell-sep\">::</span><span class=\"ds-shell-value\">[\"Next.js\", \"TypeScript\", \"Rails\", \"Redis\"]</span></span><span class=\"ds-shell-status\">production_ready</span></div>",
+      "css": ".ds-shell { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 16px; border: 1px solid rgb(255 255 255 / 0.08); border-radius: 8px; background: var(--color-surface-raised, #0f0e17); font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 11px; font-weight: 600; line-height: 16px; letter-spacing: 0.06em; color: var(--color-on-surface-variant, #cbc3d7); } .ds-shell-left { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; } .ds-shell-arrow { color: var(--color-tertiary, #31e368); } .ds-shell-token { color: var(--color-primary-fixed, #e9ddff); } .ds-shell-sep { color: var(--color-outline, #958ea0); } .ds-shell-value { color: #ffffff; } .ds-shell-status { font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-tertiary, #31e368); }"
+    },
+    {
+      "name": "Timeline Entry",
+      "kind": "custom",
+      "refersTo": "card",
+      "description": "Signature component. A rail fading from Violet Intense to transparent, one node per role, and the current role as the only burning point.",
+      "html": "<ol class=\"ds-timeline\"><span class=\"ds-timeline-rail\" aria-hidden=\"true\"></span><li class=\"ds-timeline-item\"><span class=\"ds-timeline-node ds-timeline-node-live\" aria-hidden=\"true\"><span class=\"ds-timeline-dot\"></span></span><div class=\"ds-card ds-timeline-card\"><div class=\"ds-timeline-head\"><h3 class=\"ds-timeline-role\">Frontend Software Engineer<span class=\"ds-timeline-badge\">CURRENT</span></h3><p class=\"ds-timeline-company\">Penzack</p></div><p class=\"ds-timeline-date\">09/2024 &#8212; Present</p></div></li></ol>",
+      "css": ".ds-timeline { position: relative; list-style: none; margin: 0; padding: 0 0 0 32px; } .ds-timeline-rail { position: absolute; top: 12px; bottom: 24px; left: 14px; width: 2px; background: linear-gradient(to bottom, var(--color-violet-intense, #7c3aed), var(--color-primary, #d0bcff), transparent); opacity: 0.6; } .ds-timeline-item { position: relative; } .ds-timeline-node { position: absolute; left: -32px; top: 6px; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 9999px; background: var(--color-surface-base, #0a0a0c); } .ds-timeline-node-live { box-shadow: 0 0 16px rgb(139 92 246 / 0.8); } .ds-timeline-dot { width: 10px; height: 10px; border-radius: 9999px; background: var(--color-primary, #d0bcff); transition: transform 200ms cubic-bezier(0.4,0,0.2,1); } .ds-timeline-item:hover .ds-timeline-dot { transform: scale(1.25); } .ds-timeline-card { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; } .ds-timeline-role { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0; font-family: var(--font-sans, 'Plus Jakarta Sans', system-ui, sans-serif); font-size: 22px; font-weight: 700; line-height: 30px; letter-spacing: -0.015em; color: #ffffff; } .ds-timeline-badge { padding: 2px 8px; border-radius: 4px; background: rgb(0 167 69 / 0.3); font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 10px; font-weight: 700; letter-spacing: 0.06em; color: var(--color-tertiary, #31e368); } .ds-timeline-company { margin: 0; font-family: var(--font-sans, 'Plus Jakarta Sans', system-ui, sans-serif); font-size: 13px; font-weight: 500; line-height: 20px; color: var(--color-primary, #d0bcff); } .ds-timeline-date { margin: 0; padding: 4px 12px; border: 1px solid rgb(255 255 255 / 0.08); border-radius: 6px; background: var(--color-surface-base, #0a0a0c); font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 11px; font-weight: 600; line-height: 16px; letter-spacing: 0.06em; color: var(--color-on-surface-variant, #cbc3d7); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Instrumented Terminal",
+    "overview": "The site behaves like a console reporting live telemetry from a career. Nothing announces itself as marketing; everything reads as a readout. Metric keys arrive in mono uppercase (EXP_PROD, SCALE_USERS, WEB_PERF), the hero closes on a shell prompt strip, section eyebrows are numbered like log lines (01 // Engineering Philosophy), and availability is a pulsing green dot rather than a sentence. The claim underneath is that this engineer measures things — so the interface is built out of measurements.\n\nThe room is obsidian and the light source is violet. Five near-black surfaces stack from #0a0a0c up to #181524, separated not by shadow but by one-pixel white-at-8% borders, and lit from behind by wide violet bloom — 130–140px blurred orbs behind the hero, a 35px centered bloom under every card, a 28px aura around the primary CTA. Depth here is emitted, never cast. The palette is confident and luminous rather than restrained: the violet is allowed to actually glow, the portrait carries a gradient aura, and the timeline's current-role node burns at 80% opacity while the finished roles sit dark.\n\nColor carries meaning, not decoration. A fixed map assigns each technology one color for the whole site — React and TypeScript in violet, Jest and Elasticsearch in cyan, Storybook and Sidekiq in pink, PostgreSQL in green — so the page reads the way a syntax highlighter reads a source file. The two typefaces split the same way: Plus Jakarta Sans states things in human language, JetBrains Mono labels anything a machine produced. The result is a dark, high-contrast surface where prose recedes and instrumentation carries the personality.",
+    "keyCharacteristics": [
+      "Obsidian five-step surface stack, separated by 1px borders at 8% white — never by drop shadows.",
+      "Violet as the only light source: wide, centered, blurred bloom instead of directional shadow.",
+      "Syntax-accent trio (green / cyan / pink) used lexically, with one fixed color per technology.",
+      "Two-voice typography: Jakarta for language, JetBrains Mono for every machine artifact.",
+      "Pure #ffffff reserved for headlines and hard numbers; body text lives one step down at #cbc3d7.",
+      "Dark-only. There is no light theme and nothing in the system anticipates one."
+    ],
+    "rules": [
+      {
+        "name": "The Token Color Rule",
+        "body": "Every technology name carries exactly one color everywhere it appears — React is always Terminal Violet, Jest is always Signal Cyan, Storybook is always Query Pink. The map in lib/content.ts is the single source of truth; a technology is never colored ad hoc to suit a local composition. This is what makes the page read as syntax rather than decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Green Means Live Rule",
+        "body": "Prompt Green is reserved for liveness and availability: the pulsing status dot, production_ready, the CURRENT badge, the response-time line, the prompt arrow. It never appears as a general-purpose accent, and a static element never wears it.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Light Source Rule",
+        "body": "Violet Intense (#7c3aed) is the only thing in the system that emits. Every glow, orb, aura, rail, and meter traces back to it. Green, cyan, and pink are pigments — they color text and dots, and they never bloom.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "If a string is something a machine produced or would recognize — a key, a date range, a status, a technology name in a chip, a section number, a locale code — it is set in JetBrains Mono. If it is something a person is saying, it is Jakarta. Prose is never mono, and a machine artifact is never set in the sans.",
+        "section": "typography"
+      },
+      {
+        "name": "The White Headline Rule",
+        "body": "Headlines, metric values, and hard numbers inside rich text are pure #ffffff, not Console Text. Body prose sits at Console Text Dim (#cbc3d7). That two-step drop from white to dim lilac is the hierarchy — do not create a third intermediate tone to soften it.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tight Display Rule",
+        "body": "Type gets tighter as it gets bigger: -0.03em at 56px, -0.02em at 32px, 0em at 15px, and back out to +0.06em at 11px mono. Never set a large heading at normal tracking; never set a mono label without its wide tracking.",
+        "section": "typography"
+      },
+      {
+        "name": "The Band Rule",
+        "body": "Full-width tinted bands punctuate the page and are the only thing that separates sections: the metrics strip, the education section, and the footer. Everything between them sits directly on bare Obsidian Base. There are no divider lines between sections — the band is the divider.",
+        "section": "layout"
+      },
+      {
+        "name": "The Asymmetric Split Rule",
+        "body": "Two-column desktop layouts are 7/5, 4/8, or 5/7 — never 6/6. The narrow column always holds the framing (title, eyebrow, description, one summary card); the wide column always holds the evidence.",
+        "section": "layout"
+      },
+      {
+        "name": "The Emitted-Not-Cast Rule",
+        "body": "Every shadow is 0 0 — centered, no offset, violet. If a value has an X or Y offset and a neutral color, it does not belong in this system.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One Burning Node Rule",
+        "body": "At most one element per region is at full glow. In the timeline that is the current role; in the hero that is the primary CTA. Two competing bright points flatten the hierarchy that the darkness exists to create.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Radius Ladder Rule",
+        "body": "Radius grows with the object: 4px chip → 6px badge → 8px control → 12px card → 16px panel. A child element never carries a radius equal to or larger than its parent's — a 12px card holds 8px controls and 6px badges, never another 12px surface.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "Every surface earns its edge. A near-black block on a near-black background without a rgb(255 255 255 / 0.08) border is invisible, and inventing a lighter fill to compensate would break the tonal stack. Add the border instead.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do give every technology its one fixed color from lib/content.ts and reuse it everywhere the name appears.",
+      "Do set every machine artifact in JetBrains Mono at 11px with 0.06em tracking — keys, dates, statuses, chips, section numbers, locale codes.",
+      "Do put a rgb(255 255 255 / 0.08) border on every surface, and light it to rgb(139 92 246 / 0.4) on hover. That border swap is the site's primary interaction signal.",
+      "Do build depth from the tonal stack plus centered violet bloom, and recess a card's contents to Obsidian Base rather than raising them.",
+      "Do keep headlines and hard numbers at pure #ffffff and prose at #cbc3d7.",
+      "Do carry the 2px Terminal Violet focus ring at 2px offset onto every new interactive element.",
+      "Do hold desktop two-column splits asymmetric — 7/5, 4/8, 5/7 — with framing narrow and evidence wide.",
+      "Do reserve Prompt Green for liveness and availability."
+    ],
+    "donts": [
+      "Don't add a directional drop shadow. Every shadow in this system is 0 0 and violet; a neutral offset shadow is off-system on sight.",
+      "Don't introduce a new hue. The palette is violet plus green, cyan, and pink, and every one of those four has an assigned meaning. A fifth accent has no job.",
+      "Don't add a new typeface. Jakarta and JetBrains Mono are the complete set.",
+      "Don't reach for dev-portfolio clichés: no matrix rain, no typewriter or code-typing animation, no particle backgrounds, no 3D tilt on cards. The terminal idiom here is typographic and static — that restraint is the whole point.",
+      "Don't drift toward generic SaaS marketing: no blob illustrations, no pastel gradients, no stock 3D shapes, no big friendly rounded sans. This is an instrument panel, not a landing page template.",
+      "Don't let two elements glow at full strength in the same region.",
+      "Don't nest equal or larger radii — a 12px card never contains another 12px surface.",
+      "Don't set prose in mono or a machine label in the sans."
+    ]
+  }
+}
