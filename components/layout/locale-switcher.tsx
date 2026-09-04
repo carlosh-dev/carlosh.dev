@@ -17,7 +17,7 @@ export default function LocaleSwitcher() {
             aria-label={t('language')}
             role="group"
             className={cn(
-                'flex items-center gap-0.5 rounded-lg border border-border-subtle bg-surface-raised p-0.5',
+                'glass-inset flex items-center gap-0.5 rounded-lg border border-border-subtle p-0.5 transition-opacity',
                 isPending && 'opacity-60'
             )}
         >

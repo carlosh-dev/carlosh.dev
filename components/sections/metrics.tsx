@@ -12,7 +12,7 @@ export default function Metrics() {
         <section
             id="metricas"
             aria-label={t('title')}
-            className="w-full border-y border-border-subtle bg-surface-raised/60 py-8 backdrop-blur-lg"
+            className="glass glass-band w-full border-y border-border-subtle py-8"
         >
             <Container>
                 <ul className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
@@ -49,7 +49,7 @@ export default function Metrics() {
                                 <p className="text-stat-metric text-white">
                                     {t(`items.${id}.value`)}
                                     {suffix ? (
-                                        <span className="text-sm font-normal text-on-surface-variant">
+                                        <span className="text-body-sm text-on-surface-variant">
                                             {' '}
                                             {suffix}
                                         </span>

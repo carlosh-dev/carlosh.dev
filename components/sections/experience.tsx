@@ -53,7 +53,7 @@ export default function Experience() {
                                     <div className="mb-3 flex flex-col justify-between gap-1 sm:flex-row sm:items-center">
                                         <div>
                                             <div className="flex flex-wrap items-center gap-2">
-                                                <h3 className="text-headline-md font-bold text-white">
+                                                <h3 className="text-headline-md text-white">
                                                     {t(`roles.${id}.role`)}
                                                 </h3>
                                                 {end === null ? (
@@ -64,14 +64,14 @@ export default function Experience() {
                                             </div>
                                             <p
                                                 className={cn(
-                                                    'text-body-sm font-medium',
+                                                    'text-body-sm',
                                                     accentClass[accent].text
                                                 )}
                                             >
                                                 {t(`roles.${id}.company`)}
                                             </p>
                                         </div>
-                                        <p className="self-start rounded-md border border-border-subtle bg-surface-base px-3 py-1 font-mono text-label-code text-on-surface-variant sm:self-auto">
+                                        <p className="glass-inset self-start rounded-md border border-border-subtle px-3 py-1 font-mono text-label-code text-on-surface-variant sm:self-auto">
                                             {start} — {end ?? t('present')}
                                         </p>
                                     </div>

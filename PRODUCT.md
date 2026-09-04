@@ -31,7 +31,7 @@ Two supporting differentiators: he builds and governs Design Systems from scratc
 
 ## Capabilities and Constraints
 
-- **Stack (existing, not up for re-decision):** Next.js 16.2.1 App Router, React 19.2.4, TypeScript, Tailwind CSS v4 (`@theme` tokens in `app/globals.css`), `next-intl` 4.8, `lucide-react`. Fonts: Plus Jakarta Sans (sans) and JetBrains Mono (mono) via `next/font/google`.
+- **Stack (existing, not up for re-decision):** Next.js 16.2.1 App Router, React 19.2.4, TypeScript, Tailwind CSS v4 (`@theme` tokens in `app/globals.css`), `next-intl` 4.8, `lucide-react`. Fonts: Sansation (sans, 400/700) and JetBrains Mono (mono) via `next/font/google`.
 - **Content model:** structure and iconography live in `lib/content.ts` (typed: metrics, pillars, skill categories, roles, degrees, languages, channels); all human-readable copy lives in `messages/pt.json` and `messages/en.json`. Any new copy must exist in both files. No CMS, no database, no blog.
 - **Locale mechanism:** a `locale` cookie read by `i18n/request.ts`, written by the `setLocale` server action, which revalidates the layout. No locale-prefixed routes, so no per-language URL to share or index.
 - **Section IDs are Portuguese** and are the public anchor contract; renaming them breaks any shared deep link.

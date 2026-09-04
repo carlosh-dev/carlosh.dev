@@ -33,7 +33,7 @@ export default function Skills() {
                                 className={cn('p-6', wide && 'md:col-span-2')}
                             >
                                 <div className="mb-4 flex items-center gap-2">
-                                    <span className="flex size-9 shrink-0 items-center justify-center rounded-lg border border-border-subtle bg-surface-base">
+                                    <span className="glass-inset flex size-9 shrink-0 items-center justify-center rounded-lg border border-border-subtle">
                                         <Icon
                                             aria-hidden
                                             className={cn(

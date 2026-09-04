@@ -12,13 +12,13 @@ export default function Contact() {
         <section id="contato" className="relative w-full overflow-hidden py-24">
             <div
                 aria-hidden
-                className="pointer-events-none absolute inset-0 bg-radial from-violet-intense/10 via-transparent to-transparent"
+                className="pointer-events-none absolute inset-0 bg-radial from-violet-intense/20 via-violet-intense/5 to-transparent"
             />
 
             <Container className="relative">
-                <div className="relative overflow-hidden rounded-2xl border border-border-subtle bg-surface-raised p-8 shadow-2xl sm:p-16">
+                <div className="glass glass-thick relative overflow-hidden rounded-2xl border border-border-subtle p-8 sm:p-16">
                     <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-                        <span className="mb-4 flex size-12 items-center justify-center rounded-xl border border-border-subtle bg-surface-base">
+                        <span className="glass-inset mb-4 flex size-12 items-center justify-center rounded-xl border border-border-subtle">
                             <Handshake
                                 aria-hidden
                                 className="size-6 text-primary"
@@ -29,14 +29,23 @@ export default function Contact() {
                             {t('eyebrow')}
                         </span>
 
-                        <h2 className="mb-3 text-headline-xl-mobile font-extrabold text-white lg:text-headline-xl">
+                        <h2 className="mb-3 text-headline-xl-mobile text-white lg:text-headline-xl">
                             {t('title')}
                         </h2>
 
-                        <p className="mb-12 max-w-xl text-body-lg text-on-surface-variant">
+                        <p className="max-w-xl text-body-lg text-on-surface-variant">
                             {t('description')}
                         </p>
+                    </div>
 
+                    {/*
+                     * Os canais saem da coluna de leitura (`max-w-3xl`) de
+                     * propósito: presos a 768px, quatro ladrilhos sobram uns
+                     * 100px de texto cada e "GitHub Open Source" era cortado.
+                     * Na largura do painel cabem inteiros — e este é o único
+                     * lugar da página onde a visita termina.
+                     */}
+                    <div className="mt-12 flex flex-col items-center">
                         <ul className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
                             {channels.map(
                                 ({
@@ -53,9 +62,9 @@ export default function Contact() {
                                                 target: '_blank',
                                                 rel: 'noopener noreferrer',
                                             })}
-                                            className="flex items-center gap-2 rounded-xl border border-border-subtle bg-surface-base p-4 text-left transition-colors hover:border-border-active hover:bg-surface-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                                            className="glass-inset glass-inset-interactive flex items-center gap-2 rounded-xl border border-border-subtle p-4 text-left hover:border-border-active focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                                         >
-                                            <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-surface-raised">
+                                            <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-white/[0.06]">
                                                 <Icon
                                                     aria-hidden
                                                     className={cn(
@@ -68,7 +77,7 @@ export default function Contact() {
                                                 <span className="block font-mono text-[11px] text-on-surface-variant">
                                                     {t(`channels.${id}.label`)}
                                                 </span>
-                                                <span className="block truncate text-body-sm font-semibold text-white">
+                                                <span className="block truncate text-body-sm font-bold text-white">
                                                     {t(`channels.${id}.value`)}
                                                 </span>
                                             </span>

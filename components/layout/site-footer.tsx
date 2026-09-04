@@ -32,7 +32,7 @@ export default function SiteFooter() {
     const tContact = useTranslations('contact.channels')
 
     return (
-        <footer className="w-full border-t border-border-subtle bg-surface-raised">
+        <footer className="glass glass-band w-full border-t border-border-subtle">
             <Container className="py-12">
                 <div className="mb-8 flex flex-col items-center justify-between gap-6 md:flex-row">
                     <div className="flex flex-col items-center gap-1 md:items-start">

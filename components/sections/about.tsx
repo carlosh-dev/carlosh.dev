@@ -46,7 +46,7 @@ export default function About() {
                                 className="flex flex-col justify-between p-6"
                             >
                                 <div>
-                                    <span className="mb-4 flex size-10 items-center justify-center rounded-lg border border-border-subtle bg-surface-base">
+                                    <span className="glass-inset mb-4 flex size-10 items-center justify-center rounded-lg border border-border-subtle">
                                         <Icon
                                             aria-hidden
                                             className={cn(
@@ -58,7 +58,7 @@ export default function About() {
                                     <h3 className="mb-1 text-headline-sm text-white">
                                         {t(`pillars.${id}.title`)}
                                     </h3>
-                                    <p className="text-body-sm leading-relaxed text-on-surface-variant">
+                                    <p className="text-body-sm text-on-surface-variant">
                                         {t(`pillars.${id}.description`)}
                                     </p>
                                 </div>

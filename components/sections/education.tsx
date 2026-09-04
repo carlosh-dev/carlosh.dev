@@ -39,7 +39,7 @@ export default function Education() {
                                 {languages.map(({ id, level, accent }) => (
                                     <li key={id}>
                                         <div className="mb-1 flex flex-wrap items-center justify-between gap-2 text-body-sm">
-                                            <span className="font-medium text-white">
+                                            <span className="text-white">
                                                 {t(`languages.${id}.name`)}
                                             </span>
                                             <span
@@ -59,7 +59,7 @@ export default function Education() {
                                             aria-label={t(
                                                 `languages.${id}.name`
                                             )}
-                                            className="h-1.5 w-full overflow-hidden rounded-full bg-surface-base"
+                                            className="glass-inset h-1.5 w-full overflow-hidden rounded-full"
                                         >
                                             <div
                                                 className={cn(
@@ -90,7 +90,7 @@ export default function Education() {
                                 key={id}
                                 className="flex items-start gap-4 p-6"
                             >
-                                <span className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-border-subtle bg-surface-base">
+                                <span className="glass-inset flex size-12 shrink-0 items-center justify-center rounded-xl border border-border-subtle">
                                     <Icon
                                         aria-hidden
                                         className={cn(
@@ -101,22 +101,22 @@ export default function Education() {
                                 </span>
                                 <div className="flex-1">
                                     <div className="mb-1 flex flex-col justify-between gap-1 sm:flex-row sm:items-center">
-                                        <h3 className="text-headline-sm font-bold text-white">
+                                        <h3 className="text-headline-sm text-white">
                                             {t(`degrees.${id}.title`)}
                                         </h3>
-                                        <span className="shrink-0 rounded border border-border-subtle bg-surface-base px-2 py-0.5 font-mono text-label-code text-on-surface-variant">
+                                        <span className="glass-inset shrink-0 rounded border border-border-subtle px-2 py-0.5 font-mono text-label-code text-on-surface-variant">
                                             {period}
                                         </span>
                                     </div>
                                     <p
                                         className={cn(
-                                            'mb-1 text-body-sm font-medium',
+                                            'mb-1 text-body-sm',
                                             accentClass[accent].text
                                         )}
                                     >
                                         {t(`degrees.${id}.institution`)}
                                     </p>
-                                    <p className="text-body-sm leading-relaxed text-on-surface-variant">
+                                    <p className="text-body-sm text-on-surface-variant">
                                         {t(`degrees.${id}.description`)}
                                     </p>
                                 </div>

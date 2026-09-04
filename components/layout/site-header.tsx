@@ -65,19 +65,19 @@ export default function SiteHeader() {
             'rounded-lg px-3 py-2 text-body-sm transition-colors',
             'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
             id === active
-                ? 'bg-primary-container font-semibold text-on-primary-container'
+                ? 'bg-primary-container font-bold text-on-primary-container'
                 : 'text-on-surface-variant hover:text-on-surface'
         )
 
     return (
-        <header className="fixed inset-x-0 top-0 z-50 border-b border-border-subtle bg-surface-base/80 backdrop-blur-xl">
+        <header className="glass glass-chrome fixed inset-x-0 top-0 z-50 border-b border-border-subtle">
             <Container className="flex h-20 items-center justify-between gap-4">
                 <a
                     href="#inicio"
                     aria-label={t('logo')}
                     className="group flex items-center rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
-                    <span className="flex h-9 items-center justify-center rounded-lg border border-border-subtle bg-surface-raised px-3 font-mono text-label-code text-primary transition-colors group-hover:text-primary-fixed">
+                    <span className="glass-inset flex h-9 items-center justify-center rounded-lg border border-border-subtle px-3 font-mono text-label-code text-primary transition-colors group-hover:border-border-active group-hover:text-primary-fixed">
                         &lt;Dev /&gt;
                     </span>
                 </a>
@@ -115,7 +115,7 @@ export default function SiteHeader() {
                         aria-expanded={menuOpen}
                         aria-controls="mobile-nav"
                         aria-label={menuOpen ? t('closeMenu') : t('openMenu')}
-                        className="flex size-9 items-center justify-center rounded-lg border border-border-subtle bg-surface-raised text-on-surface transition-colors hover:border-border-active focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary xl:hidden"
+                        className="glass-inset flex size-9 items-center justify-center rounded-lg border border-border-subtle text-on-surface transition-colors hover:border-border-active focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary xl:hidden"
                     >
                         {menuOpen ? (
                             <X aria-hidden className="size-5" />
@@ -130,7 +130,7 @@ export default function SiteHeader() {
             <div
                 id="mobile-nav"
                 hidden={!menuOpen}
-                className="border-t border-border-subtle bg-surface-base/95 backdrop-blur-xl xl:hidden"
+                className="glass glass-chrome border-t border-border-subtle [--glass-tint:rgb(10_10_12/0.92)] xl:hidden"
             >
                 <Container className="py-4">
                     <nav aria-label={t('openMenu')}>

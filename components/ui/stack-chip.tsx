@@ -6,7 +6,7 @@ export default function StackChip({ label }: { label: string }) {
     return (
         <span
             className={cn(
-                'rounded border border-border-subtle bg-surface-base px-2 py-0.5 font-mono text-[11px] leading-4',
+                'glass-inset rounded border border-border-subtle px-2 py-0.5 font-mono text-[11px] leading-4',
                 toneFor(label)
             )}
         >

@@ -14,7 +14,7 @@ export default function TechBadge({
     return (
         <span
             className={cn(
-                'inline-flex items-center gap-1.5 rounded-md border border-border-subtle bg-surface-base px-3 py-1 font-mono text-label-code',
+                'glass-inset inline-flex items-center gap-1.5 rounded-md border border-border-subtle px-3 py-1 font-mono text-label-code',
                 lead && dot ? accentClass[dot].text : 'text-on-surface',
                 !dot && 'text-on-surface-variant'
             )}

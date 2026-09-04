@@ -25,78 +25,91 @@ colors:
   query-pink: '#ff79c6'
   border-subtle: 'rgb(255 255 255 / 0.08)'
   border-active: 'rgb(139 92 246 / 0.4)'
+  glass-tint: 'rgb(22 19 34 / 0.55)'
+  glass-tint-thick: 'rgb(23 19 36 / 0.72)'
+  glass-tint-chrome: 'rgb(10 10 12 / 0.62)'
+  glass-fill: 'rgb(255 255 255 / 0.05)'
+  glass-rim-top: 'rgb(255 255 255 / 0.1)'
+  glass-rim-bottom: 'rgb(139 92 246 / 0.14)'
+  glass-inset-fill: 'rgb(8 8 11 / 0.55)'
 typography:
   display:
-    fontFamily: 'Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif'
-    fontSize: '56px'
-    fontWeight: 800
-    lineHeight: '64px'
-    letterSpacing: '-0.03em'
+    fontFamily: 'Sansation, Sansation Fallback, ui-sans-serif, system-ui, sans-serif'
+    fontSize: '60px'
+    fontWeight: 700
+    lineHeight: '66px'
+    letterSpacing: '-0.024em'
   display-mobile:
-    fontFamily: 'Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif'
-    fontSize: '36px'
-    fontWeight: 800
-    lineHeight: '44px'
-    letterSpacing: '-0.02em'
+    fontFamily: 'Sansation, Sansation Fallback, ui-sans-serif, system-ui, sans-serif'
+    fontSize: '38px'
+    fontWeight: 700
+    lineHeight: '46px'
+    letterSpacing: '-0.016em'
   headline:
-    fontFamily: 'Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif'
-    fontSize: '40px'
+    fontFamily: 'Sansation, Sansation Fallback, ui-sans-serif, system-ui, sans-serif'
+    fontSize: '42px'
     fontWeight: 700
-    lineHeight: '48px'
-    letterSpacing: '-0.025em'
+    lineHeight: '50px'
+    letterSpacing: '-0.02em'
   headline-mobile:
-    fontFamily: 'Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif'
-    fontSize: '28px'
+    fontFamily: 'Sansation, Sansation Fallback, ui-sans-serif, system-ui, sans-serif'
+    fontSize: '30px'
     fontWeight: 700
-    lineHeight: '36px'
-    letterSpacing: '-0.02em'
+    lineHeight: '38px'
+    letterSpacing: '-0.016em'
   title:
-    fontFamily: 'Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif'
-    fontSize: '28px'
-    fontWeight: 600
-    lineHeight: '36px'
-    letterSpacing: '-0.02em'
+    fontFamily: 'Sansation, Sansation Fallback, ui-sans-serif, system-ui, sans-serif'
+    fontSize: '30px'
+    fontWeight: 700
+    lineHeight: '38px'
+    letterSpacing: '-0.016em'
   subtitle:
-    fontFamily: 'Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif'
-    fontSize: '22px'
-    fontWeight: 600
-    lineHeight: '30px'
-    letterSpacing: '-0.015em'
+    fontFamily: 'Sansation, Sansation Fallback, ui-sans-serif, system-ui, sans-serif'
+    fontSize: '23px'
+    fontWeight: 700
+    lineHeight: '32px'
+    letterSpacing: '-0.012em'
   card-title:
-    fontFamily: 'Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif'
-    fontSize: '18px'
-    fontWeight: 600
-    lineHeight: '26px'
-    letterSpacing: '-0.01em'
+    fontFamily: 'Sansation, Sansation Fallback, ui-sans-serif, system-ui, sans-serif'
+    fontSize: '19px'
+    fontWeight: 700
+    lineHeight: '27px'
+    letterSpacing: '-0.008em'
   body-lg:
-    fontFamily: 'Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif'
-    fontSize: '18px'
+    fontFamily: 'Sansation, Sansation Fallback, ui-sans-serif, system-ui, sans-serif'
+    fontSize: '19px'
     fontWeight: 400
-    lineHeight: '28px'
-    letterSpacing: '-0.005em'
-  body:
-    fontFamily: 'Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif'
-    fontSize: '15px'
-    fontWeight: 400
-    lineHeight: '24px'
+    lineHeight: '30px'
     letterSpacing: '0em'
-  body-sm:
-    fontFamily: 'Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif'
-    fontSize: '13px'
+  body:
+    fontFamily: 'Sansation, Sansation Fallback, ui-sans-serif, system-ui, sans-serif'
+    fontSize: '16px'
     fontWeight: 400
-    lineHeight: '20px'
-    letterSpacing: '0.005em'
+    lineHeight: '26px'
+    letterSpacing: '0.004em'
+  body-sm:
+    fontFamily: 'Sansation, Sansation Fallback, ui-sans-serif, system-ui, sans-serif'
+    fontSize: '14px'
+    fontWeight: 400
+    lineHeight: '22px'
+    letterSpacing: '0.008em'
   button:
-    fontFamily: 'Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif'
-    fontSize: '13px'
-    fontWeight: 600
-    lineHeight: '20px'
-    letterSpacing: '0.005em'
+    fontFamily: 'Sansation, Sansation Fallback, ui-sans-serif, system-ui, sans-serif'
+    fontSize: '14px'
+    fontWeight: 700
+    lineHeight: '22px'
+    letterSpacing: '0.008em'
   label:
     fontFamily: 'JetBrains Mono, ui-monospace, SFMono-Regular, monospace'
     fontSize: '11px'
     fontWeight: 600
     lineHeight: '16px'
+    letterSpacing: '0.06em'
+  micro-label:
+    fontFamily: 'JetBrains Mono, ui-monospace, SFMono-Regular, monospace'
+    fontSize: '10px'
+    fontWeight: 600
+    lineHeight: '14px'
     letterSpacing: '0.06em'
   code:
     fontFamily: 'JetBrains Mono, ui-monospace, SFMono-Regular, monospace'
@@ -105,11 +118,11 @@ typography:
     lineHeight: '20px'
     letterSpacing: '-0.01em'
   metric:
-    fontFamily: 'Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif'
-    fontSize: '32px'
-    fontWeight: 800
-    lineHeight: '38px'
-    letterSpacing: '-0.02em'
+    fontFamily: 'Sansation, Sansation Fallback, ui-sans-serif, system-ui, sans-serif'
+    fontSize: '34px'
+    fontWeight: 700
+    lineHeight: '40px'
+    letterSpacing: '-0.016em'
 rounded:
   sm: '4px'
   md: '6px'
@@ -146,37 +159,37 @@ components:
     rounded: '{rounded.lg}'
     padding: '8px 16px'
   button-ghost:
-    backgroundColor: '{colors.obsidian-raised}'
+    backgroundColor: '{colors.glass-tint}'
     textColor: '{colors.console-text}'
     typography: '{typography.button}'
     rounded: '{rounded.lg}'
     padding: '12px 24px'
   button-ghost-hover:
-    backgroundColor: '{colors.obsidian-card}'
+    backgroundColor: '{colors.glass-tint}'
     textColor: '{colors.console-text}'
   card:
-    backgroundColor: '{colors.obsidian-raised}'
+    backgroundColor: '{colors.glass-tint}'
     textColor: '{colors.console-text}'
     rounded: '{rounded.xl}'
     padding: '24px'
   card-compact:
-    backgroundColor: '{colors.obsidian-raised}'
+    backgroundColor: '{colors.glass-tint}'
     textColor: '{colors.console-text}'
     rounded: '{rounded.xl}'
     padding: '16px'
   panel:
-    backgroundColor: '{colors.obsidian-raised}'
+    backgroundColor: '{colors.glass-tint-thick}'
     textColor: '{colors.console-text}'
     rounded: '{rounded.2xl}'
     padding: '64px'
   tech-badge:
-    backgroundColor: '{colors.obsidian-base}'
+    backgroundColor: '{colors.glass-inset-fill}'
     textColor: '{colors.console-text}'
     typography: '{typography.label}'
     rounded: '{rounded.md}'
     padding: '4px 12px'
   stack-chip:
-    backgroundColor: '{colors.obsidian-base}'
+    backgroundColor: '{colors.glass-inset-fill}'
     textColor: '{colors.console-text-dim}'
     typography: '{typography.label}'
     rounded: '{rounded.sm}'
@@ -193,12 +206,12 @@ components:
     rounded: '{rounded.lg}'
     padding: '8px 12px'
   contact-channel:
-    backgroundColor: '{colors.obsidian-base}'
+    backgroundColor: '{colors.glass-inset-fill}'
     textColor: '{colors.console-text}'
     rounded: '{rounded.xl}'
     padding: '16px'
   icon-tile:
-    backgroundColor: '{colors.obsidian-raised}'
+    backgroundColor: '{colors.glass-inset-fill}'
     rounded: '{rounded.lg}'
     size: '40px'
 ---
@@ -211,16 +224,19 @@ components:
 
 The site behaves like a console reporting live telemetry from a career. Nothing announces itself as marketing; everything reads as a readout. Metric keys arrive in mono uppercase (`EXP_PROD`, `SCALE_USERS`, `WEB_PERF`), the hero closes on a shell prompt strip (`➜ engineer.stack :: ["Next.js", "TypeScript", "Rails", "Redis"]` / `production_ready`), section eyebrows are numbered like log lines (`01 // Engineering Philosophy`), and availability is a pulsing green dot rather than a sentence. The claim underneath is that this engineer measures things — so the interface is built out of measurements.
 
-The room is obsidian and the light source is violet. Five near-black surfaces stack from `#0a0a0c` up to `#181524`, separated not by shadow but by one-pixel white-at-8% borders, and lit from behind by wide violet bloom — 130–140px blurred orbs behind the hero, a 35px centered bloom under every card, a 28px aura around the primary CTA. Depth here is emitted, never cast. The palette is confident and luminous rather than restrained: the violet is allowed to actually glow, the portrait carries a gradient aura, and the timeline's current-role node burns at 80% opacity while the finished roles sit dark.
+The room is obsidian, the light source is violet, and every surface in it is glass. A fixed field of wide violet, lilac, pink and cyan radials sits behind the whole page — the room's ambient light — and the interface is a set of translucent panes suspended over it, blurring and saturating whatever they happen to be covering. Because the light does not scroll and the content does, the same pane shows a different part of the room at every height. Depth here is emitted and transmitted, never cast: there is not one directional drop shadow in the system.
 
-Color carries meaning, not decoration. A fixed map assigns each technology one color for the whole site — React and TypeScript in violet, Jest and Elasticsearch in cyan, Storybook and Sidekiq in pink, PostgreSQL in green — so the page reads the way a syntax highlighter reads a source file. The two typefaces split the same way: Plus Jakarta Sans states things in human language, JetBrains Mono labels anything a machine produced. The result is a dark, high-contrast surface where prose recedes and instrumentation carries the personality.
+The panes are graded by optical thickness, not by fill colour. A card is a 20px-blur pane; the contact panel and the portrait frame are 34px panes; the header is 28px of near-opaque chrome; and anything recessed *inside* a pane is a dark inset that deliberately carries no blur of its own. Every pane keeps the one-pixel white-at-8% hairline that has always separated this system's near-blacks, and adds a bevel — a bright inner edge along the top where light enters, a violet inner edge along the bottom where the room bounces back. The palette stays confident and luminous: the violet is allowed to actually glow, the portrait carries a gradient aura, and the timeline's current-role node burns at 80% opacity while the finished roles sit dark.
+
+Color carries meaning, not decoration. A fixed map assigns each technology one color for the whole site — React and TypeScript in violet, Jest and Elasticsearch in cyan, Storybook and Sidekiq in pink, PostgreSQL in green — so the page reads the way a syntax highlighter reads a source file. The two typefaces split the same way: Sansation states things in human language, JetBrains Mono labels anything a machine produced. The result is a dark, high-contrast surface where prose recedes and instrumentation carries the personality.
 
 **Key Characteristics:**
 
-- Obsidian five-step surface stack, separated by 1px borders at 8% white — never by drop shadows.
+- A fixed ambient light field behind the entire page; every surface is a glass pane over it, graded by optical thickness rather than by fill.
+- Obsidian five-step tonal stack behind the glass, separated by 1px borders at 8% white — never by drop shadows.
 - Violet as the only light source: wide, centered, blurred bloom instead of directional shadow.
 - Syntax-accent trio (green / cyan / pink) used lexically, with one fixed color per technology.
-- Two-voice typography: Jakarta for language, JetBrains Mono for every machine artifact.
+- Two-voice typography: Sansation for language, JetBrains Mono for every machine artifact.
 - Pure `#ffffff` reserved for headlines and hard numbers; body text lives one step down at `#cbc3d7`.
 - Dark-only. There is no light theme and nothing in the system anticipates one.
 
@@ -271,33 +287,44 @@ A near-black room with a single violet light source and three high-chroma syntax
 
 ## Typography
 
-**Display / Body Font:** Plus Jakarta Sans (with `ui-sans-serif`, `system-ui`, `-apple-system`, `sans-serif`)
+**Display / Body Font:** Sansation (with `Sansation Fallback`, `ui-sans-serif`, `system-ui`, `-apple-system`, `sans-serif`)
 **Label / Mono Font:** JetBrains Mono (with `ui-monospace`, `SFMono-Regular`, `monospace`)
 
-**Character:** Jakarta is a geometric humanist sans with an unusually confident 800 weight and tightly-tracked large sizes — it makes the display line feel engineered rather than friendly. JetBrains Mono, set tiny (11px) and widely tracked (`0.06em`), turns every label into an instrument marking. The pairing is deliberately unbalanced: one voice is loud and tight, the other is quiet and spaced.
+**Character:** Sansation is a humanist sans drawn to a techno brief, and the drawing is what earns it this page. Its lowercase ascenders stop exactly at cap height — `d` and `H` reach the same line — and its round letters have zero overshoot, so `o` and `x` share a flat ceiling. Nothing pokes out of the band. That produces a text block that reads as machined rather than written, which is the argument this whole site is making. JetBrains Mono, set tiny (11px, and 10px for micro-labels) and widely tracked (`0.06em`), turns every label into an instrument marking. The pairing is deliberately unbalanced: one voice is loud and tight, the other is quiet and spaced.
+
+**Two weights, and only two.** Sansation ships 300/400/700 and is not a variable font. The system loads 400 and 700 and uses nothing else — 300 is deliberately left out, because light text on a near-black surface loses stroke before it gains air. Any 500, 600, or 800 anywhere in this codebase is a bug: the face has no such master, so the browser fakes it by smearing the 400. Hierarchy that a missing weight used to carry is carried here by **size, tracking, and color** instead — which is why the accent-colored technology names in the hero sit at 400, not 500.
+
+**The scale is measured, not inherited.** Every size below was recomputed against Sansation's own metrics rather than carried over: its cap height is 6.3% shorter than the face it replaced, its x-height 4.3% shorter, its lowercase 4.8% narrower, and its ink band (ascender to descender) 7.6% shallower. So headings grew by the cap ratio, body by the x-height ratio, and every line-height was rebuilt to preserve the *gap in pixels* rather than a ratio. Because the size increase and the narrower set width cancel almost exactly, no line wraps where it did not wrap before.
 
 ### Hierarchy
 
-- **Display** (800, 56px / 64px, `-0.03em`; 36px / 44px, `-0.02em` on mobile): The hero headline, once per page, in pure white with a gradient span.
-- **Headline** (700, 40px / 48px, `-0.025em`; 28px / 36px on mobile): Section titles and the contact panel title. Pure white.
-- **Title** (600, 28px / 36px, `-0.02em`): Available for large sub-sections.
-- **Subtitle** (700, 22px / 30px, `-0.015em`): Job titles in the timeline. Pure white.
-- **Card Title** (600, 18px / 26px, `-0.01em`): Card headings, always paired with a 20px accent-colored icon.
-- **Body Large** (400, 18px / 28px): Hero sub-headline and the contact invitation, capped at `max-w-2xl` / `max-w-xl`.
-- **Body** (400, 15px / 24px): Section descriptions, capped at `max-w-2xl`.
-- **Body Small** (400, 13px / 20px): Timeline bullets, card descriptions, nav links, footer.
-- **Button** (600, 13px / 20px): CTA labels.
-- **Metric** (800, 32px / 38px, `-0.02em`): The five impact numbers. Pure white, with any suffix dropped to 14px regular in Console Text Dim.
+- **Display** (700, 60px / 66px, `-0.024em`; 38px / 46px, `-0.016em` on mobile): The hero headline, once per page, in pure white with a gradient span.
+- **Headline** (700, 42px / 50px, `-0.02em`; 30px / 38px on mobile): Section titles and the contact panel title. Pure white.
+- **Title** (700, 30px / 38px, `-0.016em`): Available for large sub-sections.
+- **Subtitle** (700, 23px / 32px, `-0.012em`): Job titles in the timeline. Pure white.
+- **Card Title** (700, 19px / 27px, `-0.008em`): Card headings, always paired with a 20px accent-colored icon.
+- **Body Large** (400, 19px / 30px): Hero sub-headline and the contact invitation, capped at `max-w-2xl` / `max-w-xl`.
+- **Body** (400, 16px / 26px, `0.004em`): Section descriptions, capped at `max-w-2xl`.
+- **Body Small** (400, 14px / 22px, `0.008em`): Timeline bullets, card descriptions, nav links, footer.
+- **Button** (700, 14px / 22px): CTA labels.
+- **Metric** (700, 34px / 40px, `-0.016em`): The five impact numbers. Pure white, with any suffix dropped to Body Small in Console Text Dim.
 - **Label** (600, 11px / 16px, `0.06em`, mono, frequently uppercase): Every machine artifact — metric keys, section eyebrows, status text, date ranges, stack chips, the locale switcher, the `<Dev />` mark.
+- **Micro-label** (600, 10px / 14px, `0.06em`, mono): The one step below Label, for artifacts that ride inside another component — the `CURRENT` badge, the hero's floating-card captions, the skills-group counts. Mono only; there is no 10px sans.
 - **Code** (500, 13px / 20px, mono): Inline code fragments.
+
+The three mono roles keep their 500 and 600 weights: JetBrains Mono is a variable font spanning 100–800, so those are drawn weights, not simulated ones. The two-weight restriction is a property of the sans alone.
 
 ### Named Rules
 
-**The Two Voices Rule.** If a string is something a machine produced or would recognize — a key, a date range, a status, a technology name in a chip, a section number, a locale code — it is set in JetBrains Mono. If it is something a person is saying, it is Jakarta. Prose is never mono, and a machine artifact is never set in the sans.
+**The Two Voices Rule.** If a string is something a machine produced or would recognize — a key, a date range, a status, a technology name in a chip, a section number, a locale code — it is set in JetBrains Mono. If it is something a person is saying, it is Sansation. Prose is never mono, and a machine artifact is never set in the sans.
 
 **The White Headline Rule.** Headlines, metric values, and hard numbers inside rich text are pure `#ffffff`, not Console Text. Body prose sits at Console Text Dim (`#cbc3d7`). That two-step drop from white to dim lilac is the hierarchy — do not create a third intermediate tone to soften it.
 
-**The Tight Display Rule.** Type gets tighter as it gets bigger: `-0.03em` at 56px, `-0.02em` at 32px, `0em` at 15px, and back out to `+0.06em` at 11px mono. Never set a large heading at normal tracking; never set a mono label without its wide tracking.
+**The Tight Display Rule.** Type gets tighter as it gets bigger: `-0.024em` at 60px, `-0.016em` at 34px, `+0.004em` at 16px, and back out to `+0.06em` at 11px mono. Never set a large heading at normal tracking; never set a mono label without its wide tracking. Note that prose now tracks *positive*, not zero — Sansation is a narrower face, so there is less sidebearing to remove at display sizes, and light text on near-black needs its counters held open rather than closed.
+
+**The Mono Column Rule.** A column of numbers meant to be compared is set in mono. Sansation has no tabular figures — its only OpenType feature is `liga`, and its digits are genuinely proportional (the `1` measures 645 units against 1445 for the `0`), so `font-variant-numeric: tabular-nums` is inert on the sans and is declared only on `.font-mono`. The five metric values stay in the sans because they sit side by side, one per card, with nothing stacked beneath them to align to.
+
+**The Measured Fallback Rule.** `next/font` has no metrics for Sansation and silently skips generating a fallback, which would hand `display: swap` a full-page reflow. The `Sansation Fallback` face at the top of `globals.css` replaces it — `size-adjust: 103.18%`, `ascent-override: 87.74%`, `descent-override: 20.73%`, derived from the font binary with the same formula Next uses. If the typeface is ever changed again, these four numbers must be recomputed, not carried over.
 
 ## Layout
 
@@ -317,31 +344,50 @@ The header is fixed at 80px with `backdrop-blur-xl` over `#0a0a0c` at 80% opacit
 
 ## Elevation & Depth
 
-This system does not cast shadows. Depth comes from two mechanisms working together: a five-step tonal stack of near-blacks (`#0a0a0c` → `#0e0e10` → `#0f0e17` → `#13111c` → `#181524`), and violet light that *emits* from behind surfaces. Every shadow value in the codebase is a centered, zero-offset bloom — `0 0 35px`, `0 0 28px`, `0 0 24px`, `0 0 16px` — plus two wide blurred orbs (`blur-[130px]`, `blur-[140px]`) sitting behind the hero at negative z-index. There is not one directional drop shadow in the system, and adding one would break it.
+This system does not cast shadows. It transmits. Depth comes from three mechanisms working together: a fixed ambient light field behind the whole page, glass panes of graded optical thickness suspended over it, and violet light that *emits* from behind surfaces. Every shadow value in the codebase is either a centered, zero-offset bloom — `0 0 35px`, `0 0 28px`, `0 0 24px`, `0 0 16px` — or an `inset` bevel on the edge of a pane. There is not one directional drop shadow in the system, and adding one would break it.
 
-The governing doctrine is that **glow is state**. Surfaces rest flat and dark; light is how the interface responds. Border Active on hover, the 80%-opacity bloom on the current role's timeline node, the `hover:scale-[1.01]` and aura on the primary CTA, the portrait's grayscale-to-color transition — these are all responses. Ambient light (the hero orbs, the contact section's radial wash) sets the room; state light answers the visitor.
+**The room comes first.** Glass over flat `#0a0a0c` is not glass — `backdrop-filter` has nothing to sample and the pane collapses into a slightly lighter rectangle. `AmbientField` is what makes the material real: two fixed, full-viewport layers at `-z-10` carrying five wide radials (violet key at top-left, lilac fill at right, a broad violet wash across the middle of the viewport, pink low-left, cyan low-right) under a soft vignette, plus a 3%-opacity noise tile that kills the banding those low-opacity gradients would otherwise show on an 8-bit panel. It is `position: fixed` on purpose: the light stays still, the content slides over it. It is also completely static on purpose — animating the backdrop would force every `backdrop-filter` surface above it to re-filter each frame.
 
-**One known divergence:** the shared `Card` component currently carries its `0 0 35px -5px` bloom statically at rest rather than on hover. It predates this doctrine. Either read it as the system's one permitted ambient exception, or move it to `:hover` — but do not let a third pattern appear.
+**The middle of the viewport is load-bearing.** The first build concentrated the radials at the top and bottom and the light died exactly in the band where cards sit. The wide `1400px × 900px` field at `52% 56%` exists specifically so panes in the middle of the screen have something to refract.
+
+The governing doctrine is still that **glow is state**. Panes rest as dark glass; light is how the interface responds. On hover a pane's tint lifts, its bevel brightens, and its bloom widens — the whole lamina catches light, rather than only its border changing colour. Ambient light (the aurora, the hero orbs, the contact section's radial wash) sets the room; state light answers the visitor.
+
+### Glass Vocabulary
+
+Each tier changes only four values — tint, fill, blur, saturation — and inherits everything else.
+
+- **`.glass`** (pane, the default): `rgb(22 19 34 / 0.55)` tint, `blur(20px) saturate(165%)`, a 160° fill gradient from 5% white, and the standard bevel. Every `Card` is one of these.
+- **`.glass-thick`**: `0.72` tint, `blur(34px) saturate(180%)`, a stronger bevel and an `0 0 80px -16px` bloom. Two objects only — the contact panel and the portrait frame.
+- **`.glass-chrome`**: `rgb(10 10 12 / 0.62)`, `blur(28px) saturate(180%)`, no bloom. The fixed header and the mobile nav panel, which override the tint to `0.92` because they cover content rather than sit beside it.
+- **`.glass-float`**: `0.68` tint, `blur(24px)`, a brighter 16% top bevel. Panes that float over another surface instead of over the page — the hero's highlight cards and micro-pill.
+- **`.glass-band`**: `rgb(15 14 23 / 0.4)`, `blur(26px)`, no bloom. Full-width strips: the metrics band and the footer. Almost pure optical thickness, so the aurora crosses the band instead of being blocked by it.
+- **`.glass-inset`**: `rgb(8 8 11 / 0.55)` with a single `inset 0 1px 0` white hairline and **no `backdrop-filter` at all**. Chips, badges, date pills, icon tiles, meter tracks, contact channels — the elements that appear by the dozen.
 
 ### Shadow Vocabulary
 
-- **Card Bloom** (`box-shadow: 0 0 35px -5px rgb(139 92 246 / 0.12)`): The ambient violet under every card surface. The `-5px` spread keeps it from leaking past the corners.
-- **CTA Aura** (`box-shadow: 0 0 28px rgb(139 92 246 / 0.45)`): The primary button only. The strongest emission in the system, and the reason the CTA reads as the single brightest object on screen.
-- **Status Bloom** (`box-shadow: 0 0 24px rgb(139 92 246 / 0.18)`): The hero availability pill.
-- **Live Node** (`box-shadow: 0 0 16px rgb(139 92 246 / 0.8)`): Tight and near-opaque, on the current role's timeline node alone. Its job is to be the only burning point in a column of dark ones.
-- **Floating Card** (Tailwind `shadow-xl`) and **Panel** (`shadow-2xl`): The two places a neutral shadow is tolerated — the hero's floating highlight cards and the contact panel — because both overlap other content and need physical separation, not light.
+- **Pane Bevel** (`inset 0 1px 0 rgb(255 255 255 / 0.1)`, `inset 0 -1px 0 rgb(139 92 246 / 0.14)`): The physical edge of a sheet of glass — light entering along the top, the room bouncing back along the bottom. On every pane, at every tier.
+- **Card Bloom** (`box-shadow: 0 0 35px -5px rgb(139 92 246 / 0.14)`): The ambient violet under a pane. The `-5px` spread keeps it from leaking past the corners.
+- **CTA Aura** (`0 0 28px rgb(139 92 246 / 0.45)` plus a 28% white top bevel): The primary button only — lit glass rather than transmitting glass, and the single brightest object on screen.
+- **Status Bloom** (`0 0 24px rgb(139 92 246 / 0.18)`): The hero availability pill.
+- **Live Node** (`0 0 16px rgb(139 92 246 / 0.8)`): Tight and near-opaque, on the current role's timeline node alone. Its job is to be the only burning point in a column of dark ones.
 
 ### Named Rules
 
-**The Emitted-Not-Cast Rule.** Every shadow is `0 0` — centered, no offset, violet. If a value has an X or Y offset and a neutral color, it does not belong in this system.
+**The Emitted-Not-Cast Rule.** Every outer shadow is `0 0` — centered, no offset, violet. Offsets are permitted only as an `inset` bevel on a pane edge. A value with an X or Y offset and a neutral colour does not belong in this system.
+
+**The Light-Behind Rule.** A pane is only allowed where there is light behind it. Adding `.glass` to something sitting on an unlit black region produces a lighter rectangle and nothing else — either give the region ambient light or leave the surface opaque.
+
+**The One-Filter-Deep Rule.** `backdrop-filter` never nests. Whatever sits behind a pane has already been blurred by that pane, so a child re-filtering it costs a second full-surface filter and adds no visible change. Anything inside a pane is `.glass-inset`, which is a fill and a hairline — and that is why the dozens of chips on this page are free.
 
 **The One Burning Node Rule.** At most one element per region is at full glow. In the timeline that is the current role; in the hero that is the primary CTA. Two competing bright points flatten the hierarchy that the darkness exists to create.
+
+**The Graceful-Opaque Rule.** Every glass tier has a documented opaque equivalent from the obsidian stack, applied under both `@supports not (backdrop-filter: …)` and `prefers-reduced-transparency: reduce`, where the aurora is hidden entirely. Geometry is identical in all three states — only the material changes. A new tier without its fallback is unfinished.
 
 ## Shapes
 
 Rectilinear and softly cornered, with radius scaling to the object's importance. The ladder runs 4px for stack chips, 6px for tech badges and date pills, 8px for every interactive control (buttons, nav links, icon tiles, the locale switcher), 12px for cards and channel tiles, and 16px for the two largest objects on the page — the portrait frame and the contact panel. Fully round is reserved for status dots, timeline nodes, availability pills, language meters, and the hero's micro-pill.
 
-Borders do the structural work. Almost every surface in the system is a 1px `rgb(255 255 255 / 0.08)` outline over a near-black fill; that single hairline is what makes five nearly-identical blacks legible as distinct planes. Fills are flat and opaque, with translucency reserved for the header (80%), the metrics band (60%), the education band (20%), and the hero's floating cards (95% with `backdrop-blur-md`).
+Borders still do the structural work. Almost every surface is a 1px `rgb(255 255 255 / 0.08)` outline, now over a translucent tint rather than a flat fill; that hairline is the physical edge of the pane, and the `inset` bevel just behind it is the pane's thickness. Fills are translucent by default — `0.4` for full-width bands, `0.55` for cards and insets, `0.62` for chrome, `0.72` for the two thick panes, `0.92` for the mobile nav, which is the only surface that must fully hide what it covers. The three opaque exceptions are deliberate: the page floor, the well behind the portrait image, and the timeline node, which has to occlude the rail it hangs on.
 
 The portrait is the system's one nested-frame construction: a gradient aura at `-inset-1.5` and `blur-xl`, a 16px bordered frame with 8px of padding, and a 12px square-aspect image inside it, overlaid with a bottom-up fade to Obsidian Raised.
 
@@ -349,46 +395,47 @@ The portrait is the system's one nested-frame construction: a gradient aura at `
 
 **The Radius Ladder Rule.** Radius grows with the object: 4px chip → 6px badge → 8px control → 12px card → 16px panel. A child element never carries a radius equal to or larger than its parent's — a 12px card holds 8px controls and 6px badges, never another 12px surface.
 
-**The Hairline Rule.** Every surface earns its edge. A near-black block on a near-black background without a `rgb(255 255 255 / 0.08)` border is invisible, and inventing a lighter fill to compensate would break the tonal stack. Add the border instead.
+**The Hairline Rule.** Every surface earns its edge. A dark pane on a dark background without a `rgb(255 255 255 / 0.08)` border is invisible, and raising the tint to compensate would turn glass back into fill. Add the border — and its bevel — instead.
 
 ## Components
 
-The character across all of them is confident and luminous: generous glow, saturated gradients, and surfaces that light up rather than lift. Chrome is thin, but it is never shy.
+The character across all of them is confident and luminous: generous glow, saturated gradients, and panes that catch light rather than lift. Chrome is thin, but it is never shy.
 
 ### Buttons
 
 - **Shape:** Softly cornered (8px), pill-free. Height comes from padding, not a fixed value.
-- **Primary:** A left-to-right gradient from Violet Intense to Violet Deep, white text at 600 weight, a `rgb(255 255 255 / 0.2)` border, and the CTA Aura. Padding `12px 24px` at default size, `8px 16px` at small.
-- **Ghost:** Obsidian Raised fill, Border Subtle edge, Console Text label, same geometry.
-- **Hover:** Primary scales to `1.01` over 200ms — a lift so small it reads as the button breathing, not moving. Ghost swaps its border to Border Active and its fill to Obsidian Card.
+- **Primary:** Lit glass. A left-to-right gradient from Violet Intense to Violet Deep, white text at 600 weight, a `rgb(255 255 255 / 0.2)` border, a 28% white top bevel over a Violet Ink Deep bottom bevel, and the CTA Aura. Same bevel grammar as every pane, on the one surface that emits instead of transmitting. Padding `12px 24px` at default size, `8px 16px` at small.
+- **Ghost:** A `.glass` pane — same material as a card, no light of its own. Border Subtle edge, Console Text label, same geometry.
+- **Hover:** Primary scales to `1.01` over 200ms — a lift so small it reads as the button breathing, not moving. Ghost swaps its border to Border Active and lifts its tint and bevel like any other pane.
 - **Focus:** A 2px Terminal Violet outline at 2px offset. This is the system-wide focus treatment and it appears on every interactive element without exception.
 - **Content:** Icons sit at 18px with an 8px gap, and lead or trail the label depending on direction of travel — the down-arrow trails "See Experience", the terminal glyph leads "Get in Touch".
 
 ### Chips & Badges
 
-- **Tech Badge** (skills grid): Obsidian Base fill inset on a card, Border Subtle, 6px radius, `4px 12px` padding, mono label. A 6px syntax-colored dot leads when the technology belongs to a color family; lead technologies take that accent as their text color, the rest stay Console Text.
+- **Tech Badge** (skills grid): `.glass-inset` on a card, Border Subtle, 6px radius, `4px 12px` padding, mono label. A 6px syntax-colored dot leads when the technology belongs to a color family; lead technologies take that accent as their text color, the rest stay Console Text.
 - **Stack Chip** (timeline footer): Smaller and flatter — 4px radius, `2px 8px`, 11px mono, colored per the Token Color Rule with Console Text Dim as the fallback.
 - **Status Badge** (`CURRENT`): Prompt Green Deep at 30% alpha, Prompt Green text, 10px mono bold, 4px radius.
 
 ### Cards & Containers
 
 - **Corner Style:** 12px (`{rounded.xl}`).
-- **Background:** Obsidian Raised. Recessed elements inside a card drop to Obsidian Base — the card is the light surface, its contents are the dark insets. This inversion is deliberate and is what gives the cards depth without shadow.
+- **Background:** A `.glass` pane. Recessed elements inside it drop to `.glass-inset` — the pane transmits, its contents are dark insets that do not. This inversion is deliberate, it is what gives cards depth without shadow, and it is also the rule that keeps `backdrop-filter` one level deep.
 - **Border:** Border Subtle at rest, transitioning to Border Active on hover over 300ms. Colors only — never a border-width change, which would shift layout.
-- **Shadow Strategy:** Card Bloom (see Elevation).
+- **Shadow Strategy:** Pane Bevel plus Card Bloom (see Elevation). On hover the tint, bevel and bloom all lift together over 300ms.
+- **Tier:** `Card` takes `tier="pane" | "thick" | "float"`. Thickness is a property of the object's role, not of its appearance.
 - **Internal Padding:** 16px for dense cards (metrics, pillars), 24px for timeline entries and the languages card, 32px rising to 64px for the contact panel.
 
 ### Navigation
 
-- **Header:** Fixed, 80px, Obsidian Base at 80% with `backdrop-blur-xl` and a Border Subtle bottom edge.
-- **Logo:** The `<Dev />` mark — 11px mono in Terminal Violet inside a 36px bordered Obsidian Raised tile, brightening to Terminal Violet Bright on hover.
+- **Header:** Fixed, 80px, `.glass-chrome` — Obsidian Base at 62% with `blur(28px) saturate(180%)` and a Border Subtle bottom edge. The aurora is fixed too, so the header sits over a stationary patch of the room while the page moves beneath it.
+- **Logo:** The `<Dev />` mark — 11px mono in Terminal Violet inside a 36px bordered `.glass-inset` tile, brightening to Terminal Violet Bright on hover.
 - **Links:** 13px sans, Console Text Dim, 8px radius, `8px 12px` padding. The active link fills with Violet Container and takes Violet Ink Deep text at 600 weight — the only place a violet fill carries text.
 - **Active tracking:** An `IntersectionObserver` with a narrow band under the header (`-80px 0px -70% 0px`) drives the active state; `aria-current="page"` follows it.
-- **Mobile:** Nav collapses at `xl` (1280px) to a 36px bordered icon button; the panel drops below the header on Obsidian Base at 95%, closes on Escape, and locks body scroll while open.
+- **Mobile:** Nav collapses at `xl` (1280px) to a 36px bordered icon button; the panel drops below the header as `.glass-chrome` at a raised 92% tint — the one surface that must fully hide what it covers — closes on Escape, and locks body scroll while open.
 
 ### Locale Switcher
 
-A two-cell segmented control: 8px outer radius on an Obsidian Raised track with 2px padding, each cell 6px radius with uppercase 11px mono. The active locale fills Violet Container over Violet Ink Deep, matching the active nav link exactly. The whole group drops to 60% opacity during the server-action transition — the only loading affordance in the system.
+A two-cell segmented control: 8px outer radius on a `.glass-inset` track with 2px padding, each cell 6px radius with uppercase 11px mono. The active locale fills Violet Container over Violet Ink Deep, matching the active nav link exactly. The whole group drops to 60% opacity during the server-action transition — the only loading affordance in the system.
 
 ### Timeline (signature)
 
@@ -396,11 +443,11 @@ The strongest component on the page and the one that carries the product's argum
 
 ### Shell Prompt Strip (signature)
 
-The line that names the whole system. A single bordered Obsidian Raised bar under the hero CTAs, entirely mono at 11px: a Prompt Green `➜`, `engineer.stack` in Terminal Violet Bright, a Console Outline `::`, the stack array in white, and `production_ready` right-aligned in 10px uppercase Prompt Green. It is a static composition doing the work of a paragraph.
+The line that names the whole system. A single bordered `.glass` pane under the hero CTAs, carrying both the hero light-model's lit edge and its specular sheen, entirely mono at 11px: a Prompt Green `➜`, `engineer.stack` in Terminal Violet Bright, a Console Outline `::`, the stack array in white, and `production_ready` right-aligned in 10px uppercase Prompt Green. It is a static composition doing the work of a paragraph.
 
 ### Metric Card
 
-Obsidian Raised at 16px padding. A mono uppercase key (`EXP_PROD`) in its accent color on the left, a 16px Console Outline icon on the right, then the 32px white value with any suffix trailing at 14px regular, then a 13px dim description. Five of them run as a full-bleed band, and they are the first thing below the fold.
+A `.glass` pane at 16px padding, inside a `.glass-band` strip. A mono uppercase key (`EXP_PROD`) in its accent color on the left, a 16px Console Outline icon on the right, then the 32px white value with any suffix trailing at 14px regular, then a 13px dim description. Five of them run as a full-bleed band, and they are the first thing below the fold.
 
 ## Do's and Don'ts
 
@@ -409,17 +456,24 @@ Obsidian Raised at 16px padding. A mono uppercase key (`EXP_PROD`) in its accent
 - **Do** give every technology its one fixed color from `lib/content.ts` and reuse it everywhere the name appears.
 - **Do** set every machine artifact in JetBrains Mono at 11px with `0.06em` tracking — keys, dates, statuses, chips, section numbers, locale codes.
 - **Do** put a `rgb(255 255 255 / 0.08)` border on every surface, and light it to `rgb(139 92 246 / 0.4)` on hover. That border swap is the site's primary interaction signal.
-- **Do** build depth from the tonal stack plus centered violet bloom, and recess a card's contents to Obsidian Base rather than raising them.
+- **Do** build depth from ambient light, optical thickness and the pane bevel — and recess a pane's contents to `.glass-inset` rather than raising them.
+- **Do** give every new glass tier its opaque fallback for `@supports not (backdrop-filter)` and `prefers-reduced-transparency` in the same commit.
+- **Do** check that a new pane actually has light behind it before reaching for `.glass`.
 - **Do** keep headlines and hard numbers at pure `#ffffff` and prose at `#cbc3d7`.
+- **Do** let the type tokens own line-height. `leading-relaxed` and friends silently override leading that was computed against Sansation's ink band.
 - **Do** carry the 2px Terminal Violet focus ring at 2px offset onto every new interactive element.
 - **Do** hold desktop two-column splits asymmetric — 7/5, 4/8, 5/7 — with framing narrow and evidence wide.
 - **Do** reserve Prompt Green for liveness and availability.
 
 ### Don't:
 
-- **Don't** add a directional drop shadow. Every shadow in this system is `0 0` and violet; a neutral offset shadow is off-system on sight.
+- **Don't** add a directional drop shadow. Every outer shadow in this system is `0 0` and violet; offsets exist only as an `inset` bevel on a pane edge.
+- **Don't** nest `backdrop-filter`. Anything inside a pane is `.glass-inset` — a fill and a hairline, no filter.
+- **Don't** animate the ambient field. Every repaint behind a pane forces that pane to re-filter.
+- **Don't** use glass as a general lightening device. It is the system's material, applied by tier; a pane that exists only to look frosted is decoration.
 - **Don't** introduce a new hue. The palette is violet plus green, cyan, and pink, and every one of those four has an assigned meaning. A fifth accent has no job.
-- **Don't** add a new typeface. Jakarta and JetBrains Mono are the complete set.
+- **Don't** add a new typeface. Sansation and JetBrains Mono are the complete set.
+- **Don't** write `font-medium`, `font-semibold`, `font-extrabold`, or `font-light` on anything set in the sans. Sansation has no 300-in-use, 500, 600, or 800 master, so each of those asks the browser to fake a weight. The sans has two weights; use them.
 - **Don't** reach for dev-portfolio clichés: no matrix rain, no typewriter or code-typing animation, no particle backgrounds, no 3D tilt on cards. The terminal idiom here is typographic and static — that restraint is the whole point.
 - **Don't** drift toward generic SaaS marketing: no blob illustrations, no pastel gradients, no stock 3D shapes, no big friendly rounded sans. This is an instrument panel, not a landing page template.
 - **Don't** let two elements glow at full strength in the same region.
