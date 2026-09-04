@@ -263,6 +263,36 @@
         .hero-ambient-orb {
         opacity: 0;
     }
+
+    /*
+     * A silhueta do retrato.
+     *
+     * Percentuais, não pixels — é o que permite a MESMA curva servir o
+     * quadro e a aura atrás dele, que é 24px maior: cada raio se resolve
+     * contra a caixa em que está, então as duas silhuetas ficam
+     * proporcionais em vez de só concêntricas. Uma aura retangular
+     * borrada desenharia um halo com quatro cantos que a forma não tem.
+     *
+     * As somas por aresta fecham em 100% exatos (60+40 e 45+55 na
+     * horizontal, 55+45 e 60+40 na vertical). Passar de 100% faz o CSS
+     * reescalar o conjunto inteiro por um fator comum e a curva sai menor
+     * do que a escrita aqui; ficar muito abaixo devolve lados retos entre
+     * os cantos, e aí a forma vira retângulo arredondado.
+     *
+     * O desvio de 50% é o que faz a silhueta ser lida como orgânica em
+     * vez de elipse: a primeira tentativa ficou em 54/46 e voltou do
+     * screenshot como um oval comum. 60/40 inclina o volume para o alto
+     * à esquerda e para baixo à direita — a mesma diagonal da luz da
+     * sala, que descansa no canto superior esquerdo.
+     *
+     * Estática de propósito. Animar `border-radius` repinta uma
+     * superfície com `overflow: hidden` a cada quadro, e o idioma desta
+     * página é tipográfico e parado — a forma orgânica entra porque o
+     * briefing pediu, o wobble não vem junto.
+     */
+    .portrait-organic {
+        border-radius: 60% 40% 45% 55% / 55% 60% 40% 45%;
+    }
 }
 
 /* ---------------------------------------------------------------- */

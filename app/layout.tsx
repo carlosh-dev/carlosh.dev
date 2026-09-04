@@ -65,9 +65,6 @@ export default async function RootLayout({
                     </main>
                     <SiteFooter />
                 </NextIntlClientProvider>
-                {/* impeccable-live-start */}
-                <script src="http://localhost:8400/live.js?token=5bd15fe1-c47c-420d-b6fa-997faca4b5e6"></script>
-                {/* impeccable-live-end */}
             </body>
         </html>
     )

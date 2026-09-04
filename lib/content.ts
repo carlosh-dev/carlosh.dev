@@ -1,7 +1,6 @@
 import {
     AppWindow,
     AtSign,
-    BadgeCheck,
     Blocks,
     Bot,
     Brain,
@@ -18,7 +17,6 @@ import {
     ShieldCheck,
     Terminal,
     Users,
-    Zap,
 } from 'lucide-react'
 import type { ComponentType } from 'react'
 
@@ -135,11 +133,15 @@ export const metrics: Metric[] = [
     },
 ]
 
-/** Cards flutuantes sobre o retrato do hero. */
-export const heroHighlights = [
-    { id: 'years', icon: BadgeCheck, accent: 'primary' as Accent },
-    { id: 'users', icon: Zap, accent: 'tertiary' as Accent },
-]
+/**
+ * As provas do hero, na ordem em que são lidas.
+ *
+ * Sem ícone e sem accent: a linha é tipográfica, e o que separa valor de
+ * rótulo ali é cor e corpo, não um glifo. A ordem é a de leitura —
+ * senioridade, escala, mecanismo — que é a ordem em que um recruiter
+ * decide se vale continuar.
+ */
+export const heroStats = ['years', 'users', 'rerenders'] as const
 
 /* -------------------------------------------------------------------------- */
 /*  Pilares (seção "Sobre")                                                    */

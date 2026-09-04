@@ -5,15 +5,31 @@ import { useTranslations } from 'next-intl'
 import PixelBlast from '@/components/hero/pixel-blast'
 import ButtonLink from '@/components/ui/button-link'
 import Container from '@/components/ui/container'
-import { accentClass, heroHighlights } from '@/lib/content'
+import { heroStats } from '@/lib/content'
 import { cn } from '@/lib/cn'
 import { richTags } from '@/lib/rich-tags'
 import { siteConfig } from '@/lib/site-config'
 
-const SHELL_STACK = '["Next.js", "TypeScript", "Rails", "Redis"]'
-
 export default function Hero() {
     const t = useTranslations('hero')
+
+    /* Provas medidas primeiro, disponibilidade por último. Só a última linha
+       muda de cor: texto de status é um dos usos que o verde tem reservados
+       nesta paleta, e não há valor numérico para separar do rótulo. */
+    const proof = [
+        ...heroStats.map((id) => ({
+            key: id,
+            value: t(`stats.${id}.value`),
+            label: t(`stats.${id}.label`),
+            tone: 'text-on-surface-variant',
+        })),
+        {
+            key: 'availability',
+            value: null,
+            label: t('stats.availability'),
+            tone: 'text-tertiary',
+        },
+    ]
 
     return (
         <section
@@ -56,30 +72,22 @@ export default function Hero() {
 
             <Container>
                 <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
-                    {/* ---------- Coluna de texto ---------- */}
-                    <div className="flex flex-col items-start space-y-4 lg:col-span-7">
-                        <p className="glass inline-flex items-center gap-2 rounded-full border border-border-subtle px-4 py-1 [--glass-bloom:0_0_24px_rgb(139_92_246/0.18)]">
-                            <span
-                                aria-hidden
-                                className="relative flex size-2.5 shrink-0"
-                            >
-                                <span className="absolute inline-flex size-full animate-ping rounded-full bg-tertiary opacity-75" />
-                                <span className="relative inline-flex size-2.5 rounded-full bg-tertiary" />
-                            </span>
-                            <span className="font-mono text-label-code text-on-surface">
-                                {t('status')}
-                            </span>
-                        </p>
-
-                        <h1 className="text-display-hero-mobile text-white lg:text-display-hero">
+                    {/* ---------- Coluna de texto ----------
+                        Quatro blocos, e o ritmo é declarado bloco a bloco em
+                        vez de sair de um `space-y` com remendos de padding em
+                        cima: 24px prende o parágrafo ao título, 32px solta a
+                        ação, 40px solta a prova. São três degraus, e é o que
+                        dá a hierarquia numa coluna sem separador nenhum. */}
+                    <div className="flex flex-col items-start lg:col-span-7">
+                        <h1 className="text-balance text-display-hero-mobile text-white lg:text-display-hero">
                             {t.rich('headline', richTags)}
                         </h1>
 
-                        <p className="max-w-2xl pt-2 text-body-lg leading-relaxed text-on-surface-variant">
+                        <p className="mt-6 max-w-2xl text-pretty text-body-lg text-on-surface-variant">
                             {t.rich('subheadline', richTags)}
                         </p>
 
-                        <div className="flex w-full flex-wrap items-center gap-4 pt-4 sm:w-auto">
+                        <div className="mt-8 flex flex-wrap items-center gap-4">
                             {/* Pela "Regra do Único Nó Aceso", o CTA primário
                                 continua sendo o ponto mais brilhante da região
                                 — inclusive contra a trama. */}
@@ -99,102 +107,94 @@ export default function Hero() {
                             </ButtonLink>
                         </div>
 
-                        {/* Faixa de shell prompt */}
-                        <div className="mt-3 w-full max-w-2xl pt-2">
-                            <div className="glass flex flex-wrap items-center justify-between gap-2 overflow-hidden rounded-lg border border-border-subtle px-4 py-2 font-mono text-label-code text-on-surface-variant">
-                                <span className="flex items-center gap-2">
-                                    <span className="text-tertiary">➜</span>
-                                    <span className="text-primary-fixed">
-                                        engineer.stack
+                        {/* Linha de provas.
+                            Os números que ficavam em cartões de vidro sobre o
+                            retrato voltam para a coluna de leitura como o que
+                            sempre foram: dados. Mono porque são medida, não
+                            prosa. O `::` é o separador que a faixa de shell
+                            usava — a faixa saiu, o idioma dela fica.
+                            O padding no separador existe para o vão antes e
+                            depois dele bater em 14px dos dois lados; sem isso
+                            o gap da lista mede um lado só. */}
+                        <ul className="mt-10 flex flex-wrap items-center gap-2 font-mono text-label-code">
+                            {proof.map(({ key, value, label, tone }, index) => (
+                                <li
+                                    key={key}
+                                    className="flex items-center gap-2"
+                                >
+                                    {index > 0 ? (
+                                        <span
+                                            aria-hidden
+                                            className="px-1.5 text-outline"
+                                        >
+                                            ::
+                                        </span>
+                                    ) : null}
+                                    {/* Só o rótulo vai em caixa alta. O valor
+                                        fica como escrito, senão `100k+` viraria
+                                        `100K+` e `−50%` perderia o sinal de
+                                        menos tipográfico. */}
+                                    {value ? (
+                                        <span className="text-white">
+                                            {value}
+                                        </span>
+                                    ) : null}
+                                    <span className={cn('uppercase', tone)}>
+                                        {label}
                                     </span>
-                                    <span className="text-outline">::</span>
-                                    <span className="text-white">
-                                        {SHELL_STACK}
-                                    </span>
-                                </span>
-                                <span className="text-[10px] uppercase tracking-wider text-tertiary">
-                                    {t('shellStatus')}
-                                </span>
-                            </div>
-                        </div>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
 
-                    {/* ---------- Retrato ---------- */}
+                    {/* ---------- Retrato ----------
+                        Uma forma só, sem moldura aninhada e sem vidro: a foto
+                        cobre 100% da silhueta, então tint e `backdrop-filter`
+                        embaixo dela seriam invisíveis. Quem define a borda é a
+                        aresta interna de 1px; quem dá profundidade é a aura,
+                        que carrega a MESMA curva em percentuais e por isso
+                        cresce proporcional em vez de virar um halo de cantos
+                        retos atrás de uma forma que não os tem. */}
                     <div className="relative flex justify-center lg:col-span-5 lg:justify-end">
-                        <div className="relative w-full max-w-[380px] sm:max-w-[420px]">
+                        <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[360px]">
                             <div
                                 aria-hidden
-                                className="absolute -inset-1.5 rounded-2xl bg-gradient-to-tr from-violet-intense via-secondary to-accent-pink opacity-40 blur-xl"
+                                className="portrait-organic absolute -inset-6 bg-gradient-to-tr from-violet-intense via-secondary to-accent-pink opacity-40 blur-2xl"
                             />
 
-                            <div className="glass glass-thick relative overflow-hidden rounded-2xl border border-border-subtle p-2">
-                                <div className="relative aspect-square overflow-hidden rounded-xl bg-surface-lowest">
-                                    <Image
-                                        src={siteConfig.portrait}
-                                        alt={t('portraitAlt')}
-                                        fill
-                                        priority
-                                        sizes="(max-width: 640px) 90vw, 420px"
-                                        className="object-cover contrast-110 grayscale-[15%] transition-all duration-500 hover:grayscale-0"
-                                    />
-                                    <div
-                                        aria-hidden
-                                        className="absolute inset-0 bg-gradient-to-t from-surface-raised via-transparent to-transparent opacity-80"
-                                    />
-                                </div>
-                            </div>
-
-                            {/*
-                             * Cards flutuantes ficam FORA do frame: ele tem
-                             * `overflow-hidden` para arredondar a imagem, e o
-                             * transbordo lateral (-left/-right) seria cortado.
-                             */}
-                            {heroHighlights.map(
-                                ({ id, icon: Icon, accent }, index) => (
-                                    <div
-                                        key={id}
-                                        className={cn(
-                                            'glass glass-float absolute flex items-center gap-2 rounded-xl border border-border-subtle px-4 py-2',
-                                            index === 0
-                                                ? '-left-4 top-4 animate-float sm:-left-6'
-                                                : '-right-4 bottom-6 sm:-right-6'
-                                        )}
-                                    >
-                                        <span
-                                            className={cn(
-                                                'flex size-8 shrink-0 items-center justify-center rounded-lg',
-                                                accentClass[accent].ring
-                                            )}
-                                        >
-                                            <Icon
-                                                aria-hidden
-                                                className={cn(
-                                                    'size-[18px]',
-                                                    accentClass[accent].text
-                                                )}
-                                            />
-                                        </span>
-                                        <span className="block">
-                                            <span className="block text-[16px] font-bold leading-tight text-white">
-                                                {t(`highlights.${id}.value`)}
-                                            </span>
-                                            <span className="block font-mono text-[10px] text-on-surface-variant">
-                                                {t(`highlights.${id}.label`)}
-                                            </span>
-                                        </span>
-                                    </div>
-                                )
-                            )}
-
-                            <p className="glass glass-float absolute bottom-4 left-6 flex items-center gap-1.5 rounded-full border border-border-subtle px-3 py-1">
-                                <span
-                                    aria-hidden
-                                    className="size-2 rounded-full bg-accent-pink"
+                            <div className="portrait-organic relative aspect-[4/5] overflow-hidden bg-surface-lowest">
+                                {/* A foto atual é quadrada, então num quadro
+                                    4:5 o corte é só lateral e o eixo Y não tem
+                                    para onde correr — `30%` é inerte aqui, e
+                                    está declarado para o dia em que entrar uma
+                                    foto mais alta que 4:5, quando o padrão
+                                    `center` cortaria a testa. */}
+                                <Image
+                                    src={siteConfig.portrait}
+                                    alt={t('portraitAlt')}
+                                    fill
+                                    priority
+                                    quality={90}
+                                    sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 360px"
+                                    className="object-cover object-[center_30%] brightness-[1.04] contrast-[1.06] grayscale-[15%]"
                                 />
-                                <span className="font-mono text-[10px] font-semibold text-on-surface">
-                                    {t('microPill')}
-                                </span>
-                            </p>
+
+                                {/* Aresta e vinheta na mesma camada, por cima
+                                    da foto — `box-shadow: inset` no contêiner
+                                    pintaria abaixo do conteúdo e a imagem o
+                                    cobriria inteiro.
+                                    A vinheta é centrada no rosto e devolve a
+                                    periferia da foto (o espelho aceso à
+                                    esquerda, o sofá) para o obsidiano da
+                                    página. É o mesmo recurso do `.hero-scrim`
+                                    algumas linhas acima: um poço radial que
+                                    protege o que precisa ser lido, aqui
+                                    aplicado ao que precisa ser visto. */}
+                                <div
+                                    aria-hidden
+                                    className="portrait-organic pointer-events-none absolute inset-0 bg-[radial-gradient(64%_54%_at_52%_34%,transparent_28%,rgb(10_10_12/0.7)_100%)] shadow-[inset_0_0_0_1px_rgb(255_255_255/0.12)]"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

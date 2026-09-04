@@ -16,17 +16,16 @@
         }
     },
     "hero": {
-        "status": "Disponível para novos desafios / projetos",
-        "headline": "Construindo aplicações web <g>escaláveis</g>, resilientes e de alta performance.",
-        "subheadline": "Software Engineer com mais de <b>5 anos de experiência</b> especialista em <v>React, Next.js, TypeScript, Node.js</v> e <s>Ruby on Rails</s>. Foco rigoroso em arquitetura frontend, Web Vitals, cobertura de testes automatizados e sustentação de produtos SaaS de alto tráfego.",
-        "ctaPrimary": "Ver Experiência & Timeline",
-        "ctaSecondary": "Entrar em Contato",
-        "shellStatus": "production_ready",
+        "headline": "Arquitetura frontend para produtos que <g>escalam</g>.",
+        "subheadline": "Software Engineer especialista em <v>React, Next.js e TypeScript</v> — e <s>Ruby on Rails</s> quando o problema é no back-end.",
+        "ctaPrimary": "Ver experiência",
+        "ctaSecondary": "Entrar em contato",
         "portraitAlt": "Retrato de Carlos Henrique, Software Engineer",
-        "microPill": "-50% Re-renders",
-        "highlights": {
-            "years": { "value": "+5 Anos", "label": "de Experiência" },
-            "users": { "value": "80k+ / 100k", "label": "Usuários Ativos" }
+        "stats": {
+            "years": { "value": "5+", "label": "anos" },
+            "users": { "value": "100k+", "label": "usuários" },
+            "rerenders": { "value": "−50%", "label": "re-renders" },
+            "availability": "disponível"
         }
     },
     "metrics": {
