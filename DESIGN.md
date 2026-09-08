@@ -334,7 +334,9 @@ Desktop layouts are twelve-column and deliberately asymmetric — the hero split
 
 Card grids step rather than reflow: metrics run 2 → 3 → 5 columns across `sm` / `md` / `lg` with the fifth card spanning both columns in the two-up phase; skills run 1 → 2 → 3 with the practices category spanning two; contact channels run 1 → 2 → 4. Breakpoints in use are `sm` 640px, `md` 768px, `lg` 1024px, and `xl` 1280px — `xl` exclusively for the desktop nav, which means the header carries a hamburger far later than the content does.
 
-The header is fixed at 80px with `backdrop-blur-xl` over `#0a0a0c` at 80% opacity; `main` carries a matching `80px` top offset and every `section[id]` carries `scroll-margin-top: 96px` so anchor jumps clear it.
+The header is a floating capsule, not a bar: a fixed, `pointer-events-none` frame inset `12px` from the top (`16px` from `xl`) holding a `56px` pill that grows to `64px` at `xl`. `main` carries no top offset at all — content passes *under* the capsule, which is the point, because `backdrop-filter` needs something moving behind it. The hero opens its own top instead (`112px`, `144px` from `lg`), and every `section[id]` carries `scroll-margin-top: 120px` so an anchor jump lands 40px clear of the capsule's lower edge rather than against it.
+
+The capsule has three widths. Below `lg` it spans the container as a bar — logo left, actions right. From `lg` the nav appears and takes `flex-1`, so it centers between logo and actions and the bar stays full end to end. From `xl` the capsule drops to `w-fit` and centers, which is where the shape finally reads as a pill with air on both sides.
 
 ### Named Rules
 
@@ -358,7 +360,9 @@ Each tier changes only four values — tint, fill, blur, saturation — and inhe
 
 - **`.glass`** (pane, the default): `rgb(22 19 34 / 0.55)` tint, `blur(20px) saturate(165%)`, a 160° fill gradient from 5% white, and the standard bevel. Every `Card` is one of these.
 - **`.glass-thick`**: `0.72` tint, `blur(34px) saturate(180%)`, a stronger bevel and an `0 0 80px -16px` bloom. Two objects only — the contact panel and the portrait frame.
-- **`.glass-chrome`**: `rgb(10 10 12 / 0.62)`, `blur(28px) saturate(180%)`, no bloom. The fixed header and the mobile nav panel, which override the tint to `0.92` because they cover content rather than sit beside it.
+- **`.glass-chrome`**: `rgb(10 10 12 / 0.62)`, `blur(28px) saturate(180%)`, no bloom. Reserved for chrome that covers a window edge.
+- **`.glass-capsule`**: `rgb(10 10 12 / 0.4)` tint, `blur(26px) saturate(180%)`, no bloom. The floating header, which touches no edge and therefore has the hero's own light behind it. Two masses, and the switch between them is state: thin over the hero so the pane does not extinguish the pixel field, and `0.72` with a `0 0 44px -14px` bloom once `scrollY > 24`, because from there it covers content instead of background. **`blur` is deliberately not in that transition** — animating `backdrop-filter` makes the compositor re-filter the whole surface every frame, so only tint, bevel and bloom move, exactly as in `.glass-interactive`.
+- **`.glass-capsule-panel`**: `0.94` tint, `blur(30px)`. The mobile nav sheet — the one surface that must genuinely hide what it covers. Its mass lives in CSS, not in a `[--glass-tint:…]` on the markup: the glass classes sit outside `@layer`, and unlayered style beats layered style by origin, so an arbitrary property there loses to the capsule's own `0.4`.
 - **`.glass-float`**: `0.68` tint, `blur(24px)`, a brighter 16% top bevel. Panes that float over another surface instead of over the page — the hero's highlight cards and micro-pill.
 - **`.glass-band`**: `rgb(15 14 23 / 0.4)`, `blur(26px)`, no bloom. Full-width strips: the metrics band and the footer. Almost pure optical thickness, so the aurora crosses the band instead of being blocked by it.
 - **`.glass-inset`**: `rgb(8 8 11 / 0.55)` with a single `inset 0 1px 0` white hairline and **no `backdrop-filter` at all**. Chips, badges, date pills, icon tiles, meter tracks, contact channels — the elements that appear by the dozen.
@@ -385,7 +389,7 @@ Each tier changes only four values — tint, fill, blur, saturation — and inhe
 
 ## Shapes
 
-Rectilinear and softly cornered, with radius scaling to the object's importance. The ladder runs 4px for stack chips, 6px for tech badges and date pills, 8px for every interactive control (buttons, nav links, icon tiles, the locale switcher), 12px for cards and channel tiles, and 16px for the two largest objects on the page — the portrait frame and the contact panel. Fully round is reserved for status dots, timeline nodes, availability pills, language meters, and the hero's micro-pill.
+Rectilinear and softly cornered, with radius scaling to the object's importance. The ladder runs 4px for stack chips, 6px for tech badges and date pills, 8px for every interactive control on the page body, 12px for cards and channel tiles, and 16px for the two largest objects on the page — the portrait frame and the contact panel. Fully round is reserved for status dots, timeline nodes, availability pills, language meters, the hero's micro-pill — and for everything inside the floating header, which is its own capsule world: the pill itself, the logo tile, the nav links, the header CTA, the locale track and its cells, the hamburger.
 
 Borders still do the structural work. Almost every surface is a 1px `rgb(255 255 255 / 0.08)` outline, now over a translucent tint rather than a flat fill; that hairline is the physical edge of the pane, and the `inset` bevel just behind it is the pane's thickness. Fills are translucent by default — `0.4` for full-width bands, `0.55` for cards and insets, `0.62` for chrome, `0.72` for the two thick panes, `0.92` for the mobile nav, which is the only surface that must fully hide what it covers. The three opaque exceptions are deliberate: the page floor, the well behind the portrait image, and the timeline node, which has to occlude the rail it hangs on.
 
@@ -394,6 +398,8 @@ The portrait is the system's one nested-frame construction: a gradient aura at `
 ### Named Rules
 
 **The Radius Ladder Rule.** Radius grows with the object: 4px chip → 6px badge → 8px control → 12px card → 16px panel. A child element never carries a radius equal to or larger than its parent's — a 12px card holds 8px controls and 6px badges, never another 12px surface.
+
+**The Concentric Capsule Rule.** `rounded-full` is a *height*, not a constant, so the ladder still holds inside the header: the 64px capsule resolves to 32px, its 36px controls to 18px, the 32px locale cells to 16px. Where capsules nest, the parent's radius must equal the child's plus the padding between them — 16px cell + 2px track padding = 18px track; 16px lozenge + 6px row padding + 8px sheet padding = the mobile sheet's 30px. A capsule that is merely round instead of concentric reads as a different object at the corner.
 
 **The Hairline Rule.** Every surface earns its edge. A dark pane on a dark background without a `rgb(255 255 255 / 0.08)` border is invisible, and raising the tint to compensate would turn glass back into fill. Add the border — and its bevel — instead.
 
@@ -427,15 +433,19 @@ The character across all of them is confident and luminous: generous glow, satur
 
 ### Navigation
 
-- **Header:** Fixed, 80px, `.glass-chrome` — Obsidian Base at 62% with `blur(28px) saturate(180%)` and a Border Subtle bottom edge. The aurora is fixed too, so the header sits over a stationary patch of the room while the page moves beneath it.
-- **Logo:** The `<Dev />` mark — 11px mono in Terminal Violet inside a 36px bordered `.glass-inset` tile, brightening to Terminal Violet Bright on hover.
-- **Links:** 13px sans, Console Text Dim, 8px radius, `8px 12px` padding. The active link fills with Violet Container and takes Violet Ink Deep text at 600 weight — the only place a violet fill carries text.
-- **Active tracking:** An `IntersectionObserver` with a narrow band under the header (`-80px 0px -70% 0px`) drives the active state; `aria-current="page"` follows it.
-- **Mobile:** Nav collapses at `xl` (1280px) to a 36px bordered icon button; the panel drops below the header as `.glass-chrome` at a raised 92% tint — the one surface that must fully hide what it covers — closes on Escape, and locks body scroll while open.
+- **Header:** A floating `.glass-capsule` pill — see Layout for its three widths and Elevation for its two masses. The fixed frame around it is `pointer-events-none`; without that, the transparent gutter beside the pill would swallow every click across the top of the page, including the hero's WebGL ripples.
+- **The height line:** every control inside the capsule is exactly 36px — logo tile, nav link, CTA, locale track, hamburger. Nothing in the pill is a different height. That single line is what makes the chrome read as one instrument instead of four parts that happened to be assembled.
+- **Logo:** The `<Dev />` mark — 11px mono in Terminal Violet inside a 36px bordered `.glass-inset` capsule, brightening to Terminal Violet Bright on hover.
+- **The seam:** one 1px × 20px Border Subtle hairline, between the logo and the nav, and only from `xl`. There is no partner on the right — the CTA's aura covers any hairline placed there, and an invisible hairline is work that does not show. Below `xl` the centered nav drifts away from the seam and orphans it, so it is withheld.
+- **Links:** 14px sans, Console Text Dim, 36px capsules at `12px` horizontal padding.
+- **The sliding lozenge (signature):** the active fill is not on the link. One Violet Container capsule sits behind the row and *slides* between links over 500ms on `cubic-bezier(0.16, 1, 0.3, 1)`, its `transform` and `width` measured from the live DOM (`offsetLeft` / `offsetWidth`) — never estimated, because label widths change with the locale and again when Sansation swaps in, so the measure is re-run on the locale, on a `ResizeObserver`, and on `document.fonts.ready`. It is armed only after the first measure, so it appears in place instead of flying in from the left edge. It carries **no glow**: the CTA is the region's burning node and the One Burning Node Rule permits exactly one.
+- **The locked label width:** the active label is 700 weight, and bold is wider. In a static menu that is invisible; behind a sliding lozenge it would shove the neighbours aside while the lozenge is still travelling toward them, moving the target mid-flight. Each label therefore renders twice in one `inline-grid` cell — an `aria-hidden` copy permanently at 700 sets the box, the visible copy changes weight inside a width that never moves.
+- **Active tracking:** An `IntersectionObserver` with a narrow band under the capsule (`-80px 0px -70% 0px`) drives the active state; `aria-current="page"` follows it. The lifted mass is a separate passive `scroll` listener at a 24px threshold — `setLifted` with an unchanged boolean bails out of re-render, so the cost is one already-computed `scrollY` read per event.
+- **Mobile:** Nav collapses at `lg` (1024px) to a 36px bordered icon capsule. The sheet drops 8px below the pill as `.glass-capsule-panel` on a 30px radius, animates in over 280ms on the same ease (opacity and transform only — the sheet carries `backdrop-filter`, so nothing that changes its box may animate), closes on Escape, and locks body scroll while open. Its rows are 44px full-width touch targets, but the violet fill lives on an inner capsule that hugs the label — a 44px full-bleed slab is a bar, not the same lozenge that slides on the desktop.
 
 ### Locale Switcher
 
-A two-cell segmented control: 8px outer radius on a `.glass-inset` track with 2px padding, each cell 6px radius with uppercase 11px mono. The active locale fills Violet Container over Violet Ink Deep, matching the active nav link exactly. The whole group drops to 60% opacity during the server-action transition — the only loading affordance in the system.
+A two-cell segmented control, and inside the header capsule it is concentric with it rather than merely round: a 36px `.glass-inset` track with 2px padding holding two 32px cells in uppercase 11px mono, so 16px + 2px = the track's 18px. The active locale fills Violet Container over Violet Ink Deep, matching the nav's lozenge exactly — it is the same violet carrying text, and those two places are the only ones where that happens. The whole group drops to 60% opacity during the server-action transition — the only loading affordance in the system.
 
 ### Timeline (signature)
 

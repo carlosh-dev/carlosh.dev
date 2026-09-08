@@ -60,7 +60,7 @@ export default async function RootLayout({
                         {t('skip')}
                     </a>
                     <SiteHeader />
-                    <main id="main" className="w-full pt-20">
+                    <main id="main" className="w-full">
                         {children}
                     </main>
                     <SiteFooter />

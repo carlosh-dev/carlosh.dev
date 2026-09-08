@@ -189,6 +189,18 @@
 
     /* ---- Motion ---- */
     --animate-float: float 4s ease-in-out infinite;
+    --animate-panel-in: panel-in 280ms cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* O painel mobile sai de dentro da cápsula, então desce e cresce um
+       fio a partir do topo. Só `opacity` e `transform` — a folha carrega
+       `backdrop-filter`, e animar qualquer coisa que mude a caixa
+       obrigaria o filtro a se refazer em cada quadro. */
+    @keyframes panel-in {
+        from {
+            opacity: 0;
+            transform: translateY(-8px) scale(0.985);
+        }
+    }
 
     @keyframes float {
         0%,
@@ -330,6 +342,56 @@
     --glass-sat: 180%;
     --glass-fill: rgb(255 255 255 / 0.04);
     --glass-bloom: 0 0 0 0 transparent;
+}
+
+/* Cromo flutuante. A cápsula do header não encosta em aresta nenhuma da
+       janela: fica suspensa, e por isso tem luz de verdade atrás dela — a
+       trama do PixelBlast e os orbes do hero passam por baixo, não só a
+       aurora parada. Isso é o que separa esta lâmina do `.glass-chrome`
+       antigo, que cobria a borda da tela inteira.
+
+       Duas massas, e a troca entre elas é estado, não enfeite: sobre o hero
+       a lâmina é fina para não apagar o campo; depois que a página rola, ela
+       engrossa, porque passou a cobrir conteúdo em vez de fundo.
+
+       O `blur` NÃO entra na transição — animar `backdrop-filter` obriga o
+       compositor a refazer o filtro da superfície inteira a cada quadro. O
+       que se move aqui é massa, bisel e florescência: os mesmos três valores
+       que o `.glass-interactive` já move nos cartões. */
+.glass-capsule {
+    --glass-tint: rgb(10 10 12 / 0.4);
+    --glass-blur: 26px;
+    --glass-sat: 180%;
+    --glass-fill: rgb(255 255 255 / 0.06);
+    --glass-rim-bottom: rgb(139 92 246 / 0.12);
+    --glass-bloom: 0 0 0 0 transparent;
+    transition:
+        background-color 420ms ease,
+        box-shadow 420ms ease;
+}
+
+.glass-capsule[data-lifted='true'] {
+    --glass-tint: rgb(10 10 12 / 0.72);
+    --glass-rim-top: rgb(255 255 255 / 0.14);
+    --glass-rim-bottom: rgb(139 92 246 / 0.2);
+    --glass-bloom: 0 0 44px -14px rgb(139 92 246 / 0.34);
+}
+
+/* A folha do menu mobile é a única superfície da página que precisa
+       esconder de verdade o que cobre — atrás dela está o hero inteiro, e
+       um menu por onde se lê a headline não é um menu.
+
+       A massa vem daqui, não de uma propriedade arbitrária no JSX: as
+       classes de vidro moram fora de `@layer`, e estilo sem camada ganha de
+       estilo em camada por especificidade de origem. Um `[--glass-tint:…]`
+       na marcação perderia para o 0,4 da cápsula e a folha voltaria a ser
+       transparente — foi exatamente o que acontecia no header antigo. */
+.glass-capsule-panel {
+    --glass-tint: rgb(10 10 12 / 0.94);
+    --glass-blur: 30px;
+    --glass-rim-top: rgb(255 255 255 / 0.12);
+    --glass-rim-bottom: rgb(139 92 246 / 0.18);
+    --glass-bloom: 0 0 48px -16px rgb(139 92 246 / 0.3);
 }
 
 /* As duas maiores lâminas da página — painel de contato e moldura do
@@ -475,9 +537,12 @@
         color: var(--color-on-surface);
     }
 
-    /* Offset anchor targets so the 80px fixed header never covers them. */
+    /* A aresta de baixo da cápsula fica em 80px. Um alvo de âncora parando
+       a 16px dela encostaria na lâmina; 120px deixam 40px de ar, que é o
+       que a forma flutuante pede pra não parecer que o conteúdo bateu
+       nela. */
     section[id] {
-        scroll-margin-top: 6rem;
+        scroll-margin-top: 7.5rem;
     }
 }
 
@@ -520,6 +585,18 @@
         background-color: var(--color-surface-base);
     }
 
+    /* A cápsula flutua: opaca, ela precisa se separar do fundo da página em
+       vez de se fundir com ele. Sobe um degrau na pilha obsidiana — e o
+       estado continua legível, porque sobe outro quando levanta. */
+    .glass-capsule {
+        background-color: var(--color-surface-raised);
+    }
+
+    .glass-capsule[data-lifted='true'],
+    .glass-capsule-panel {
+        background-color: var(--color-surface-card);
+    }
+
     .glass-inset {
         background-color: var(--color-surface-base);
     }
@@ -540,6 +617,15 @@
 
     .glass-thick,
     .glass-float {
+        background-color: var(--color-surface-card);
+    }
+
+    .glass-capsule {
+        background-color: var(--color-surface-raised);
+    }
+
+    .glass-capsule[data-lifted='true'],
+    .glass-capsule-panel {
         background-color: var(--color-surface-card);
     }
 

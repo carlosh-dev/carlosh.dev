@@ -141,7 +141,7 @@ export const metrics: Metric[] = [
  * senioridade, escala, mecanismo — que é a ordem em que um recruiter
  * decide se vale continuar.
  */
-export const heroStats = ['years', 'users', 'rerenders'] as const
+export const heroStats = ['years'] as const
 
 /* -------------------------------------------------------------------------- */
 /*  Pilares (seção "Sobre")                                                    */
