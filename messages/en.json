@@ -64,8 +64,8 @@
         },
         "pillars": {
             "frontend": {
-                "title": "Frontend Architecture & Web Vitals",
-                "description": "Specialized in reducing LCP, FID and CLS through Server Components, bundle optimization, data-fetching strategies with React Query and surgical control of the component re-render cycle.",
+                "title": "Software Architecture & Web Vitals",
+                "description": "Architecture decisions that hold performance up: Server/Client Component boundaries, data and cache modeling with React Query, bundle budgets and control of the re-render cycle \u2014 measured directly in LCP, INP and CLS.",
                 "tag": "Core Web Vitals 95+"
             },
             "designSystems": {
@@ -91,7 +91,7 @@
         "description": "Tools and technologies applied daily at scale in high-demand enterprise environments.",
         "categories": {
             "frontend": {
-                "title": "Frontend Architecture",
+                "title": "Frontend & Interfaces",
                 "subtitle": "Core Specialty"
             },
             "backend": {
@@ -202,7 +202,7 @@
     "contact": {
         "eyebrow": "Let's Connect",
         "title": "Shall we build something great together?",
-        "description": "Whether it's leading the frontend architecture of a new product, scaling your existing SaaS stack or collaborating on high-impact projects, I'm ready to contribute.",
+        "description": "Whether it's leading the software architecture of a new product, scaling your existing SaaS stack or collaborating on high-impact projects, I'm ready to contribute.",
         "responseTime": "Average response in under 24 business hours.",
         "channels": {
             "email": { "label": "Direct Email", "value": "Send a Message" },
@@ -218,7 +218,7 @@
         }
     },
     "footer": {
-        "tagline": "Software Engineer & Frontend Architect",
+        "tagline": "Software Engineer & Software Architect",
         "copyright": "© {year} Carlos Henrique. All rights reserved.",
         "available": "Available for Projects"
     }

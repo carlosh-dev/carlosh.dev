@@ -155,7 +155,7 @@ export default function SiteHeader() {
                         'lg:gap-3 lg:px-3 xl:h-16 xl:w-fit'
                     )}
                 >
-                    {/* <a
+                    <a
                         href="#inicio"
                         aria-label={t('logo')}
                         className={cn(
@@ -164,9 +164,9 @@ export default function SiteHeader() {
                         )}
                     >
                         <span className="glass-inset glass-inset-interactive flex h-9 items-center justify-center rounded-full border border-border-subtle px-3.5 font-mono text-label-code text-primary group-hover:border-border-active group-hover:text-primary-fixed">
-                            &lt;CarlosH /&gt;
+                            carlosh-dev
                         </span>
-                    </a> */}
+                    </a>
 
                     <span
                         aria-hidden

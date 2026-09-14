@@ -64,8 +64,8 @@
         },
         "pillars": {
             "frontend": {
-                "title": "Arquitetura Frontend & Web Vitals",
-                "description": "Especialista na redução do LCP, FID e CLS através de Server Components, otimização de bundle, estratégias de data-fetching com React Query e controle cirúrgico do ciclo de re-renderização de componentes.",
+                "title": "Arquitetura de Software & Web Vitals",
+                "description": "Decisões de arquitetura que sustentam a performance: fronteiras entre Server e Client Components, modelagem de dados e cache com React Query, orçamento de bundle e controle do ciclo de re-renderização \u2014 medidas diretamente em LCP, INP e CLS.",
                 "tag": "Core Web Vitals 95+"
             },
             "designSystems": {
@@ -91,7 +91,7 @@
         "description": "Ferramentas e tecnologias aplicadas em escala diária em ambientes corporativos de alta demanda.",
         "categories": {
             "frontend": {
-                "title": "Frontend Architecture",
+                "title": "Frontend & Interfaces",
                 "subtitle": "Especialidade Central"
             },
             "backend": {
@@ -202,7 +202,7 @@
     "contact": {
         "eyebrow": "Vamos Conectar",
         "title": "Vamos construir algo incrível juntos?",
-        "description": "Seja para liderar a arquitetura frontend de um novo produto, escalar sua stack SaaS existente ou colaborar em projetos de alto impacto, estou pronto para somar.",
+        "description": "Seja para liderar a arquitetura de software de um novo produto, escalar sua stack SaaS existente ou colaborar em projetos de alto impacto, estou pronto para somar.",
         "responseTime": "Resposta média em menos de 24 horas úteis.",
         "channels": {
             "email": { "label": "Email Direto", "value": "Enviar Mensagem" },
@@ -218,7 +218,7 @@
         }
     },
     "footer": {
-        "tagline": "Software Engineer & Frontend Architect",
+        "tagline": "Software Engineer & Software Architect",
         "copyright": "© {year} Carlos Henrique. Todos os direitos reservados.",
         "available": "Disponível para Projetos"
     }

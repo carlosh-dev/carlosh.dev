@@ -29,11 +29,11 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
     title: 'Carlos Henrique - Software Engineer',
     description:
-        'Software Engineer com mais de 5 anos de experiência em React, Next.js, TypeScript, Node.js e Ruby on Rails. Arquitetura frontend, Web Vitals e produtos SaaS de alto tráfego.',
+        'Software Engineer com mais de 5 anos de experiência em React, Next.js, TypeScript, Node.js e Ruby on Rails. Arquitetura de software, Web Vitals e produtos SaaS de alto tráfego.',
     openGraph: {
         title: 'Carlos Henrique - Software Engineer',
         description:
-            'Arquitetura frontend, Web Vitals e produtos SaaS de alto tráfego.',
+            'Arquitetura de software, Web Vitals e produtos SaaS de alto tráfego.',
         type: 'website',
     },
 }
