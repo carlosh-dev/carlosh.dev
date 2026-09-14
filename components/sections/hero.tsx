@@ -83,8 +83,8 @@ export default function Hero() {
                                     alt={t('portraitAlt')}
                                     fill
                                     priority
-                                    quality={90}
-                                    sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 360px"
+                                    quality={100}
+                                    sizes="(max-width: 640px) 280px, (max-width: 1024px) 520px, 560px"
                                     className="object-cover object-[center_30%] brightness-[1.04] contrast-[1.06] grayscale-[15%]"
                                 />
 
