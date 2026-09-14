@@ -403,11 +403,4 @@ export const channels: Channel[] = [
         href: siteConfig.github,
         external: true,
     },
-    {
-        id: 'whatsapp',
-        icon: MessageCircle,
-        accent: 'tertiary',
-        href: siteConfig.whatsapp,
-        external: true,
-    },
 ]

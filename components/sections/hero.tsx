@@ -14,7 +14,7 @@ export default function Hero() {
     return (
         <section
             id="inicio"
-            className="relative min-h-screen w-full overflow-hidden pb-16 pt-28 lg:pb-24 lg:pt-36"
+            className="relative flex items-center min-h-screen w-full overflow-hidden pb-16 pt-28 lg:pb-24 lg:pt-36"
         >
             <div aria-hidden className="hero-field absolute inset-0 -z-10">
                 <div className="hero-ambient-orb pointer-events-none absolute left-1/2 top-1/4 h-[360px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-intense/15 blur-[130px]" />

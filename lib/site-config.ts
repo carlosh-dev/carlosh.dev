@@ -1,8 +1,8 @@
 export const siteConfig = {
     name: 'Carlos Henrique',
     // TODO: preencher com os canais reais antes de publicar.
-    email: 'contato@carlosh.dev',
-    linkedin: 'https://linkedin.com/in/carlosh-dev',
+    email: 'contato.carlosh@outlook.com',
+    linkedin: 'https://www.linkedin.com/in/carlosh-dev/',
     github: 'https://github.com/carlosh-dev',
     whatsapp: 'https://wa.me/5511900000000',
     /** Retrato do hero. Coloque o arquivo em `public/`. */

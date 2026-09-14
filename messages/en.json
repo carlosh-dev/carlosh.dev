@@ -122,6 +122,7 @@
             "penzack": {
                 "role": "Frontend Software Engineer",
                 "company": "Penzack",
+                "summary": "I work on the frontend of a production product, optimizing render and load performance, standardizing the component library and corporate Design System, expanding automated test coverage and bringing AI assistants into the code review flow.",
                 "bullets": {
                     "0": "<b>50% reduction in re-renders</b> through advanced state management with React Query and fine-grained memoization of critical components.",
                     "1": "<b>35% improvement in initial page load time</b>, focused on Core Web Vitals and per-route code splitting.",
@@ -133,6 +134,7 @@
             "kirvano": {
                 "role": "Frontend Software Engineer",
                 "company": "Kirvano",
+                "summary": "I built the platform's frontend ecosystem from scratch and sustained its growth to over 100,000 active customers, creating the company's first centralized Design System and the automated test suite that cut post-deploy regressions.",
                 "bullets": {
                     "0": "<b>Founded the frontend ecosystem from scratch</b>, supporting and sustaining platform scalability from 0 to <b>80,000 users in 18 months</b>, reaching over <b>100,000 active customers</b> with no architectural degradation.",
                     "1": "Designed, architected and fully documented the company's first <b>centralized Design System</b> with Storybook.",
@@ -142,6 +144,7 @@
             "cloudfox": {
                 "role": "Frontend Developer",
                 "company": "Cloudfox",
+                "summary": "I built and shipped the custom checkout module that raised the purchase completion rate, and maintained and refactored the internal admin systems in a distributed architecture, working in agile squads with weekly delivery.",
                 "bullets": {
                     "0": "Built and shipped a custom checkout module with fast micro-interactions, driving <b>+35% purchase completion rate</b>.",
                     "1": "Evolutionary maintenance and refactoring of internal admin systems in a distributed architecture.",
@@ -151,6 +154,7 @@
             "laager": {
                 "role": "Full Stack Software Engineer",
                 "company": "LAAGER Tecnologias Sustentáveis",
+                "summary": "I worked full stack in Ruby on Rails, implementing a cache-aside pattern with Redis to cut API call time, a logistics optimization engine integrated with Google Maps APIs and asynchronous background job processing with Sidekiq, with automated testing in RSpec.",
                 "bullets": {
                     "0": "<b>90% reduction in API call time</b> via a cache-aside pattern implemented with Ruby on Rails and Redis.",
                     "1": "Developed a logistics optimization engine integrated with Google Maps APIs, cutting <b>travel time by 40%</b> on field routes.",
@@ -160,6 +164,7 @@
             "elaw": {
                 "role": "Data / BI Analyst",
                 "company": "Elaw Tecnologia S.A.",
+                "summary": "I provided technical Business Intelligence consulting, structuring executive analytics dashboards, handling data ingestion, modeling and indexing with Elasticsearch, Kibana and Oracle, and automating the processing of enterprise client spreadsheets in PHP.",
                 "bullets": {
                     "0": "Technical consulting on Business Intelligence and structuring of executive analytics dashboards.",
                     "1": "Data ingestion, modeling and indexing with Elasticsearch, Kibana and Oracle databases.",

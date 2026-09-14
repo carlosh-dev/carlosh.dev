@@ -19,12 +19,6 @@ const socials = [
         href: `mailto:${siteConfig.email}`,
         external: false,
     },
-    {
-        id: 'whatsapp',
-        icon: MessageCircle,
-        href: siteConfig.whatsapp,
-        external: true,
-    },
 ]
 
 export default function SiteFooter() {

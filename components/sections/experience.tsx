@@ -76,6 +76,10 @@ export default function Experience() {
                                         </p>
                                     </div>
 
+                                    <p className="mb-4 text-body-sm text-on-surface-variant">
+                                        {t(`roles.${id}.summary`)}
+                                    </p>
+
                                     <ul className="mb-4 space-y-2 text-body-sm text-on-surface-variant">
                                         {Array.from({
                                             length: bulletCount,
