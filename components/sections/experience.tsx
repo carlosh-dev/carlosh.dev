@@ -26,7 +26,7 @@ export default function Experience() {
                     {/* Trilho da timeline */}
                     <span
                         aria-hidden
-                        className="absolute bottom-6 left-2.5 top-3 w-0.5 bg-gradient-to-b from-violet-intense via-primary to-transparent opacity-60 sm:left-3.5"
+                        className="absolute bottom-6 left-3 top-3 w-0.5 -translate-x-1/2 bg-gradient-to-b from-violet-intense via-primary to-transparent opacity-60"
                     />
 
                     {experience.map(
