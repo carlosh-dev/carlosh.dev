@@ -190,6 +190,22 @@
     /* ---- Motion ---- */
     --animate-float: float 4s ease-in-out infinite;
     --animate-panel-in: panel-in 280ms cubic-bezier(0.16, 1, 0.3, 1);
+    --animate-live-node: live-node 2.4s ease-in-out infinite;
+    --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
+
+    /* O nó da timeline em curso é o único ponto "ao vivo" da página fora
+       do rodapé — a Regra do Nó Único Aceso permite exatamente um por
+       região, e aqui ele respira em vez de só brilhar parado, o mesmo
+       sinal de liveness que o `animate-pulse` verde já cumpre no rodapé. */
+    @keyframes live-node {
+        0%,
+        100% {
+            box-shadow: 0 0 16px rgb(139 92 246 / 0.8);
+        }
+        50% {
+            box-shadow: 0 0 24px rgb(139 92 246 / 0.5);
+        }
+    }
 
     /* O painel mobile sai de dentro da cápsula, então desce e cresce um
        fio a partir do topo. Só `opacity` e `transform` — a folha carrega
@@ -209,6 +225,18 @@
         }
         50% {
             transform: translateY(-6px);
+        }
+    }
+
+    /* A aura do retrato já é o brilho — respira em opacidade, o mesmo
+       gesto do nó da timeline, em vez de ganhar uma segunda camada. */
+    @keyframes glow-pulse {
+        0%,
+        100% {
+            opacity: 0.4;
+        }
+        50% {
+            opacity: 0.65;
         }
     }
 }
@@ -558,6 +586,9 @@
     *,
     *::before,
     *::after {
+        /* Animação presa à rolagem ignora `animation-duration` — sem devolver
+           a timeline ao relógio, o corte abaixo não a alcançaria. */
+        animation-timeline: auto !important;
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
@@ -651,6 +682,16 @@
         caret-color: var(--color-primary);
     }
 
+    /* O anel substitui a seta só quando ele de fato existe: o atributo
+       chega via JS depois de checar ponteiro fino e reduced-motion, então
+       um visitante em touch ou sem JS nunca perde o cursor nativo. */
+    @media (pointer: fine) {
+        html[data-custom-cursor='active'],
+        html[data-custom-cursor='active'] * {
+            cursor: none;
+        }
+    }
+
     ::selection {
         background-color: rgb(124 58 237 / 0.55);
         color: #ffffff;
@@ -673,5 +714,93 @@
      */
     .font-mono {
         font-variant-numeric: tabular-nums;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Cursor personalizado                                                       */
+/*                                                                             */
+/*  Um ponto que grava a posição real e um anel que chega um instante depois   */
+/*  por inércia — a mesma folga de mola da pílula do nav, só que contínua.     */
+/*  Sobre um link o anel cresce e acende a borda ativa: o mesmo sinal de       */
+/*  interação que já existe em todo o sistema, só que preso ao ponteiro em     */
+/*  vez de à superfície. O ponto carrega luz própria e contínua — é o único    */
+/*  nó que pode brilhar em repouso, porque é o proxy do próprio visitante,     */
+/*  não uma região da página; a "Regra do Nó Único Aceso" continua valendo     */
+/*  para o resto do sistema, e o anel só acende junto quando pousa em algo.    */
+/* -------------------------------------------------------------------------- */
+@layer components {
+    .custom-cursor-dot,
+    .custom-cursor-ring {
+        position: fixed;
+        left: 0;
+        top: 0;
+        border-radius: 9999px;
+        transition:
+            opacity 200ms ease,
+            width 300ms cubic-bezier(0.16, 1, 0.3, 1),
+            height 300ms cubic-bezier(0.16, 1, 0.3, 1),
+            margin 300ms cubic-bezier(0.16, 1, 0.3, 1),
+            background-color 300ms ease,
+            border-color 300ms ease,
+            box-shadow 300ms ease;
+        will-change: transform;
+    }
+
+    .custom-cursor-dot {
+        width: 6px;
+        height: 6px;
+        margin: -3px 0 0 -3px;
+        background-color: var(--color-primary-fixed);
+        box-shadow:
+            0 0 8px rgb(139 92 246 / 0.9),
+            0 0 20px rgb(139 92 246 / 0.5),
+            0 0 36px rgb(139 92 246 / 0.25);
+    }
+
+    .custom-cursor-ring {
+        width: 30px;
+        height: 30px;
+        margin: -15px 0 0 -15px;
+        border: 1px solid var(--color-border-subtle);
+    }
+
+    .custom-cursor-ring[data-state='hover'] {
+        width: 52px;
+        height: 52px;
+        margin: -26px 0 0 -26px;
+        border-color: var(--color-border-active);
+        background-color: rgb(139 92 246 / 0.12);
+        box-shadow: 0 0 32px rgb(139 92 246 / 0.5);
+    }
+
+    .custom-cursor-ring[data-pressed='true'] {
+        width: 24px;
+        height: 24px;
+        margin: -12px 0 0 -12px;
+    }
+}
+
+@layer components {
+    /* Os cards da timeline sobem ao entrar em tela. É a `view()` nativa em
+       vez de um IntersectionObserver: o progresso fica preso à rolagem, então
+       o gesto se refaz toda vez que o card volta à tela — e não uma única vez
+       por sessão, que é o que o observer daria sem estado extra. A faixa é
+       medida em `entry`, cujo comprimento é a própria altura do card, então
+       cards de tamanhos diferentes revelam no mesmo ritmo.
+
+       Onde `animation-timeline` não existe, a duração cai para 0s e o card
+       nasce direto no estado final: perde-se a animação, nunca o conteúdo. */
+    .reveal-up {
+        animation: reveal-up linear both;
+        animation-timeline: view();
+        animation-range: entry 10% entry 60%;
+    }
+
+    @keyframes reveal-up {
+        from {
+            opacity: 0;
+            transform: translateY(28px);
+        }
     }
 }

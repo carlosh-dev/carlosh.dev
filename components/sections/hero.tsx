@@ -71,10 +71,10 @@ export default function Hero() {
                     </div>
 
                     <div className="relative flex justify-center lg:col-span-5 lg:justify-end">
-                        <div className="relative w-full max-w-70 sm:max-w-[320px] lg:max-w-90">
+                        <div className="relative w-full max-w-70 animate-float sm:max-w-[320px] lg:max-w-1000">
                             <div
                                 aria-hidden
-                                className="portrait-organic absolute -inset-6 bg-linear-to-tr from-violet-intense via-secondary to-accent-pink opacity-40 blur-2xl"
+                                className="portrait-organic absolute -inset-6 animate-glow-pulse bg-linear-to-tr from-violet-intense via-secondary to-accent-pink blur-2xl"
                             />
 
                             <div className="portrait-organic relative aspect-4/5 overflow-hidden bg-surface-lowest">

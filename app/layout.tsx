@@ -6,6 +6,7 @@ import { getLocale, getTranslations } from 'next-intl/server'
 import AmbientField from '@/components/layout/ambient-field'
 import SiteFooter from '@/components/layout/site-footer'
 import SiteHeader from '@/components/layout/site-header'
+import CustomCursor from '@/components/ui/custom-cursor'
 import './globals.css'
 
 // Sansation não é fonte variável: os pesos vêm em arquivos separados e só
@@ -26,11 +27,11 @@ const jetbrains = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-    title: 'Carlos Henrique — Software Engineer',
+    title: 'Carlos Henrique - Software Engineer',
     description:
         'Software Engineer com mais de 5 anos de experiência em React, Next.js, TypeScript, Node.js e Ruby on Rails. Arquitetura frontend, Web Vitals e produtos SaaS de alto tráfego.',
     openGraph: {
-        title: 'Carlos Henrique — Software Engineer',
+        title: 'Carlos Henrique - Software Engineer',
         description:
             'Arquitetura frontend, Web Vitals e produtos SaaS de alto tráfego.',
         type: 'website',
@@ -52,6 +53,7 @@ export default async function RootLayout({
         >
             <body className="bg-surface-base font-sans text-body-md text-on-surface antialiased selection:bg-violet-intense selection:text-white">
                 <AmbientField />
+                <CustomCursor />
                 <NextIntlClientProvider>
                     <a
                         href="#main"

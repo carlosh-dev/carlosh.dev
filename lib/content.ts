@@ -352,13 +352,13 @@ export const education: Degree[] = [
         id: 'computerScience',
         icon: GraduationCap,
         accent: 'primary',
-        period: '2018 — 2022',
+        period: '2018 - 2022',
     },
     {
         id: 'technical',
         icon: Terminal,
         accent: 'secondary',
-        period: '2015 — 2016',
+        period: '2015 - 2016',
     },
 ]
 

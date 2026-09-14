@@ -38,15 +38,8 @@ export default function Contact() {
                         </p>
                     </div>
 
-                    {/*
-                     * Os canais saem da coluna de leitura (`max-w-3xl`) de
-                     * propósito: presos a 768px, quatro ladrilhos sobram uns
-                     * 100px de texto cada e "GitHub Open Source" era cortado.
-                     * Na largura do painel cabem inteiros — e este é o único
-                     * lugar da página onde a visita termina.
-                     */}
                     <div className="mt-12 flex flex-col items-center">
-                        <ul className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                        <ul className="grid w-full grid-cols-1 gap-3 lg:grid-cols-3">
                             {channels.map(
                                 ({
                                     id,
@@ -86,16 +79,6 @@ export default function Contact() {
                                 )
                             )}
                         </ul>
-
-                        <p className="mt-12 flex items-center gap-2">
-                            <span
-                                aria-hidden
-                                className="size-2 animate-pulse rounded-full bg-tertiary"
-                            />
-                            <span className="font-mono text-label-code text-on-surface-variant">
-                                {t('responseTime')}
-                            </span>
-                        </p>
                     </div>
                 </div>
             </Container>

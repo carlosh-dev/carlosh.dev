@@ -16,8 +16,8 @@
         }
     },
     "hero": {
-        "headline": "Arquitetura frontend para produtos que <g>escalam</g>.",
-        "subheadline": "Software Engineer especialista em <v>React, Next.js e TypeScript</v> — e <s>Ruby on Rails</s> quando o problema é no back-end.",
+        "headline": "Arquitetura de software para produtos que <g>escalam</g>.",
+        "subheadline": "Software Engineer especialista em <v>React, Next.js e TypeScript</v> e <s>Node.js</s> quando o problema é no back-end.",
         "ctaPrimary": "Ver experiência",
         "ctaSecondary": "Entrar em contato",
         "portraitAlt": "Retrato de Carlos Henrique, Software Engineer",
@@ -189,12 +189,12 @@
         "degrees": {
             "computerScience": {
                 "title": "Bacharelado em Ciência da Computação",
-                "institution": "UNIP — Universidade Paulista",
+                "institution": "UNIP - Universidade Paulista",
                 "description": "Formação profunda em estrutura de dados, algoritmos avançados, engenharia de software, sistemas operacionais, bancos de dados relacionais e não-relacionais, e teoria da computação."
             },
             "technical": {
                 "title": "Técnico em Programação",
-                "institution": "SENAI — São Caetano do Sul",
+                "institution": "SENAI - São Caetano do Sul",
                 "description": "Base sólida em lógica de programação, orientação a objetos, SQL fundamental, desenvolvimento de software orientado a boas práticas industriais e versionamento de código com Git."
             }
         }
@@ -209,7 +209,7 @@
             "linkedin": { "label": "Networking", "value": "LinkedIn Profile" },
             "github": {
                 "label": "Repositórios",
-                "value": "GitHub Open Source"
+                "value": "GitHub"
             },
             "whatsapp": {
                 "label": "Mensagem Rápida",

@@ -31,7 +31,7 @@ export default function SiteFooter() {
                 <div className="mb-8 flex flex-col items-center justify-between gap-6 md:flex-row">
                     <div className="flex flex-col items-center gap-1 md:items-start">
                         <span className="font-mono text-label-code text-primary">
-                            &lt;Dev /&gt;
+                            Carlos Henrique
                         </span>
                         <span className="text-body-sm text-on-surface-variant">
                             {t('tagline')}

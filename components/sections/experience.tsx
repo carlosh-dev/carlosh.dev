@@ -31,14 +31,14 @@ export default function Experience() {
 
                     {experience.map(
                         ({ id, accent, start, end, bulletCount, stack }) => (
-                            <li key={id} className="group relative">
+                            <li key={id} className="group relative reveal-up">
                                 {/* Nó da timeline */}
                                 <span
                                     aria-hidden
                                     className={cn(
                                         'absolute -left-6 top-1.5 flex size-6 items-center justify-center rounded-full bg-surface-base sm:-left-8',
                                         end === null &&
-                                            'shadow-[0_0_16px_rgb(139_92_246/0.8)]'
+                                            'animate-live-node shadow-[0_0_16px_rgb(139_92_246/0.8)]'
                                     )}
                                 >
                                     <span
@@ -72,7 +72,7 @@ export default function Experience() {
                                             </p>
                                         </div>
                                         <p className="glass-inset self-start rounded-md border border-border-subtle px-3 py-1 font-mono text-label-code text-on-surface-variant sm:self-auto">
-                                            {start} — {end ?? t('present')}
+                                            {start} - {end ?? t('present')}
                                         </p>
                                     </div>
 
