@@ -22,101 +22,122 @@ export default function Experience() {
                     className="mb-12"
                 />
 
-                <ol className="relative space-y-8 pl-6 sm:pl-8">
+                <ol
+                    className="stack-cards relative pl-6 sm:pl-8"
+                    style={
+                        { '--count': experience.length } as React.CSSProperties
+                    }
+                >
                     {/* Trilho da timeline */}
                     <span
                         aria-hidden
                         className="absolute bottom-6 left-3 top-3 w-0.5 -translate-x-1/2 bg-gradient-to-b from-violet-intense via-primary to-transparent opacity-60"
                     />
 
-                    {experience.map(
-                        ({ id, accent, start, end, bulletCount, stack }) => (
-                            <li key={id} className="group relative reveal-up">
-                                {/* Nó da timeline */}
-                                <span
-                                    aria-hidden
-                                    className={cn(
-                                        'absolute -left-6 top-1.5 flex size-6 items-center justify-center rounded-full bg-surface-base sm:-left-8',
-                                        end === null &&
-                                            'animate-live-node shadow-[0_0_16px_rgb(139_92_246/0.8)]'
-                                    )}
+                    {experience
+                        .reverse()
+                        .map(
+                            (
+                                { id, accent, start, end, bulletCount, stack },
+                                cardIndex
+                            ) => (
+                                <li
+                                    key={id}
+                                    className="stack-card group"
+                                    style={
+                                        {
+                                            '--i': cardIndex,
+                                        } as React.CSSProperties
+                                    }
                                 >
+                                    {/* Nó da timeline */}
                                     <span
-                                        className={cn(
-                                            'size-2.5 rounded-full transition-transform group-hover:scale-125',
-                                            accentClass[accent].dot
-                                        )}
-                                    />
-                                </span>
+                                        aria-hidden
+                                        className="stack-card-node absolute -left-6 top-1.5 flex size-6 items-center justify-center rounded-full bg-surface-base sm:-left-8"
+                                    >
+                                        {/* O pulso mora no ponto, não no anel: o
+                                        anel é quem apaga ao entrar na pilha, e
+                                        `animate-*` é atalho de `animation` — as
+                                        duas coisas não cabem no mesmo elemento. */}
+                                        <span
+                                            className={cn(
+                                                'size-2.5 rounded-full transition-transform group-hover:scale-125',
+                                                accentClass[accent].dot,
+                                                end === null &&
+                                                    'animate-live-node shadow-[0_0_16px_rgb(139_92_246/0.8)]'
+                                            )}
+                                        />
+                                    </span>
 
-                                <Card className="p-6">
-                                    <div className="mb-3 flex flex-col justify-between gap-1 sm:flex-row sm:items-center">
-                                        <div>
-                                            <div className="flex flex-wrap items-center gap-2">
-                                                <h3 className="text-headline-md text-white">
-                                                    {t(`roles.${id}.role`)}
-                                                </h3>
-                                                {end === null ? (
-                                                    <span className="rounded bg-tertiary-container/30 px-2 py-0.5 font-mono text-[10px] font-bold text-tertiary">
-                                                        {t('currentBadge')}
-                                                    </span>
-                                                ) : null}
-                                            </div>
-                                            <p
-                                                className={cn(
-                                                    'text-body-sm',
-                                                    accentClass[accent].text
-                                                )}
-                                            >
-                                                {t(`roles.${id}.company`)}
-                                            </p>
-                                        </div>
-                                        <p className="glass-inset self-start rounded-md border border-border-subtle px-3 py-1 font-mono text-label-code text-on-surface-variant sm:self-auto">
-                                            {start} - {end ?? t('present')}
-                                        </p>
-                                    </div>
-
-                                    <p className="mb-4 text-body-sm text-on-surface-variant">
-                                        {t(`roles.${id}.summary`)}
-                                    </p>
-
-                                    <ul className="mb-4 space-y-2 text-body-sm text-on-surface-variant">
-                                        {Array.from({
-                                            length: bulletCount,
-                                        }).map((_, index) => (
-                                            <li
-                                                key={index}
-                                                className="flex items-start gap-2"
-                                            >
-                                                <CircleCheck
-                                                    aria-hidden
+                                    <Card className="stack-card-face p-6">
+                                        <div className="mb-3 flex flex-col justify-between gap-1 sm:flex-row sm:items-center">
+                                            <div>
+                                                <div className="flex flex-wrap items-center gap-2">
+                                                    <h3 className="text-headline-md text-white">
+                                                        {t(`roles.${id}.role`)}
+                                                    </h3>
+                                                    {end === null ? (
+                                                        <span className="rounded bg-tertiary-container/30 px-2 py-0.5 font-mono text-[10px] font-bold text-tertiary">
+                                                            {t('currentBadge')}
+                                                        </span>
+                                                    ) : null}
+                                                </div>
+                                                <p
                                                     className={cn(
-                                                        'mt-0.5 size-[18px] shrink-0',
+                                                        'text-body-sm',
                                                         accentClass[accent].text
                                                     )}
-                                                />
-                                                <span>
-                                                    {t.rich(
-                                                        `roles.${id}.bullets.${index}`,
-                                                        richTags
-                                                    )}
-                                                </span>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                                >
+                                                    {t(`roles.${id}.company`)}
+                                                </p>
+                                            </div>
+                                            <p className="glass-inset self-start rounded-md border border-border-subtle px-3 py-1 font-mono text-label-code text-on-surface-variant sm:self-auto">
+                                                {start} - {end ?? t('present')}
+                                            </p>
+                                        </div>
 
-                                    <div className="flex flex-wrap gap-1.5 pt-2">
-                                        {stack.map((tech) => (
-                                            <StackChip
-                                                key={tech}
-                                                label={tech}
-                                            />
-                                        ))}
-                                    </div>
-                                </Card>
-                            </li>
-                        )
-                    )}
+                                        <p className="mb-4 text-body-sm text-on-surface-variant">
+                                            {t(`roles.${id}.summary`)}
+                                        </p>
+
+                                        <ul className="mb-4 space-y-2 text-body-sm text-on-surface-variant">
+                                            {Array.from({
+                                                length: bulletCount,
+                                            }).map((_, index) => (
+                                                <li
+                                                    key={index}
+                                                    className="flex items-start gap-2"
+                                                >
+                                                    <CircleCheck
+                                                        aria-hidden
+                                                        className={cn(
+                                                            'mt-0.5 size-[18px] shrink-0',
+                                                            accentClass[accent]
+                                                                .text
+                                                        )}
+                                                    />
+                                                    <span>
+                                                        {t.rich(
+                                                            `roles.${id}.bullets.${index}`,
+                                                            richTags
+                                                        )}
+                                                    </span>
+                                                </li>
+                                            ))}
+                                        </ul>
+
+                                        <div className="flex flex-wrap gap-1.5 pt-2">
+                                            {stack.map((tech) => (
+                                                <StackChip
+                                                    key={tech}
+                                                    label={tech}
+                                                />
+                                            ))}
+                                        </div>
+                                    </Card>
+                                </li>
+                            )
+                        )}
                 </ol>
             </Container>
         </section>

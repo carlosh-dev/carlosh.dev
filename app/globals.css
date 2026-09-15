@@ -804,3 +804,96 @@
         }
     }
 }
+
+/* -------------------------------------------------------------------------- */
+/*  Pilha da carreira                                                          */
+/*                                                                             */
+/*  Os cards de experiência empilham em vez de rolar: cada um encosta abaixo   */
+/*  da cápsula e fica preso enquanto o próximo sobe por cima, encolhendo e     */
+/*  escurecendo conforme é soterrado. É `position: sticky` mais a mesma        */
+/*  `view()` que o resto da página já usa — nada de rAF nem de sequestrar a    */
+/*  rolagem com smooth-scroll de biblioteca.                                   */
+/*                                                                             */
+/*  A timeline sai do <ol>, que não é sticky e portanto anda de verdade; cada  */
+/*  card anima só a fatia `--i/--count` dessa faixa. Se ela saísse do próprio  */
+/*  card, congelaria junto com ele no momento em que prendesse.                */
+/*                                                                             */
+/*  O vidro continua translúcido de propósito: o card de cima desfoca o de     */
+/*  baixo com o próprio `backdrop-filter`, e a profundidade da pilha aparece   */
+/*  sem uma sombra projetada sequer.                                           */
+/* -------------------------------------------------------------------------- */
+@layer components {
+    /* Espaçamento normal da lista; a pilha o estica lá embaixo. Fica fora do
+       `@media` porque é layout, não movimento. */
+    .stack-cards {
+        --stack-gap: 2rem;
+    }
+
+    .stack-cards > li + li {
+        margin-block-start: var(--stack-gap);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        .stack-cards {
+            view-timeline-name: --stack;
+            /* O respiro entre cards é o tempo de permanência de cada um preso
+               no topo: sem ele, os cards (mais baixos que a viewport) só se
+               alcançariam no fim da seção e a pilha não chegaria a se formar. */
+            --stack-gap: 30vh;
+            /* Cauda para a pilha ficar inteira em tela um instante antes da
+               aresta de baixo do <ol> empurrar todo mundo pra fora. */
+            padding-bottom: 16vh;
+        }
+
+        /* 7.5rem é o mesmo `scroll-margin-top` das seções: a aresta de baixo
+           da cápsula mais o ar que ela pede. Os 0.75rem por índice são a
+           lombada da pilha — o que sobra visível de cada card soterrado. */
+        .stack-card {
+            position: sticky;
+            top: calc(7.5rem + var(--i) * 0.75rem);
+        }
+
+        /* A fatia da timeline que pertence a este card: o trecho em que o
+           próximo sobe por cima dele. */
+        .stack-card {
+            --stack-slice: exit-crossing calc(var(--i) / var(--count) * 100%)
+                exit-crossing calc((var(--i) + 1) / var(--count) * 100%);
+        }
+
+        .stack-card-face {
+            animation: stack-sink linear both;
+            animation-timeline: --stack;
+            animation-range: var(--stack-slice);
+            transform-origin: top center;
+            will-change: transform;
+        }
+
+        /* O nó da timeline sai junto: soterrado, ele viraria uma coluna de
+           pontos empilhados à esquerda da pilha, marcando um trilho que o
+           card de cima já cobriu. */
+        .stack-card-node {
+            animation: stack-node-out linear both;
+            animation-timeline: --stack;
+            animation-range: var(--stack-slice);
+        }
+
+        /* O último card é o topo da pilha: nada o cobre, então nada o apaga. */
+        .stack-card:last-child .stack-card-face,
+        .stack-card:last-child .stack-card-node {
+            animation: none;
+        }
+
+        @keyframes stack-sink {
+            to {
+                transform: scale(0.92);
+                filter: brightness(0.62);
+            }
+        }
+
+        @keyframes stack-node-out {
+            to {
+                opacity: 0;
+            }
+        }
+    }
+}
