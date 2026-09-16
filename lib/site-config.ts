@@ -1,3 +1,5 @@
+import portrait from '@/public/carlos.jpg'
+
 export const siteConfig = {
     name: 'Carlos Henrique',
     // TODO: preencher com os canais reais antes de publicar.
@@ -5,8 +7,8 @@ export const siteConfig = {
     linkedin: 'https://www.linkedin.com/in/carlosh-dev/',
     github: 'https://github.com/carlosh-dev',
     whatsapp: 'https://wa.me/5511900000000',
-    /** Retrato do hero. Coloque o arquivo em `public/`. */
-    portrait: '/carlos.jpg',
+    /** Retrato do hero. Import estático: gera blur placeholder automático. */
+    portrait,
 } as const
 
 /**
