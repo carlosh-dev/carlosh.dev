@@ -199,6 +199,7 @@ export const skillCategories: SkillCategory[] = [
             { name: 'REST APIs', dot: 'pink' },
             { name: 'WebSockets (Socket.io / Pusher)', dot: 'cyan' },
             { name: 'Background Jobs (Sidekiq)' },
+            { name: 'Nginx', dot: 'pink' },
         ],
     },
     {
@@ -239,6 +240,7 @@ export const skillCategories: SkillCategory[] = [
             { name: 'Jira & Linear' },
             { name: 'Scrum / Kanban' },
             { name: 'Docker' },
+            { name: 'Nginx', dot: 'pink' },
         ],
     },
 ]
