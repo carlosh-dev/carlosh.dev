@@ -12,6 +12,7 @@
             "competencias": "Skills",
             "experiencia": "Experience",
             "formacao": "Education",
+            "projetos": "Projects",
             "contato": "Contact"
         }
     },
@@ -196,6 +197,24 @@
                 "title": "Technical Degree in Programming",
                 "institution": "SENAI - São Caetano do Sul",
                 "description": "Solid foundation in programming logic, object orientation, fundamental SQL, software development guided by industry best practices and version control with Git."
+            }
+        }
+    },
+    "projects": {
+        "eyebrow": "05 // Projects",
+        "title": "A product of my own, in production.",
+        "description": "Beyond the work I do on other people's products, I keep one of my own running — from the data model to the interface.",
+        "liveBadge": "Live",
+        "audienceLabel": "Built for",
+        "frontendLabel": "Frontend",
+        "backendLabel": "Backend",
+        "items": {
+            "planus": {
+                "name": "Planus",
+                "role": "Solo project",
+                "audience": "Couples and families who share the bills",
+                "description": "Planus is a financial platform for couples and families who share the bills. Instead of recording what has already been spent, it projects the months ahead: recurring bills and expected expenses become a monthly forecast, the budget is set together by category, and comparing forecast against budget shows in advance whether the month closes in the black or in the red — enough to decide on a trip or a deposit knowing the impact before committing to it.",
+                "cta": "Visit Planus"
             }
         }
     },

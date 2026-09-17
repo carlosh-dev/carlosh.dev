@@ -83,10 +83,13 @@ const techTone: Record<string, string> = {
     TypeScript: 'text-primary',
     Redis: 'text-primary',
     'Power BI': 'text-primary',
+    'Express.js': 'text-primary',
     'React Query': 'text-secondary',
     'Ruby on Rails': 'text-secondary',
+    'Node.js': 'text-secondary',
     Storybook: 'text-accent-pink',
     Sidekiq: 'text-accent-pink',
+    Nginx: 'text-accent-pink',
     Jest: 'text-accent-cyan',
     RTL: 'text-accent-cyan',
     RSpec: 'text-accent-cyan',
@@ -369,6 +372,35 @@ export type Language = { id: string; level: number; accent: Accent }
 export const languages: Language[] = [
     { id: 'portuguese', level: 100, accent: 'tertiary' },
     { id: 'english', level: 75, accent: 'primary' },
+]
+
+/* -------------------------------------------------------------------------- */
+/*  Projetos                                                                   */
+/* -------------------------------------------------------------------------- */
+
+/** As duas metades saem rotuladas: num projeto solo, o alcance é a prova. */
+export const stackSides = ['frontend', 'backend'] as const
+
+export type Project = {
+    id: string
+    accent: Accent
+    href: string
+    year: string
+    stack: Record<(typeof stackSides)[number], string[]>
+}
+
+export const projects: Project[] = [
+    {
+        id: 'planus',
+        accent: 'primary',
+        href: 'https://www.planus.app.br/',
+        year: '2026',
+        stack: {
+            frontend: ['Next.js', 'React', 'TypeScript', 'TailwindCSS'],
+            // Na ordem do caminho de uma requisição, não na de digitação.
+            backend: ['Node.js', 'Express.js', 'PostgreSQL', 'Redis', 'Nginx'],
+        },
+    },
 ]
 
 /* -------------------------------------------------------------------------- */

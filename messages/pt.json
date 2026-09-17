@@ -12,6 +12,7 @@
             "competencias": "Competências",
             "experiencia": "Experiência",
             "formacao": "Formação",
+            "projetos": "Projetos",
             "contato": "Contato"
         }
     },
@@ -196,6 +197,24 @@
                 "title": "Técnico em Programação",
                 "institution": "SENAI - São Caetano do Sul",
                 "description": "Base sólida em lógica de programação, orientação a objetos, SQL fundamental, desenvolvimento de software orientado a boas práticas industriais e versionamento de código com Git."
+            }
+        }
+    },
+    "projects": {
+        "eyebrow": "05 // Projetos",
+        "title": "Produto autoral em produção.",
+        "description": "Fora do trabalho em produto de terceiros, mantenho um produto próprio no ar — da modelagem de dados à interface.",
+        "liveBadge": "No ar",
+        "audienceLabel": "Para quem",
+        "frontendLabel": "Frontend",
+        "backendLabel": "Backend",
+        "items": {
+            "planus": {
+                "name": "Planus",
+                "role": "Projeto autoral",
+                "audience": "Casais e famílias que dividem as contas",
+                "description": "O Planus é uma plataforma financeira para casais e famílias que dividem as contas. Em vez de registrar o que já foi gasto, ele projeta os próximos meses: contas recorrentes e despesas previstas viram uma previsão mensal, o orçamento é definido em conjunto por categoria, e a comparação entre previsto e orçado mostra com antecedência onde o mês fecha no azul ou no vermelho — o bastante para decidir uma viagem ou uma reserva sabendo o impacto antes de assumi-la.",
+                "cta": "Visitar o Planus"
             }
         }
     },

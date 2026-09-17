@@ -22,6 +22,7 @@ export const navItems = [
     'competencias',
     'experiencia',
     'formacao',
+    'projetos',
     'contato',
 ] as const
 
