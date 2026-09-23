@@ -31,7 +31,7 @@ Two supporting differentiators: he builds and governs Design Systems from scratc
 
 ## Capabilities and Constraints
 
-- **Stack (existing, not up for re-decision):** Next.js 16.2.1 App Router, React 19.2.4, TypeScript, Tailwind CSS v4 (`@theme` tokens in `app/globals.css`), `next-intl` 4.8, `lucide-react`. Fonts: Sansation (sans, 400/700) and JetBrains Mono (mono) via `next/font/google`.
+- **Stack (existing, not up for re-decision):** Next.js 16.2.1 App Router, React 19.2.4, TypeScript, Tailwind CSS v4 (`@theme` tokens in `app/globals.css`), `next-intl` 4.8, `lucide-react`. Font: Archivo (variable weight + width, the only family) via `next/font/google`.
 - **Content model:** structure and iconography live in `lib/content.ts` (typed: metrics, pillars, skill categories, roles, degrees, languages, channels); all human-readable copy lives in `messages/pt.json` and `messages/en.json`. Any new copy must exist in both files. No CMS, no database, no blog.
 - **Locale mechanism:** a `locale` cookie read by `i18n/request.ts`, written by the `setLocale` server action, which revalidates the layout. No locale-prefixed routes, so no per-language URL to share or index.
 - **Section IDs are Portuguese** and are the public anchor contract; renaming them breaks any shared deep link.
@@ -42,8 +42,8 @@ Two supporting differentiators: he builds and governs Design Systems from scratc
 
 - **Name:** Carlos Henrique. Title used throughout: Software Engineer, with "Frontend Architect" as the footer tagline.
 - **Portrait:** `public/carlos.jpg` — a real photograph of Carlos, used in the hero. It is the only human image in the product.
-- **Voice:** technical, direct, quantified. Claims arrive as numbers with the mechanism attached ("−90% API call time via a cache-aside pattern"), never as adjectives. Terminal and code idiom (mono type, snake_case labels like `EXP_PROD`, `production_ready`, syntax-highlight accent colors) is an established part of the voice, not decoration applied once.
-- **Existing visual world:** a dark violet "Terminal Violet" system is implemented in `app/globals.css` and mirrored at `../stitch_portf_lio_pessoal_dark_purple/terminal_violet/DESIGN.md`. It is the incumbent, not a confirmed permanent commitment — a future redesign may replace it, but nothing in this record requires it to.
+- **Voice:** technical, direct, quantified. Claims arrive as numbers with the mechanism attached ("−90% API call time via a cache-aside pattern"), never as adjectives. Machine-style labels (`EXP_PROD`, `01 // …`, `carlosh-dev`) stay as copy, but are set in the sans — no monospace.
+- **Visual world (pinned 2026-09-23):** black ground, shades of white for detail, `#bbe851` as the single accent. No gradients anywhere, no monospace or serif faces. Replaces the earlier "Terminal Violet" system.
 
 ## Evidence on Hand
 
