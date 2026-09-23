@@ -130,18 +130,18 @@
 /* -------------------------------------------------------------------------- */
 /*  Campo do hero                                                              */
 /*                                                                             */
-/*  A trama do PixelBlast em lime, baixa o bastante para o texto do corpo      */
+/*  A grade do FaultyTerminal em lime, baixa o bastante para o texto do corpo      */
 /*  (#a3a3a3) seguir acima de 4.5:1 mesmo com um ponto atrás do glifo — sem    */
 /*  scrim, que seria um gradiente.                                             */
 /* -------------------------------------------------------------------------- */
 
 @layer components {
-    .hero-pixel-field {
+    .hero-terminal-field {
         opacity: 0;
         transition: opacity 1200ms ease-out;
     }
 
-    .hero-pixel-field[data-pixel-field='on'] {
+    .hero-terminal-field[data-field='on'] {
         opacity: 0.3;
     }
 
@@ -260,7 +260,7 @@
         scroll-behavior: auto;
     }
 
-    .hero-pixel-field {
+    .hero-terminal-field {
         transition: none;
     }
 

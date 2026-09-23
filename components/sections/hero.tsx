@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { ArrowDown } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
-import PixelBlast from '@/components/hero/pixel-blast'
+import FaultyTerminal from '@/components/hero/faulty-terminal'
 import ButtonLink from '@/components/ui/button-link'
 import Container from '@/components/ui/container'
 import { richTags } from '@/lib/rich-tags'
@@ -17,22 +17,20 @@ export default function Hero() {
             className="relative flex items-center min-h-screen w-full overflow-hidden pb-16 pt-28 lg:pb-24 lg:pt-36"
         >
             <div aria-hidden className="hero-field absolute inset-0 -z-10">
-                <PixelBlast
-                    className="hero-pixel-field pointer-events-none absolute inset-0 size-full"
-                    variant="square"
-                    color="#bbe851"
-                    pixelSize={5}
-                    patternScale={3}
-                    patternDensity={1.05}
-                    pixelSizeJitter={0.45}
-                    enableRipples
-                    rippleSpeed={0.34}
-                    rippleThickness={0.12}
-                    rippleIntensityScale={1.4}
-                    speed={0.45}
-                    edgeFade={0.28}
-                    maxPixelRatio={1.5}
-                    transparent
+                <FaultyTerminal
+                    className="hero-terminal-field pointer-events-none absolute inset-0 size-full overflow-hidden"
+                    scale={2.5}
+                    gridMul={[2, 1]}
+                    digitSize={1.2}
+                    timeScale={1}
+                    scanlineIntensity={1}
+                    glitchAmount={1}
+                    flickerAmount={1}
+                    noiseAmp={1}
+                    curvature={0}
+                    tint="#bbe851"
+                    mouseStrength={0.5}
+                    brightness={0.2}
                 />
             </div>
 

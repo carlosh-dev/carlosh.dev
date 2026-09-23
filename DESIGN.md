@@ -270,7 +270,7 @@ Each channel is a full-width 16px plate: index `(01)`, uppercase label with icon
 A timeline rail (1px, 15% white) with nodes on a black backing. Cards are sticky and stack as you scroll: each one sinks to 0.92 scale and 50% brightness as the next rides over it. The current role's node is lime and pulses an expanding ring. Without motion support, the cards render as a plain list with 2rem gaps.
 
 ### Hero Field and Cursor
-A PixelBlast square-pixel field in lime sits behind the hero at 30% opacity and fades in over 1200ms. The grayscale portrait floats 6px on a 4s loop. On fine pointers, a 6px lime dot tracks the pointer and a 30px hairline ring trails it; over links the ring grows to 52px with a lime border and 12% lime fill.
+A FaultyTerminal glitching glyph grid in lime sits behind the hero at 30% opacity and fades in over 1200ms. The grayscale portrait floats 6px on a 4s loop. On fine pointers, a 6px lime dot tracks the pointer and a 30px hairline ring trails it; over links the ring grows to 52px with a lime border and 12% lime fill.
 
 ## Do's and Don'ts
 
