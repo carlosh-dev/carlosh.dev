@@ -6,6 +6,7 @@ import { getLocale, getTranslations } from 'next-intl/server'
 import SiteFooter from '@/components/layout/site-footer'
 import SiteHeader from '@/components/layout/site-header'
 import CustomCursor from '@/components/ui/custom-cursor'
+import SmoothScroll from '@/components/ui/smooth-scroll'
 import './globals.css'
 
 // Uma família só. O eixo de largura vem junto para os títulos apertados;
@@ -44,6 +45,7 @@ export default async function RootLayout({
         >
             <body className="bg-surface-base font-sans text-body-md text-on-surface antialiased">
                 <CustomCursor />
+                <SmoothScroll />
                 <NextIntlClientProvider>
                     <a
                         href="#main"

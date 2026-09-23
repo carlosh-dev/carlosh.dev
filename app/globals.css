@@ -213,7 +213,6 @@
 
 @layer base {
     html {
-        scroll-behavior: smooth;
         color-scheme: dark;
         scrollbar-width: thin;
         scrollbar-color: #333333 var(--color-surface-base);
@@ -256,10 +255,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
     .hero-terminal-field {
         transition: none;
     }
