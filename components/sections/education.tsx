@@ -11,10 +11,7 @@ export default function Education() {
     const t = useTranslations('education')
 
     return (
-        <section
-            id="formacao"
-            className="w-full bg-surface-raised/20 py-16 lg:py-24"
-        >
+        <section id="formacao" className="w-full py-16 lg:py-24">
             <Container>
                 <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
                     {/* ---------- Título + idiomas ---------- */}
@@ -30,7 +27,7 @@ export default function Education() {
                             <h3 className="mb-4 flex items-center gap-2 text-headline-sm text-white">
                                 <Languages
                                     aria-hidden
-                                    className="size-5 shrink-0 text-primary"
+                                    className="size-5 shrink-0 text-accent"
                                 />
                                 {t('languagesTitle')}
                             </h3>
@@ -44,7 +41,7 @@ export default function Education() {
                                             </span>
                                             <span
                                                 className={cn(
-                                                    'font-mono text-label-code',
+                                                    'text-label-code',
                                                     accentClass[accent].text
                                                 )}
                                             >
@@ -59,20 +56,18 @@ export default function Education() {
                                             aria-label={t(
                                                 `languages.${id}.name`
                                             )}
-                                            className="glass-inset h-1.5 w-full overflow-hidden rounded-full"
+                                            className="h-1.5 w-full overflow-hidden rounded-full bg-white/10"
                                         >
                                             <div
                                                 className={cn(
-                                                    'h-full rounded-full bg-gradient-to-r from-violet-intense',
-                                                    accent === 'tertiary'
-                                                        ? 'to-tertiary'
-                                                        : 'to-primary'
+                                                    'h-full rounded-full',
+                                                    'bg-accent'
                                                 )}
                                                 style={{ width: `${level}%` }}
                                             />
                                         </div>
                                         {t.has(`languages.${id}.note`) ? (
-                                            <p className="mt-1.5 font-mono text-[11px] leading-4 text-on-surface-variant">
+                                            <p className="mt-1.5 text-label-code text-on-surface-variant">
                                                 {t(`languages.${id}.note`)}
                                             </p>
                                         ) : null}
@@ -88,15 +83,12 @@ export default function Education() {
                             <Card
                                 as="li"
                                 key={id}
-                                className="flex items-start gap-4 p-6"
+                                className="reveal-up flex items-start gap-4 p-6"
                             >
-                                <span className="glass-inset flex size-12 shrink-0 items-center justify-center rounded-xl border border-border-subtle">
+                                <span className="flex size-12 shrink-0 items-center justify-center rounded-full border border-border-subtle">
                                     <Icon
                                         aria-hidden
-                                        className={cn(
-                                            'size-6',
-                                            accentClass[accent].text
-                                        )}
+                                        className={cn('size-6', 'text-accent')}
                                     />
                                 </span>
                                 <div className="flex-1">
@@ -104,7 +96,7 @@ export default function Education() {
                                         <h3 className="text-headline-sm text-white">
                                             {t(`degrees.${id}.title`)}
                                         </h3>
-                                        <span className="glass-inset shrink-0 rounded border border-border-subtle px-2 py-0.5 font-mono text-label-code text-on-surface-variant">
+                                        <span className="shrink-0 rounded-full border border-border-subtle px-3 py-1 text-label-code text-on-surface-variant">
                                             {period}
                                         </span>
                                     </div>

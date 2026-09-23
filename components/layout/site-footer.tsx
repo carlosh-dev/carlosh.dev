@@ -26,11 +26,11 @@ export default function SiteFooter() {
     const tContact = useTranslations('contact.channels')
 
     return (
-        <footer className="glass glass-band w-full border-t border-border-subtle">
+        <footer className="w-full border-t border-border-subtle">
             <Container className="py-12">
                 <div className="mb-8 flex flex-col items-center justify-between gap-6 md:flex-row">
                     <div className="flex flex-col items-center gap-1 md:items-start">
-                        <span className="font-mono text-label-code text-primary">
+                        <span className="text-body-md font-semibold text-white">
                             Carlos Henrique
                         </span>
                         <span className="text-body-sm text-on-surface-variant">
@@ -48,7 +48,7 @@ export default function SiteFooter() {
                                         target: '_blank',
                                         rel: 'noopener noreferrer',
                                     })}
-                                    className="flex rounded-lg p-2 text-on-surface-variant transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                                    className="flex rounded-full p-2 text-on-surface-variant transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                                 >
                                     <Icon aria-hidden className="size-5" />
                                 </a>
@@ -63,12 +63,12 @@ export default function SiteFooter() {
                             year: String(new Date().getFullYear()),
                         })}
                     </p>
-                    <p className="flex items-center gap-1">
+                    <p className="flex items-center gap-2">
                         <span
                             aria-hidden
-                            className="size-2 animate-pulse rounded-full bg-tertiary"
+                            className="size-2 animate-pulse rounded-full bg-accent"
                         />
-                        <span className="font-mono text-label-code text-tertiary">
+                        <span className="text-label-code text-accent">
                             {t('available')}
                         </span>
                     </p>

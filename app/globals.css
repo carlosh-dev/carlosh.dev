@@ -1,216 +1,114 @@
 @import 'tailwindcss';
 
-/* -------------------------------------------------------------------------- */
-/*  Fallback métrico da Sansation                                              */
-/*                                                                             */
-/*  O `next/font` avisa no build: "Failed to find font override values for     */
-/*  font `Sansation`. Skipping generating a fallback font." A face é nova       */
-/*  demais para a tabela de métricas que ele carrega, então ele desiste — e     */
-/*  sem fallback ajustado, `display: swap` troca Arial por Sansation com um     */
-/*  salto de layout visível. Numa página que é uma coluna de texto só, o        */
-/*  salto atravessa a dobra inteira.                                           */
-/*                                                                             */
-/*  Então medimos nós, direto no arquivo da fonte, e aplicamos a mesma fórmula  */
-/*  que o Next aplicaria (`server/font-utils.ts`), com Arial de base:           */
-/*                                                                             */
-/*    largura média ponderada (capsize)   Sansation 942/2048 · Arial 913/2048   */
-/*    size-adjust  = 942 / 913                            = 103,18%            */
-/*    ascent       = 1854 / (2048 × 1,031763)             =  87,74%            */
-/*    descent      =  438 / (2048 × 1,031763)             =  20,73%            */
-/*    line-gap     =    0                                 =   0%               */
-/*                                                                             */
-/*  O método foi conferido contra a própria Arial antes de ser usado aqui:      */
-/*  reproduz 915 onde a tabela do Next diz 913 (0,2% de erro).                  */
-/*                                                                             */
-/*  Os três `local()` são intercambiáveis para este fim: Arial, Helvetica Neue  */
-/*  e Liberation Sans têm a mesma largura média, e as diferenças verticais      */
-/*  entre elas são justamente o que os `-override` acima anulam.                */
-/* -------------------------------------------------------------------------- */
-@font-face {
-    font-family: 'Sansation Fallback';
-    src: local('Arial'), local('Helvetica Neue'), local('Liberation Sans');
-    size-adjust: 103.18%;
-    ascent-override: 87.74%;
-    descent-override: 20.73%;
-    line-gap-override: 0%;
-}
-
 @theme {
-    /* ---- Surfaces (obsidian stack) ---- */
-    --color-surface-base: #0a0a0c;
-    --color-surface-raised: #0f0e17;
-    --color-surface-card: #13111c;
-    --color-surface-overlay: #181524;
-    --color-surface-variant: #353437;
-    --color-surface-lowest: #0e0e10;
+    /* ---- Superfícies ----
+       Preto de verdade no chão e três degraus acima dele. Os degraus não
+       fazem sombra nem vidro: são chapas, separadas por uma hairline. */
+    --color-surface-base: #000000;
+    --color-surface-lowest: #050505;
+    --color-surface-raised: #0a0a0a;
+    --color-surface-card: #111111;
+    --color-surface-overlay: #161616;
 
-    /* ---- Foreground ---- */
-    --color-on-surface: #e5e1e4;
-    --color-on-surface-variant: #cbc3d7;
-    --color-outline: #958ea0;
+    /* ---- Frente ---- */
+    --color-on-surface: #f2f2f2;
+    --color-on-surface-variant: #a3a3a3;
+    --color-outline: #8c8c8c;
 
-    /* ---- Violet spectrum ---- */
-    --color-primary: #d0bcff;
-    --color-primary-fixed: #e9ddff;
-    --color-primary-container: #a078ff;
-    --color-on-primary: #3c0091;
-    --color-on-primary-container: #340080;
-    --color-secondary: #d7baff;
-    --color-violet-intense: #7c3aed;
-    --color-violet-deep: #6d28d9;
+    /* ---- Sinal ----
+       O único matiz da página. Aparece onde há estado ou ênfase — item
+       ativo, linha sob o ponteiro, círculo do CTA, ponto ao vivo — e em
+       nenhum outro lugar. Sobre ele o texto é sempre preto. */
+    --color-accent: #bbe851;
+    --color-on-accent: #0a0a0a;
 
-    /* ---- Syntax accents ---- */
-    --color-tertiary: #31e368;
-    --color-tertiary-container: #00a745;
-    --color-accent-cyan: #8be9fd;
-    --color-accent-pink: #ff79c6;
+    /* ---- Arestas ---- */
+    --color-border-subtle: rgb(255 255 255 / 0.1);
+    --color-border-active: rgb(255 255 255 / 0.28);
 
-    /* ---- Edges ---- */
-    --color-border-subtle: rgb(255 255 255 / 0.08);
-    --color-border-active: rgb(139 92 246 / 0.4);
-    --color-border-glass: rgb(255 255 255 / 0.12);
+    /* ---- Tipo ----
+       Uma família só. Archivo é variável em peso (100–900) e largura
+       (62–125), então o título apertado e o corpo corrido saem da mesma
+       face — nada de sintético, todo peso aqui é desenho real. */
+    --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
 
-    /* ---- Vidro ----
-       O painel é uma lâmina, não um preenchimento. `tint` é a massa do vidro,
-       `fill` é a luz que entra pela aresta superior, `blur`/`sat` são a
-       espessura óptica. Cada camada do sistema muda só estes quatro valores. */
-    --glass-tint: rgb(22 19 34 / 0.55);
-    --glass-fill: rgb(255 255 255 / 0.05);
-    --glass-blur: 20px;
-    --glass-sat: 165%;
-    --glass-rim-top: rgb(255 255 255 / 0.1);
-    --glass-rim-bottom: rgb(139 92 246 / 0.14);
-    --glass-bloom: 0 0 35px -5px rgb(139 92 246 / 0.14);
+    /* ---- Escala ----
+       Títulos fluidos, presos entre o celular e 6rem. Quanto maior o
+       corpo, mais fechado o espaço — até o piso de -0.04em. */
+    --text-display: clamp(3rem, 1.4rem + 6.2vw, 6rem);
+    --text-display--line-height: 0.92;
+    --text-display--letter-spacing: -0.04em;
+    --text-display--font-weight: 800;
 
-    /* ---- Typefaces ---- */
-    --font-sans:
-        var(--font-sansation), 'Sansation Fallback', ui-sans-serif, system-ui,
-        -apple-system, sans-serif;
-    --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+    --text-headline-xl: clamp(2.5rem, 1.2rem + 5vw, 5.5rem);
+    --text-headline-xl--line-height: 0.92;
+    --text-headline-xl--letter-spacing: -0.04em;
+    --text-headline-xl--font-weight: 800;
 
-    /* ---- Escala tipográfica ----
-       Medida nos arquivos reais das duas faces, não estimada. Sansation, em
-       relação à Plus Jakarta Sans que ela substitui:
+    --text-headline-lg: clamp(1.5rem, 1rem + 1.6vw, 2.25rem);
+    --text-headline-lg--line-height: 1.1;
+    --text-headline-lg--letter-spacing: -0.025em;
+    --text-headline-lg--font-weight: 500;
 
-         altura-x      0,513em  vs  0,536em   →  ×1,045
-         altura-de-caixa-alta  0,698em  vs  0,745em   →  ×1,067
-         largura da minúscula  0,514em  vs  0,540em   →  ×0,952
-         mancha vertical (asc→desc)  0,884em  vs  0,957em  →  ×0,924
-
-       Daí as três decisões desta escala:
-
-       1. TAMANHO. Título é lido pela caixa-alta, texto é lido pela altura-x —
-          então título sobe ~6,7% e texto sobe ~4,5%. Como a face também é 4,8%
-          mais estreita, a linha ocupa praticamente a mesma largura de antes:
-          nenhuma quebra de texto se move. O corpo cair em 16px é consequência,
-          não coincidência — era o piso que faltava.
-
-       2. ENTRELINHA. A mancha encolheu 7,6% e as ascendentes de Sansation param
-          exatamente na altura da caixa-alta (nada ultrapassa 'H'). Recalculamos
-          cada valor para preservar o VÃO em px, não a razão — e arredondamos
-          para cima, porque texto claro sobre quase-preto sangra e pede ar.
-
-       3. ENTRELETRA. Menos largura por glifo é menos lateral para tirar: todo
-          valor negativo afrouxa ~20%. A prosa vai a zero ou positiva — no
-          escuro, apertar corpo de texto fecha as contraformas.
-
-       Todo peso aqui é 400 ou 700. São os únicos que carregamos, e pedir 500,
-       600 ou 800 faria o browser engordar o desenho por conta própria. */
-
-    --text-display-hero: 60px;
-    --text-display-hero--line-height: 66px;
-    --text-display-hero--letter-spacing: -0.024em;
-    --text-display-hero--font-weight: 700;
-
-    --text-display-hero-mobile: 38px;
-    --text-display-hero-mobile--line-height: 46px;
-    --text-display-hero-mobile--letter-spacing: -0.016em;
-    --text-display-hero-mobile--font-weight: 700;
-
-    --text-headline-xl: 42px;
-    --text-headline-xl--line-height: 50px;
-    --text-headline-xl--letter-spacing: -0.02em;
-    --text-headline-xl--font-weight: 700;
-
-    --text-headline-xl-mobile: 30px;
-    --text-headline-xl-mobile--line-height: 38px;
-    --text-headline-xl-mobile--letter-spacing: -0.016em;
-    --text-headline-xl-mobile--font-weight: 700;
-
-    --text-headline-lg: 30px;
-    --text-headline-lg--line-height: 38px;
-    --text-headline-lg--letter-spacing: -0.016em;
-    --text-headline-lg--font-weight: 700;
-
-    --text-headline-md: 23px;
-    --text-headline-md--line-height: 32px;
-    --text-headline-md--letter-spacing: -0.012em;
-    --text-headline-md--font-weight: 700;
+    --text-headline-md: 24px;
+    --text-headline-md--line-height: 30px;
+    --text-headline-md--letter-spacing: -0.015em;
+    --text-headline-md--font-weight: 600;
 
     --text-headline-sm: 19px;
-    --text-headline-sm--line-height: 27px;
-    --text-headline-sm--letter-spacing: -0.008em;
-    --text-headline-sm--font-weight: 700;
+    --text-headline-sm--line-height: 26px;
+    --text-headline-sm--letter-spacing: -0.01em;
+    --text-headline-sm--font-weight: 600;
 
     --text-body-lg: 19px;
     --text-body-lg--line-height: 30px;
-    --text-body-lg--letter-spacing: 0em;
+    --text-body-lg--letter-spacing: -0.005em;
     --text-body-lg--font-weight: 400;
 
     --text-body-md: 16px;
     --text-body-md--line-height: 26px;
-    --text-body-md--letter-spacing: 0.004em;
+    --text-body-md--letter-spacing: 0em;
     --text-body-md--font-weight: 400;
 
     --text-body-sm: 14px;
     --text-body-sm--line-height: 22px;
-    --text-body-sm--letter-spacing: 0.008em;
+    --text-body-sm--letter-spacing: 0em;
     --text-body-sm--font-weight: 400;
 
-    /* Os dois tokens mono seguem intocados: JetBrains Mono é variável de 100 a
-       800, então 500 e 600 aqui são desenho de verdade, não simulação. */
-    --text-code-inline: 13px;
-    --text-code-inline--line-height: 20px;
-    --text-code-inline--letter-spacing: -0.01em;
-    --text-code-inline--font-weight: 500;
-
-    --text-label-code: 11px;
+    /* Rótulos de máquina (EXP_PROD, datas, chips) em sans: pequenos,
+       médios e abertos, para não virarem ruído ao lado do título. */
+    --text-label-code: 12px;
     --text-label-code--line-height: 16px;
-    --text-label-code--letter-spacing: 0.06em;
-    --text-label-code--font-weight: 600;
+    --text-label-code--letter-spacing: 0.04em;
+    --text-label-code--font-weight: 500;
 
-    --text-stat-metric: 34px;
-    --text-stat-metric--line-height: 40px;
-    --text-stat-metric--letter-spacing: -0.016em;
-    --text-stat-metric--font-weight: 700;
+    /* Os números da carreira: grandes e leves. O peso fica no tamanho,
+       não no traço. */
+    --text-stat-metric: clamp(3rem, 2rem + 3vw, 4.5rem);
+    --text-stat-metric--line-height: 1;
+    --text-stat-metric--letter-spacing: -0.04em;
+    --text-stat-metric--font-weight: 300;
 
     /* ---- Layout ---- */
-    --container-page: 76rem;
+    --container-page: 80rem;
 
     /* ---- Motion ---- */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --animate-float: float 4s ease-in-out infinite;
     --animate-panel-in: panel-in 280ms cubic-bezier(0.16, 1, 0.3, 1);
-    --animate-live-node: live-node 2.4s ease-in-out infinite;
-    --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
+    --animate-live-node: live-node 2.4s ease-out infinite;
 
-    /* O nó da timeline em curso é o único ponto "ao vivo" da página fora
-       do rodapé — a Regra do Nó Único Aceso permite exatamente um por
-       região, e aqui ele respira em vez de só brilhar parado, o mesmo
-       sinal de liveness que o `animate-pulse` verde já cumpre no rodapé. */
+    /* O cargo atual é o único nó vivo da timeline: um anel lime que abre e
+       some, sem desfoque — um sinal, não um brilho. */
     @keyframes live-node {
-        0%,
-        100% {
-            box-shadow: 0 0 16px rgb(139 92 246 / 0.8);
+        0% {
+            box-shadow: 0 0 0 0 rgb(187 232 81 / 0.55);
         }
-        50% {
-            box-shadow: 0 0 24px rgb(139 92 246 / 0.5);
+        100% {
+            box-shadow: 0 0 0 10px rgb(187 232 81 / 0);
         }
     }
 
-    /* O painel mobile sai de dentro da cápsula, então desce e cresce um
-       fio a partir do topo. Só `opacity` e `transform` — a folha carrega
-       `backdrop-filter`, e animar qualquer coisa que mude a caixa
-       obrigaria o filtro a se refazer em cada quadro. */
     @keyframes panel-in {
         from {
             opacity: 0;
@@ -227,329 +125,90 @@
             transform: translateY(-6px);
         }
     }
-
-    /* A aura do retrato já é o brilho — respira em opacidade, o mesmo
-       gesto do nó da timeline, em vez de ganhar uma segunda camada. */
-    @keyframes glow-pulse {
-        0%,
-        100% {
-            opacity: 0.4;
-        }
-        50% {
-            opacity: 0.65;
-        }
-    }
 }
 
 /* -------------------------------------------------------------------------- */
 /*  Campo do hero                                                              */
 /*                                                                             */
-/*  A luz do hero é desenhada em WebGL pelo PixelBlast: FBM passado por uma    */
-/*  matriz de Bayer 8x8, o que transforma a fonte violeta num campo de pontos  */
-/*  tramados em vez de um gradiente. Os orbes CSS abaixo são o piso — valem    */
-/*  sozinhos quando não há WebGL2, e saem de cena quando o campo sobe.         */
-/*                                                                             */
-/*  A opacidade não é acabamento: a 100% os pontos de #7c3aed derrubam o       */
-/*  texto do corpo (#cbc3d7) para ~3.2:1. A 70% o pior caso fica em ~5.0:1 —   */
-/*  e o poço de obsidiana do `.hero-scrim` cobre a coluna de leitura, então    */
-/*  onde o parágrafo realmente está a trama nem chega a esse pior caso.        */
+/*  A trama do PixelBlast em lime, baixa o bastante para o texto do corpo      */
+/*  (#a3a3a3) seguir acima de 4.5:1 mesmo com um ponto atrás do glifo — sem    */
+/*  scrim, que seria um gradiente.                                             */
 /* -------------------------------------------------------------------------- */
 
 @layer components {
-    .hero-ambient-orb {
-        transition: opacity 900ms ease-out;
-    }
-
-    /* O componente marca o próprio container quando o contexto sobe, então
-       o campo só aparece se realmente houver o que mostrar. */
     .hero-pixel-field {
         opacity: 0;
         transition: opacity 1200ms ease-out;
     }
 
     .hero-pixel-field[data-pixel-field='on'] {
-        opacity: 0.7;
+        opacity: 0.3;
     }
 
-    /*
-     * A trama é matéria da sala, e a sala fica atrás do texto — não dentro
-     * dele. Sem isto os pontos atravessam o parágrafo e a leitura fica suja
-     * mesmo passando no contraste medido. É o mesmo recurso que a `.aurora`
-     * já usa para o gradiente não encostar na leitura: um poço de obsidiana
-     * centrado na coluna de texto, largo o bastante para não ter forma
-     * própria. O campo segue inteiro em volta do retrato e nas bordas.
-     */
-    .hero-scrim {
-        background-image: radial-gradient(
-            112% 58% at 50% 45%,
-            rgb(10 10 12 / 0.88) 0%,
-            rgb(10 10 12 / 0.6) 44%,
-            transparent 78%
-        );
+    /* O retrato é uma chapa como as outras: 16px de raio. */
+    /* Chapa: o substituto do vidro. Preenchimento, hairline, nada mais. */
+    .surface {
+        background-color: var(--color-surface-raised);
+        border: 1px solid var(--color-border-subtle);
     }
 
-    @media (min-width: 1024px) {
-        .hero-scrim {
-            background-image: radial-gradient(
-                50% 76% at 27% 50%,
-                rgb(10 10 12 / 0.9) 0%,
-                rgb(10 10 12 / 0.58) 46%,
-                transparent 76%
-            );
-        }
+    .surface-interactive {
+        transition:
+            background-color 300ms ease,
+            border-color 300ms ease;
     }
 
-    .hero-field:has(.hero-pixel-field[data-pixel-field='on'])
-        .hero-ambient-orb {
-        opacity: 0;
-    }
-
-    /*
-     * A silhueta do retrato.
-     *
-     * Percentuais, não pixels — é o que permite a MESMA curva servir o
-     * quadro e a aura atrás dele, que é 24px maior: cada raio se resolve
-     * contra a caixa em que está, então as duas silhuetas ficam
-     * proporcionais em vez de só concêntricas. Uma aura retangular
-     * borrada desenharia um halo com quatro cantos que a forma não tem.
-     *
-     * As somas por aresta fecham em 100% exatos (60+40 e 45+55 na
-     * horizontal, 55+45 e 60+40 na vertical). Passar de 100% faz o CSS
-     * reescalar o conjunto inteiro por um fator comum e a curva sai menor
-     * do que a escrita aqui; ficar muito abaixo devolve lados retos entre
-     * os cantos, e aí a forma vira retângulo arredondado.
-     *
-     * O desvio de 50% é o que faz a silhueta ser lida como orgânica em
-     * vez de elipse: a primeira tentativa ficou em 54/46 e voltou do
-     * screenshot como um oval comum. 60/40 inclina o volume para o alto
-     * à esquerda e para baixo à direita — a mesma diagonal da luz da
-     * sala, que descansa no canto superior esquerdo.
-     *
-     * Estática de propósito. Animar `border-radius` repinta uma
-     * superfície com `overflow: hidden` a cada quadro, e o idioma desta
-     * página é tipográfico e parado — a forma orgânica entra porque o
-     * briefing pediu, o wobble não vem junto.
-     */
-    .portrait-organic {
-        border-radius: 60% 40% 45% 55% / 55% 60% 40% 45%;
+    .surface-interactive:hover {
+        background-color: var(--color-surface-card);
+        border-color: var(--color-border-active);
     }
 }
 
 /* ---------------------------------------------------------------- */
-/*  Vidro                                                            */
+/*  Cápsula do header                                                 */
 /*                                                                    */
-/*  Uma lâmina de vidro só existe se houver luz atrás dela. O campo    */
-/*  ambiente (.aurora) é essa luz; `backdrop-filter` é a espessura;    */
-/*  os dois `inset` são o bisel — aresta de cima recebendo luz,        */
-/*  aresta de baixo devolvendo o violeta da sala. Nenhuma sombra       */
-/*  direcional entra aqui: a "Regra do Emitido, Nunca Projetado"       */
-/*  continua valendo, o vidro transmite em vez de projetar.            */
+/*  A única superfície com `backdrop-filter` da página: ela passa por  */
+/*  cima do conteúdo e precisa manter o menu legível. Sobre o hero é   */
+/*  fina; depois da rolagem ganha massa. O `blur` não entra na          */
+/*  transição — animar filtro refaz a superfície a cada quadro.        */
 /* ---------------------------------------------------------------- */
-.glass {
-    background-color: var(--glass-tint);
-    /* 160deg = a luz entra pelo alto à esquerda, o mesmo canto de onde
-           a fonte do hero descansa (REST_X 0.26 / REST_Y 0.24). */
-    background-image: linear-gradient(
-        160deg,
-        var(--glass-fill) 0%,
-        rgb(255 255 255 / 0) 46%
-    );
-    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
-    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
-    box-shadow:
-        inset 0 1px 0 var(--glass-rim-top),
-        inset 0 -1px 0 var(--glass-rim-bottom),
-        var(--glass-bloom);
-}
-
-/* Cromo fixo: mais massa e menos transparência, porque o conteúdo passa
-       por baixo em vez de ficar parado. */
-.glass-chrome {
-    --glass-tint: rgb(10 10 12 / 0.62);
-    --glass-blur: 28px;
-    --glass-sat: 180%;
-    --glass-fill: rgb(255 255 255 / 0.04);
-    --glass-bloom: 0 0 0 0 transparent;
-}
-
-/* Cromo flutuante. A cápsula do header não encosta em aresta nenhuma da
-       janela: fica suspensa, e por isso tem luz de verdade atrás dela — a
-       trama do PixelBlast e os orbes do hero passam por baixo, não só a
-       aurora parada. Isso é o que separa esta lâmina do `.glass-chrome`
-       antigo, que cobria a borda da tela inteira.
-
-       Duas massas, e a troca entre elas é estado, não enfeite: sobre o hero
-       a lâmina é fina para não apagar o campo; depois que a página rola, ela
-       engrossa, porque passou a cobrir conteúdo em vez de fundo.
-
-       O `blur` NÃO entra na transição — animar `backdrop-filter` obriga o
-       compositor a refazer o filtro da superfície inteira a cada quadro. O
-       que se move aqui é massa, bisel e florescência: os mesmos três valores
-       que o `.glass-interactive` já move nos cartões. */
-.glass-capsule {
-    --glass-tint: rgb(10 10 12 / 0.4);
-    --glass-blur: 26px;
-    --glass-sat: 180%;
-    --glass-fill: rgb(255 255 255 / 0.06);
-    --glass-rim-bottom: rgb(139 92 246 / 0.12);
-    --glass-bloom: 0 0 0 0 transparent;
+.header-capsule {
+    background-color: rgb(0 0 0 / 0.55);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     transition:
         background-color 420ms ease,
-        box-shadow 420ms ease;
+        border-color 420ms ease;
 }
 
-.glass-capsule[data-lifted='true'] {
-    --glass-tint: rgb(10 10 12 / 0.72);
-    --glass-rim-top: rgb(255 255 255 / 0.14);
-    --glass-rim-bottom: rgb(139 92 246 / 0.2);
-    --glass-bloom: 0 0 44px -14px rgb(139 92 246 / 0.34);
+.header-capsule[data-lifted='true'] {
+    background-color: rgb(10 10 10 / 0.82);
+    border-color: var(--color-border-active);
 }
 
-/* A folha do menu mobile é a única superfície da página que precisa
-       esconder de verdade o que cobre — atrás dela está o hero inteiro, e
-       um menu por onde se lê a headline não é um menu.
-
-       A massa vem daqui, não de uma propriedade arbitrária no JSX: as
-       classes de vidro moram fora de `@layer`, e estilo sem camada ganha de
-       estilo em camada por especificidade de origem. Um `[--glass-tint:…]`
-       na marcação perderia para o 0,4 da cápsula e a folha voltaria a ser
-       transparente — foi exatamente o que acontecia no header antigo. */
-.glass-capsule-panel {
-    --glass-tint: rgb(10 10 12 / 0.94);
-    --glass-blur: 30px;
-    --glass-rim-top: rgb(255 255 255 / 0.12);
-    --glass-rim-bottom: rgb(139 92 246 / 0.18);
-    --glass-bloom: 0 0 48px -16px rgb(139 92 246 / 0.3);
+/* A folha mobile precisa esconder o que cobre. */
+.header-capsule-panel {
+    background-color: rgb(10 10 10 / 0.96);
 }
 
-/* As duas maiores lâminas da página — painel de contato e moldura do
-       retrato. Mais espessas, e é onde o bisel aparece de verdade. */
-.glass-thick {
-    --glass-tint: rgb(23 19 36 / 0.72);
-    --glass-blur: 34px;
-    --glass-sat: 180%;
-    --glass-fill: rgb(255 255 255 / 0.085);
-    --glass-rim-top: rgb(255 255 255 / 0.18);
-    --glass-rim-bottom: rgb(139 92 246 / 0.26);
-    --glass-bloom: 0 0 80px -16px rgb(139 92 246 / 0.3);
+@supports not (
+    (backdrop-filter: blur(4px)) or (-webkit-backdrop-filter: blur(4px))
+) {
+    .header-capsule,
+    .header-capsule[data-lifted='true'],
+    .header-capsule-panel {
+        background-color: var(--color-surface-raised);
+    }
 }
 
-/* Cartões que flutuam sobre outra superfície, não sobre a página. */
-.glass-float {
-    --glass-tint: rgb(24 21 36 / 0.68);
-    --glass-blur: 24px;
-    --glass-fill: rgb(255 255 255 / 0.08);
-    --glass-rim-top: rgb(255 255 255 / 0.16);
-}
-
-/* Faixas de largura total: quase só espessura óptica, quase nenhuma massa.
-       É o que deixa a aurora atravessar a faixa em vez de ser tapada por ela. */
-.glass-band {
-    --glass-tint: rgb(15 14 23 / 0.4);
-    --glass-blur: 26px;
-    --glass-sat: 170%;
-    --glass-bloom: 0 0 0 0 transparent;
-}
-
-/*
-     * Rebaixo. Fica DENTRO de uma lâmina, então não leva `backdrop-filter`:
-     * empilhar filtro sobre filtro custa caro e não acrescenta nada — o que
-     * está atrás já foi borrado pelo pai. Aqui o efeito é massa escura mais
-     * um fio de luz no topo, e são estes que aparecem às dezenas na página.
-     */
-.glass-inset {
-    background-color: rgb(8 8 11 / 0.55);
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.045);
-}
-
-.glass-inset-interactive {
-    transition:
-        background-color 300ms ease,
-        border-color 300ms ease,
-        box-shadow 300ms ease;
-}
-
-.glass-inset-interactive:hover {
-    background-color: rgb(26 22 40 / 0.68);
-    box-shadow:
-        inset 0 1px 0 rgb(255 255 255 / 0.09),
-        inset 0 -1px 0 rgb(139 92 246 / 0.16);
-}
-
-/* Estado. O contorno acende e o vidro clareia — a lâmina inteira pega
-       luz, em vez de só trocar a cor da borda. */
-.glass-interactive {
-    transition:
-        background-color 300ms ease,
-        border-color 300ms ease,
-        box-shadow 300ms ease;
-}
-
-.glass-interactive:hover {
-    --glass-tint: rgb(28 24 42 / 0.6);
-    --glass-rim-top: rgb(255 255 255 / 0.16);
-    --glass-rim-bottom: rgb(139 92 246 / 0.28);
-    --glass-bloom: 0 0 44px -6px rgb(139 92 246 / 0.24);
-}
-
-/* ---------------------------------------------------------------- */
-/*  Campo ambiente                                                    */
-/*                                                                    */
-/*  A sala. Fica `fixed` de propósito: a luz não rola junto, então o    */
-/*  conteúdo desliza por cima dela e o vidro mostra coisas diferentes   */
-/*  em cada altura da página. Estático também por desempenho — animar   */
-/*  o fundo obrigaria cada superfície com `backdrop-filter` a refazer   */
-/*  o filtro a cada quadro.                                            */
-/* ---------------------------------------------------------------- */
-.aurora {
-    background-image:
-            /* Luz principal, alto à esquerda — o mesmo canto de onde a fonte
-               do hero descansa. */
-        radial-gradient(
-            980px 680px at 10% 8%,
-            rgb(124 58 237 / 0.2),
-            transparent 62%
-        ),
-        /* Contraluz à direita. */
-        radial-gradient(
-                820px 600px at 94% 34%,
-                rgb(160 120 255 / 0.14),
-                transparent 60%
-            ),
-        /* Preenchimento largo no meio da viewport. Sem ele a luz morre
-               justamente na faixa onde os painéis ficam, e o vidro volta a
-               ser só um retângulo mais claro. */
-        radial-gradient(
-                1400px 900px at 52% 56%,
-                rgb(139 92 246 / 0.1),
-                transparent 66%
-            ),
-        radial-gradient(
-            900px 640px at 22% 76%,
-            rgb(255 121 198 / 0.07),
-            transparent 58%
-        ),
-        radial-gradient(
-            760px 540px at 86% 92%,
-            rgb(139 233 253 / 0.055),
-            transparent 58%
-        ),
-        /* Vinheta: fecha a sala nas bordas sem apagar o centro. */
-        radial-gradient(
-                140% 110% at 50% 34%,
-                transparent 46%,
-                rgb(10 10 12 / 0.5) 100%
-            );
-}
-
-/*
-     * Gradiente amplo e de baixa opacidade sobre preto quase puro é banding
-     * garantido em painel de 8 bits. Uma trama fina quebra a escada sem
-     * virar textura: 3% de opacidade, e some para quem pediu menos.
-     */
-.aurora-grain {
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+@media (prefers-reduced-transparency: reduce) {
+    .header-capsule,
+    .header-capsule[data-lifted='true'],
+    .header-capsule-panel {
+        background-color: var(--color-surface-raised);
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
 }
 
 @layer base {
@@ -557,7 +216,8 @@
         scroll-behavior: smooth;
         color-scheme: dark;
         scrollbar-width: thin;
-        scrollbar-color: var(--color-violet-deep) var(--color-surface-base);
+        scrollbar-color: #333333 var(--color-surface-base);
+        caret-color: var(--color-accent);
     }
 
     body {
@@ -565,12 +225,33 @@
         color: var(--color-on-surface);
     }
 
-    /* A aresta de baixo da cápsula fica em 80px. Um alvo de âncora parando
-       a 16px dela encostaria na lâmina; 120px deixam 40px de ar, que é o
-       que a forma flutuante pede pra não parecer que o conteúdo bateu
-       nela. */
     section[id] {
         scroll-margin-top: 7.5rem;
+    }
+
+    /* A -0.04em e peso 800 o vão entre palavras quase some; devolve o ar
+       sem soltar as letras. */
+    h1,
+    h2 {
+        word-spacing: 0.08em;
+    }
+
+    /* O anel substitui a seta só quando ele de fato existe: o atributo
+       chega via JS depois de checar ponteiro fino e reduced-motion. */
+    @media (pointer: fine) {
+        html[data-custom-cursor='active'],
+        html[data-custom-cursor='active'] * {
+            cursor: none;
+        }
+    }
+
+    ::selection {
+        background-color: var(--color-accent);
+        color: var(--color-on-accent);
+    }
+
+    a {
+        text-underline-offset: 3px;
     }
 }
 
@@ -596,138 +277,10 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Recuos do vidro                                                            */
-/*                                                                             */
-/*  Sem `backdrop-filter`, ou com transparência reduzida no sistema, a lâmina   */
-/*  vira superfície opaca da pilha obsidiana. O layout não muda em nenhum dos   */
-/*  dois casos — só a matéria.                                                  */
-/* -------------------------------------------------------------------------- */
-
-@supports not (
-    (backdrop-filter: blur(4px)) or (-webkit-backdrop-filter: blur(4px))
-) {
-    .glass {
-        background-color: var(--color-surface-raised);
-        background-image: none;
-    }
-
-    .glass-chrome,
-    .glass-band {
-        background-color: var(--color-surface-base);
-    }
-
-    /* A cápsula flutua: opaca, ela precisa se separar do fundo da página em
-       vez de se fundir com ele. Sobe um degrau na pilha obsidiana — e o
-       estado continua legível, porque sobe outro quando levanta. */
-    .glass-capsule {
-        background-color: var(--color-surface-raised);
-    }
-
-    .glass-capsule[data-lifted='true'],
-    .glass-capsule-panel {
-        background-color: var(--color-surface-card);
-    }
-
-    .glass-inset {
-        background-color: var(--color-surface-base);
-    }
-}
-
-@media (prefers-reduced-transparency: reduce) {
-    .glass {
-        background-color: var(--color-surface-raised);
-        background-image: none;
-        -webkit-backdrop-filter: none;
-        backdrop-filter: none;
-    }
-
-    .glass-chrome,
-    .glass-band {
-        background-color: var(--color-surface-base);
-    }
-
-    .glass-thick,
-    .glass-float {
-        background-color: var(--color-surface-card);
-    }
-
-    .glass-capsule {
-        background-color: var(--color-surface-raised);
-    }
-
-    .glass-capsule[data-lifted='true'],
-    .glass-capsule-panel {
-        background-color: var(--color-surface-card);
-    }
-
-    .glass-inset {
-        background-color: var(--color-surface-base);
-    }
-
-    .aurora,
-    .aurora-grain {
-        display: none;
-    }
-}
-
-/* -------------------------------------------------------------------------- */
-/*  Superfícies do navegador                                                   */
-/*                                                                             */
-/*  Cursor, seleção, sublinhado e algarismos chegam com o padrão do navegador,  */
-/*  que não pertence a sistema nenhum. Passam a pertencer a este.               */
-/* -------------------------------------------------------------------------- */
-
-@layer base {
-    html {
-        caret-color: var(--color-primary);
-    }
-
-    /* O anel substitui a seta só quando ele de fato existe: o atributo
-       chega via JS depois de checar ponteiro fino e reduced-motion, então
-       um visitante em touch ou sem JS nunca perde o cursor nativo. */
-    @media (pointer: fine) {
-        html[data-custom-cursor='active'],
-        html[data-custom-cursor='active'] * {
-            cursor: none;
-        }
-    }
-
-    ::selection {
-        background-color: rgb(124 58 237 / 0.55);
-        color: #ffffff;
-    }
-
-    a {
-        text-underline-offset: 3px;
-    }
-
-    /*
-     * Números que existem para serem comparados entre si ficam alinhados —
-     * mas só o mono pode cumprir isso. Sansation não traz `tnum` (a única
-     * feature OpenType da face é `liga`) e seus algarismos são proporcionais
-     * de verdade: o '1' mede 645 unidades contra 1445 do '0'. Declarar
-     * tabular-nums no metric seria uma linha que não faz nada.
-     *
-     * Por isso a regra do sistema: coluna de números se escreve em mono.
-     * Os cinco indicadores não empilham — ficam lado a lado, um por cartão,
-     * sem nada para alinhar verticalmente — então seguem no sans.
-     */
-    .font-mono {
-        font-variant-numeric: tabular-nums;
-    }
-}
-
-/* -------------------------------------------------------------------------- */
 /*  Cursor personalizado                                                       */
 /*                                                                             */
-/*  Um ponto que grava a posição real e um anel que chega um instante depois   */
-/*  por inércia — a mesma folga de mola da pílula do nav, só que contínua.     */
-/*  Sobre um link o anel cresce e acende a borda ativa: o mesmo sinal de       */
-/*  interação que já existe em todo o sistema, só que preso ao ponteiro em     */
-/*  vez de à superfície. O ponto carrega luz própria e contínua — é o único    */
-/*  nó que pode brilhar em repouso, porque é o proxy do próprio visitante,     */
-/*  não uma região da página; a "Regra do Nó Único Aceso" continua valendo     */
-/*  para o resto do sistema, e o anel só acende junto quando pousa em algo.    */
+/*  Um ponto lime que grava a posição real e um anel que chega um instante      */
+/*  depois por inércia. Sobre um link o anel cresce e se enche de lime.         */
 /* -------------------------------------------------------------------------- */
 @layer components {
     .custom-cursor-dot,
@@ -742,8 +295,7 @@
             height 300ms cubic-bezier(0.16, 1, 0.3, 1),
             margin 300ms cubic-bezier(0.16, 1, 0.3, 1),
             background-color 300ms ease,
-            border-color 300ms ease,
-            box-shadow 300ms ease;
+            border-color 300ms ease;
         will-change: transform;
     }
 
@@ -751,27 +303,22 @@
         width: 6px;
         height: 6px;
         margin: -3px 0 0 -3px;
-        background-color: var(--color-primary-fixed);
-        box-shadow:
-            0 0 8px rgb(139 92 246 / 0.9),
-            0 0 20px rgb(139 92 246 / 0.5),
-            0 0 36px rgb(139 92 246 / 0.25);
+        background-color: var(--color-accent);
     }
 
     .custom-cursor-ring {
         width: 30px;
         height: 30px;
         margin: -15px 0 0 -15px;
-        border: 1px solid var(--color-border-subtle);
+        border: 1px solid var(--color-border-active);
     }
 
     .custom-cursor-ring[data-state='hover'] {
         width: 52px;
         height: 52px;
         margin: -26px 0 0 -26px;
-        border-color: var(--color-border-active);
-        background-color: rgb(139 92 246 / 0.12);
-        box-shadow: 0 0 32px rgb(139 92 246 / 0.5);
+        border-color: var(--color-accent);
+        background-color: rgb(187 232 81 / 0.12);
     }
 
     .custom-cursor-ring[data-pressed='true'] {
@@ -782,15 +329,9 @@
 }
 
 @layer components {
-    /* Os cards da timeline sobem ao entrar em tela. É a `view()` nativa em
-       vez de um IntersectionObserver: o progresso fica preso à rolagem, então
-       o gesto se refaz toda vez que o card volta à tela — e não uma única vez
-       por sessão, que é o que o observer daria sem estado extra. A faixa é
-       medida em `entry`, cujo comprimento é a própria altura do card, então
-       cards de tamanhos diferentes revelam no mesmo ritmo.
-
-       Onde `animation-timeline` não existe, a duração cai para 0s e o card
-       nasce direto no estado final: perde-se a animação, nunca o conteúdo. */
+    /* Os cards sobem ao entrar em tela, presos à rolagem pela `view()`
+       nativa. Onde `animation-timeline` não existe, a duração cai para 0s
+       e o card nasce no estado final: perde-se a animação, nunca o conteúdo. */
     .reveal-up {
         animation: reveal-up linear both;
         animation-timeline: view();
@@ -810,21 +351,12 @@
 /*                                                                             */
 /*  Os cards de experiência empilham em vez de rolar: cada um encosta abaixo   */
 /*  da cápsula e fica preso enquanto o próximo sobe por cima, encolhendo e     */
-/*  escurecendo conforme é soterrado. É `position: sticky` mais a mesma        */
-/*  `view()` que o resto da página já usa — nada de rAF nem de sequestrar a    */
-/*  rolagem com smooth-scroll de biblioteca.                                   */
+/*  escurecendo conforme é soterrado. `position: sticky` mais a `view()`.      */
 /*                                                                             */
 /*  A timeline sai do <ol>, que não é sticky e portanto anda de verdade; cada  */
-/*  card anima só a fatia `--i/--count` dessa faixa. Se ela saísse do próprio  */
-/*  card, congelaria junto com ele no momento em que prendesse.                */
-/*                                                                             */
-/*  O vidro continua translúcido de propósito: o card de cima desfoca o de     */
-/*  baixo com o próprio `backdrop-filter`, e a profundidade da pilha aparece   */
-/*  sem uma sombra projetada sequer.                                           */
+/*  card anima só a fatia `--i/--count` dessa faixa.                           */
 /* -------------------------------------------------------------------------- */
 @layer components {
-    /* Espaçamento normal da lista; a pilha o estica lá embaixo. Fica fora do
-       `@media` porque é layout, não movimento. */
     .stack-cards {
         --stack-gap: 2rem;
     }
@@ -836,25 +368,17 @@
     @media (prefers-reduced-motion: no-preference) {
         .stack-cards {
             view-timeline-name: --stack;
-            /* O respiro entre cards é o tempo de permanência de cada um preso
-               no topo: sem ele, os cards (mais baixos que a viewport) só se
-               alcançariam no fim da seção e a pilha não chegaria a se formar. */
             --stack-gap: 30vh;
-            /* Cauda para a pilha ficar inteira em tela um instante antes da
-               aresta de baixo do <ol> empurrar todo mundo pra fora. */
             padding-bottom: 16vh;
         }
 
-        /* 7.5rem é o mesmo `scroll-margin-top` das seções: a aresta de baixo
-           da cápsula mais o ar que ela pede. Os 0.75rem por índice são a
-           lombada da pilha — o que sobra visível de cada card soterrado. */
+        /* 0.75rem por índice é a lombada: o que sobra visível de cada card
+           soterrado. */
         .stack-card {
             position: sticky;
             top: calc(7.5rem + var(--i) * 0.75rem);
         }
 
-        /* A fatia da timeline que pertence a este card: o trecho em que o
-           próximo sobe por cima dele. */
         .stack-card {
             --stack-slice: exit-crossing calc(var(--i) / var(--count) * 100%)
                 exit-crossing calc((var(--i) + 1) / var(--count) * 100%);
@@ -868,16 +392,12 @@
             will-change: transform;
         }
 
-        /* O nó da timeline sai junto: soterrado, ele viraria uma coluna de
-           pontos empilhados à esquerda da pilha, marcando um trilho que o
-           card de cima já cobriu. */
         .stack-card-node {
             animation: stack-node-out linear both;
             animation-timeline: --stack;
             animation-range: var(--stack-slice);
         }
 
-        /* O último card é o topo da pilha: nada o cobre, então nada o apaga. */
         .stack-card:last-child .stack-card-face,
         .stack-card:last-child .stack-card-node {
             animation: none;
@@ -886,7 +406,7 @@
         @keyframes stack-sink {
             to {
                 transform: scale(0.92);
-                filter: brightness(0.62);
+                filter: brightness(0.5);
             }
         }
 

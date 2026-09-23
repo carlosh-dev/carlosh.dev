@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl'
 import Card from '@/components/ui/card'
 import Container from '@/components/ui/container'
 import SectionHeading from '@/components/ui/section-heading'
-import { accentClass, pillars } from '@/lib/content'
+import { pillars } from '@/lib/content'
 import { cn } from '@/lib/cn'
 
 export default function About() {
@@ -13,71 +13,70 @@ export default function About() {
     return (
         <section id="sobre" className="relative w-full py-16 lg:py-24">
             <Container>
-                <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-                    {/* ---------- Coluna de título ---------- */}
-                    <div className="flex flex-col items-start lg:col-span-4">
-                        <SectionHeading
-                            eyebrow={t('eyebrow')}
-                            title={t('title')}
-                            description={t('description')}
-                            className="[&>h2]:mb-4 [&>p]:mb-6"
+                {/* O título gigante não cabe em 4 colunas: fica numa linha
+                    própria, e a coluna estreita guarda só o cartão da stack. */}
+                <SectionHeading
+                    eyebrow={t('eyebrow')}
+                    title={t('title')}
+                    description={t('description')}
+                    className="mb-12 [&>h2]:max-w-5xl"
+                />
+
+                {/* O cartão da stack vira uma faixa inteira: numa coluna
+                    estreita ao lado do mosaico ele deixaria um buraco. */}
+                <Card className="mb-4 w-full p-5 sm:p-6">
+                    <h3 className="mb-1 flex items-center gap-2 text-headline-sm text-white">
+                        <DraftingCompass
+                            aria-hidden
+                            className="size-5 shrink-0 text-accent"
                         />
+                        {t('stackCard.title')}
+                    </h3>
+                    <p className="max-w-3xl text-body-sm text-on-surface-variant">
+                        {t('stackCard.description')}
+                    </p>
+                </Card>
 
-                        <Card className="w-full p-4">
-                            <h3 className="mb-1 flex items-center gap-2 text-headline-sm text-white">
-                                <DraftingCompass
-                                    aria-hidden
-                                    className="size-5 shrink-0 text-tertiary"
-                                />
-                                {t('stackCard.title')}
-                            </h3>
-                            <p className="text-body-sm text-on-surface-variant">
-                                {t('stackCard.description')}
-                            </p>
-                        </Card>
-                    </div>
-
-                    {/* ---------- Mosaico de pilares ---------- */}
-                    <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-8">
-                        {pillars.map(({ id, icon: Icon, accent }) => (
-                            <Card
-                                as="li"
-                                key={id}
-                                className="flex flex-col justify-between p-6"
-                            >
-                                <div>
-                                    <span className="glass-inset mb-4 flex size-10 items-center justify-center rounded-lg border border-border-subtle">
-                                        <Icon
-                                            aria-hidden
-                                            className={cn(
-                                                'size-[22px]',
-                                                accentClass[accent].text
-                                            )}
-                                        />
-                                    </span>
-                                    <h3 className="mb-1 text-headline-sm text-white">
-                                        {t(`pillars.${id}.title`)}
-                                    </h3>
-                                    <p className="text-body-sm text-on-surface-variant">
-                                        {t(`pillars.${id}.description`)}
-                                    </p>
-                                </div>
-                                <p className="mt-4 flex items-center gap-2 pt-3">
-                                    <span
+                {/* ---------- Mosaico de pilares ---------- */}
+                <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {pillars.map(({ id, icon: Icon }) => (
+                        <Card
+                            as="li"
+                            key={id}
+                            className="reveal-up flex flex-col justify-between p-6"
+                        >
+                            <div>
+                                <span className="mb-6 flex size-11 items-center justify-center rounded-full border border-border-subtle">
+                                    <Icon
                                         aria-hidden
                                         className={cn(
-                                            'size-2 shrink-0 rounded-full',
-                                            accentClass[accent].dot
+                                            'size-[22px]',
+                                            'text-accent'
                                         )}
                                     />
-                                    <span className="font-mono text-label-code text-on-surface-variant">
-                                        {t(`pillars.${id}.tag`)}
-                                    </span>
+                                </span>
+                                <h3 className="mb-1 text-headline-sm text-white">
+                                    {t(`pillars.${id}.title`)}
+                                </h3>
+                                <p className="text-body-sm text-on-surface-variant">
+                                    {t(`pillars.${id}.description`)}
                                 </p>
-                            </Card>
-                        ))}
-                    </ul>
-                </div>
+                            </div>
+                            <p className="mt-4 flex items-center gap-2 pt-3">
+                                <span
+                                    aria-hidden
+                                    className={cn(
+                                        'size-2 shrink-0 rounded-full',
+                                        'bg-accent'
+                                    )}
+                                />
+                                <span className="text-label-code text-on-surface-variant">
+                                    {t(`pillars.${id}.tag`)}
+                                </span>
+                            </p>
+                        </Card>
+                    ))}
+                </ul>
             </Container>
         </section>
     )

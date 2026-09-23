@@ -1,6 +1,6 @@
 import { cn } from '@/lib/cn'
 
-/** Eyebrow mono ("01 // …") + título + descrição, repetido em 4 seções. */
+/** Rótulo ("01 // …") + título gigante em caixa-alta + descrição. */
 export default function SectionHeading({
     eyebrow,
     title,
@@ -26,10 +26,14 @@ export default function SectionHeading({
                 className
             )}
         >
-            <span className="mb-2 font-mono text-label-code uppercase tracking-widest text-primary">
+            <span className="mb-4 flex items-center gap-2 text-label-code uppercase text-on-surface-variant">
+                <span
+                    aria-hidden
+                    className="size-1.5 shrink-0 rounded-full bg-accent"
+                />
                 {eyebrow}
             </span>
-            <h2 className="mb-2 text-headline-xl-mobile text-white lg:text-headline-xl">
+            <h2 className="mb-5 text-balance text-headline-xl uppercase font-stretch-semi-condensed text-white">
                 {title}
             </h2>
             {description ? (

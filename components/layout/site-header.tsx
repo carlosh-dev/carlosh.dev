@@ -63,7 +63,7 @@ export default function SiteHeader() {
     }, [])
 
     /* Posição e largura do lozango, medidas no DOM real. Nada de estimar:
-       os rótulos mudam de largura com o idioma, e a Sansation entra por
+       os rótulos mudam de largura com o idioma, e a Archivo entra por
        `swap`, então a medida certa só existe depois da fonte. */
     const measure = useCallback(() => {
         const nav = navRef.current
@@ -88,7 +88,7 @@ export default function SiteHeader() {
         const observer = new ResizeObserver(() => measure())
         observer.observe(nav)
 
-        // A troca de Arial por Sansation reflui os rótulos uma vez.
+        // A troca do fallback pela Archivo reflui os rótulos uma vez.
         document.fonts?.ready.then(measure).catch(() => {})
 
         return () => observer.disconnect()
@@ -113,7 +113,7 @@ export default function SiteHeader() {
     }, [menuOpen])
 
     const focusRing =
-        'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
+        'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent'
 
     /**
      * Rótulo com a largura travada no peso 700.
@@ -150,7 +150,7 @@ export default function SiteHeader() {
                 <div
                     data-lifted={lifted}
                     className={cn(
-                        'glass glass-capsule pointer-events-auto mx-auto flex h-14 w-full items-center gap-2',
+                        'header-capsule pointer-events-auto mx-auto flex h-14 w-full items-center gap-2',
                         'rounded-full border border-border-subtle px-2.5',
                         'lg:gap-3 lg:px-3 xl:h-16 xl:w-fit'
                     )}
@@ -163,7 +163,7 @@ export default function SiteHeader() {
                             focusRing
                         )}
                     >
-                        <span className="glass-inset glass-inset-interactive flex h-9 items-center justify-center rounded-full border border-border-subtle px-3.5 font-mono text-label-code text-primary group-hover:border-border-active group-hover:text-primary-fixed">
+                        <span className="flex h-9 items-center justify-center rounded-full px-3.5 text-body-sm font-semibold tracking-tight text-white transition-colors group-hover:text-accent">
                             carlosh-dev
                         </span>
                     </a>
@@ -185,7 +185,7 @@ export default function SiteHeader() {
                                 transform: `translate(${marker?.x ?? 0}px, -50%)`,
                             }}
                             className={cn(
-                                'absolute left-0 top-1/2 h-9 rounded-full bg-primary-container',
+                                'absolute left-0 top-1/2 h-9 rounded-full bg-accent',
                                 armed
                                     ? 'opacity-100 transition-[transform,width] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]'
                                     : 'opacity-0'
@@ -207,7 +207,7 @@ export default function SiteHeader() {
                                     'relative z-10 flex h-9 items-center rounded-full px-3 text-body-sm transition-colors duration-200',
                                     focusRing,
                                     id === active
-                                        ? 'text-on-primary-container'
+                                        ? 'text-on-accent'
                                         : 'text-on-surface-variant hover:text-on-surface'
                                 )}
                             >
@@ -220,8 +220,7 @@ export default function SiteHeader() {
                         <ButtonLink
                             href="#contato"
                             size="sm"
-                            shape="pill"
-                            className="h-9 max-sm:hidden"
+                            className="max-sm:hidden"
                         >
                             {t('cta')}
                         </ButtonLink>
@@ -237,7 +236,7 @@ export default function SiteHeader() {
                                 menuOpen ? t('closeMenu') : t('openMenu')
                             }
                             className={cn(
-                                'glass-inset glass-inset-interactive flex size-9 items-center justify-center rounded-full border border-border-subtle text-on-surface hover:border-border-active lg:hidden',
+                                'flex size-9 items-center justify-center rounded-full border border-border-subtle text-on-surface transition-colors hover:border-border-active lg:hidden',
                                 focusRing
                             )}
                         >
@@ -254,13 +253,13 @@ export default function SiteHeader() {
                     Raio de 30px = 16px do lozango + 6px da linha + 8px da
                     folha: as três curvas são concêntricas, não só
                     arredondadas pelo mesmo palpite. A massa vem do
-                    `.glass-capsule-panel`, e ela não acompanha o estado de
+                    `.header-capsule-panel`, e ela não acompanha o estado de
                     rolagem da cápsula — a folha só existe com a rolagem do
                     fundo travada. */}
                 <div
                     id="mobile-nav"
                     hidden={!menuOpen}
-                    className="glass glass-capsule glass-capsule-panel pointer-events-auto mt-2 origin-top animate-panel-in rounded-[1.875rem] border border-border-subtle p-2 lg:hidden"
+                    className="header-capsule header-capsule-panel pointer-events-auto mt-2 origin-top animate-panel-in rounded-[1.875rem] border border-border-subtle p-2 lg:hidden"
                 >
                     <nav aria-label={t('openMenu')}>
                         <ul className="flex flex-col">
@@ -273,18 +272,18 @@ export default function SiteHeader() {
                                             id === active ? 'page' : undefined
                                         }
                                         /* O alvo de toque é a linha
-                                           inteira; o preenchimento violeta
+                                           inteira; o preenchimento lime
                                            não. Uma lápide de 44px por toda a
                                            largura é uma barra, não o mesmo
                                            lozango que desliza no desktop —
-                                           então o violeta mora num filho que
+                                           então o lime mora num filho que
                                            abraça o rótulo, e a linha inteira
                                            continua clicável. */
                                         className={cn(
                                             'flex h-11 w-full items-center rounded-full px-1.5 text-body-sm transition-colors duration-200',
                                             focusRing,
                                             id === active
-                                                ? 'text-on-primary-container'
+                                                ? 'text-on-accent'
                                                 : 'text-on-surface-variant hover:text-on-surface'
                                         )}
                                     >
@@ -292,7 +291,7 @@ export default function SiteHeader() {
                                             className={cn(
                                                 'flex h-8 items-center rounded-full px-3',
                                                 id === active &&
-                                                    'bg-primary-container font-bold'
+                                                    'bg-accent font-bold'
                                             )}
                                         >
                                             {t(`items.${id}`)}
@@ -306,8 +305,7 @@ export default function SiteHeader() {
                     <ButtonLink
                         href="#contato"
                         size="sm"
-                        shape="pill"
-                        className="mt-2 h-11 w-full sm:hidden"
+                        className="mt-2 w-full sm:hidden"
                     >
                         {t('cta')}
                     </ButtonLink>

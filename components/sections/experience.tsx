@@ -31,11 +31,11 @@ export default function Experience() {
                     {/* Trilho da timeline */}
                     <span
                         aria-hidden
-                        className="absolute bottom-6 left-3 top-3 w-0.5 -translate-x-1/2 bg-gradient-to-b from-violet-intense via-primary to-transparent opacity-60"
+                        className="absolute bottom-6 left-3 top-3 w-px -translate-x-1/2 bg-white/15"
                     />
 
                     {experience
-                        .reverse()
+                        .toReversed()
                         .map(
                             (
                                 { id, accent, start, end, bulletCount, stack },
@@ -64,20 +64,20 @@ export default function Experience() {
                                                 'size-2.5 rounded-full transition-transform group-hover:scale-125',
                                                 accentClass[accent].dot,
                                                 end === null &&
-                                                    'animate-live-node shadow-[0_0_16px_rgb(139_92_246/0.8)]'
+                                                    'animate-live-node'
                                             )}
                                         />
                                     </span>
 
-                                    <Card className="stack-card-face p-6">
+                                    <Card className="stack-card-face p-6 sm:p-8">
                                         <div className="mb-3 flex flex-col justify-between gap-1 sm:flex-row sm:items-center">
                                             <div>
                                                 <div className="flex flex-wrap items-center gap-2">
-                                                    <h3 className="text-headline-md text-white">
+                                                    <h3 className="text-headline-md uppercase font-stretch-semi-condensed text-white">
                                                         {t(`roles.${id}.role`)}
                                                     </h3>
                                                     {end === null ? (
-                                                        <span className="rounded bg-tertiary-container/30 px-2 py-0.5 font-mono text-[10px] font-bold text-tertiary">
+                                                        <span className="rounded-full bg-accent px-2.5 py-0.5 text-label-code font-semibold uppercase text-on-accent">
                                                             {t('currentBadge')}
                                                         </span>
                                                     ) : null}
@@ -91,7 +91,7 @@ export default function Experience() {
                                                     {t(`roles.${id}.company`)}
                                                 </p>
                                             </div>
-                                            <p className="glass-inset self-start rounded-md border border-border-subtle px-3 py-1 font-mono text-label-code text-on-surface-variant sm:self-auto">
+                                            <p className="self-start rounded-full border border-border-subtle px-3 py-1 text-label-code text-on-surface-variant sm:self-auto">
                                                 {start} - {end ?? t('present')}
                                             </p>
                                         </div>
@@ -112,8 +112,7 @@ export default function Experience() {
                                                         aria-hidden
                                                         className={cn(
                                                             'mt-0.5 size-[18px] shrink-0',
-                                                            accentClass[accent]
-                                                                .text
+                                                            'text-accent'
                                                         )}
                                                     />
                                                     <span>

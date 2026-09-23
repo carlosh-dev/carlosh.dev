@@ -34,70 +34,55 @@ export type IconComponent = ComponentType<{
 /*  Accents                                                                    */
 /* -------------------------------------------------------------------------- */
 
-export type Accent = 'primary' | 'secondary' | 'tertiary' | 'pink' | 'cyan'
+export type Accent = 'accent' | 'neutral'
 
 /**
  * Classes completas e literais — o Tailwind faz varredura estática do código,
  * então nomes de classe montados em runtime não seriam gerados.
+ *
+ * Dois tons só: o lime marca o que lidera, o branco carrega o resto.
  */
 export const accentClass: Record<
     Accent,
     { text: string; dot: string; ring: string }
 > = {
-    primary: {
-        text: 'text-primary',
-        dot: 'bg-primary',
-        ring: 'bg-violet-intense/20',
+    accent: {
+        text: 'text-on-surface',
+        dot: 'bg-accent',
+        ring: 'bg-accent/15',
     },
-    secondary: {
-        text: 'text-secondary',
-        dot: 'bg-secondary',
-        ring: 'bg-secondary/20',
-    },
-    tertiary: {
-        text: 'text-tertiary',
-        dot: 'bg-tertiary',
-        ring: 'bg-tertiary-container/30',
-    },
-    pink: {
-        text: 'text-accent-pink',
-        dot: 'bg-accent-pink',
-        ring: 'bg-accent-pink/20',
-    },
-    cyan: {
-        text: 'text-accent-cyan',
-        dot: 'bg-accent-cyan',
-        ring: 'bg-accent-cyan/20',
+    neutral: {
+        text: 'text-on-surface',
+        dot: 'bg-on-surface',
+        ring: 'bg-white/10',
     },
 }
 
 /**
- * Cor por tecnologia, aplicada de forma consistente em toda a página —
- * no HTML de referência as mesmas techs já recebiam sempre a mesma cor,
- * repetida à mão em cada cargo.
+ * Tom por tecnologia. Tudo branco: o lime é sinal de estado, não categoria.
  */
 const techTone: Record<string, string> = {
-    React: 'text-primary',
-    'React.js': 'text-primary',
-    'Next.js': 'text-primary',
-    TypeScript: 'text-primary',
-    Redis: 'text-primary',
-    'Power BI': 'text-primary',
-    'Express.js': 'text-primary',
-    'React Query': 'text-secondary',
-    'Ruby on Rails': 'text-secondary',
-    'Node.js': 'text-secondary',
-    Storybook: 'text-accent-pink',
-    Sidekiq: 'text-accent-pink',
-    Nginx: 'text-accent-pink',
-    Jest: 'text-accent-cyan',
-    RTL: 'text-accent-cyan',
-    RSpec: 'text-accent-cyan',
-    Elasticsearch: 'text-accent-cyan',
-    Kibana: 'text-accent-cyan',
-    WebSockets: 'text-tertiary',
-    PostgreSQL: 'text-tertiary',
-    SQL: 'text-tertiary',
+    React: 'text-on-surface',
+    'React.js': 'text-on-surface',
+    'Next.js': 'text-on-surface',
+    TypeScript: 'text-on-surface',
+    Redis: 'text-on-surface',
+    'Power BI': 'text-on-surface',
+    'Express.js': 'text-on-surface',
+    'React Query': 'text-on-surface',
+    'Ruby on Rails': 'text-on-surface',
+    'Node.js': 'text-on-surface',
+    Storybook: 'text-on-surface',
+    Sidekiq: 'text-on-surface',
+    Nginx: 'text-on-surface',
+    Jest: 'text-on-surface',
+    RTL: 'text-on-surface',
+    RSpec: 'text-on-surface',
+    Elasticsearch: 'text-on-surface',
+    Kibana: 'text-on-surface',
+    WebSockets: 'text-on-surface',
+    PostgreSQL: 'text-on-surface',
+    SQL: 'text-on-surface',
     TailwindCSS: 'text-on-surface',
     'Google Maps APIs': 'text-on-surface',
 }
@@ -119,20 +104,20 @@ export type Metric = {
 }
 
 export const metrics: Metric[] = [
-    { id: 'experience', label: 'EXP_PROD', icon: History, accent: 'primary' },
-    { id: 'scale', label: 'SCALE_USERS', icon: Users, accent: 'tertiary' },
-    { id: 'performance', label: 'WEB_PERF', icon: Gauge, accent: 'pink' },
+    { id: 'experience', label: 'EXP_PROD', icon: History, accent: 'neutral' },
+    { id: 'scale', label: 'SCALE_USERS', icon: Users, accent: 'neutral' },
+    { id: 'performance', label: 'WEB_PERF', icon: Gauge, accent: 'neutral' },
     {
         id: 'tests',
         label: 'AUTOMATED_TESTS',
         icon: ShieldCheck,
-        accent: 'cyan',
+        accent: 'neutral',
     },
     {
         id: 'cache',
         label: 'CACHE_OPTIMIZATION',
         icon: MemoryStick,
-        accent: 'secondary',
+        accent: 'neutral',
     },
 ]
 
@@ -153,10 +138,10 @@ export const heroStats = ['years'] as const
 export type Pillar = { id: string; icon: IconComponent; accent: Accent }
 
 export const pillars: Pillar[] = [
-    { id: 'frontend', icon: MonitorSmartphone, accent: 'primary' },
-    { id: 'designSystems', icon: Blocks, accent: 'pink' },
-    { id: 'quality', icon: FlaskConical, accent: 'tertiary' },
-    { id: 'ai', icon: Bot, accent: 'cyan' },
+    { id: 'frontend', icon: MonitorSmartphone, accent: 'neutral' },
+    { id: 'designSystems', icon: Blocks, accent: 'neutral' },
+    { id: 'quality', icon: FlaskConical, accent: 'neutral' },
+    { id: 'ai', icon: Bot, accent: 'neutral' },
 ]
 
 /* -------------------------------------------------------------------------- */
@@ -178,14 +163,14 @@ export const skillCategories: SkillCategory[] = [
     {
         id: 'frontend',
         icon: AppWindow,
-        accent: 'primary',
+        accent: 'neutral',
         skills: [
-            { name: 'React.js', dot: 'primary', lead: true },
-            { name: 'Next.js', dot: 'primary', lead: true },
-            { name: 'TypeScript', dot: 'primary', lead: true },
-            { name: 'React Query', dot: 'secondary' },
-            { name: 'TailwindCSS', dot: 'secondary' },
-            { name: 'Storybook', dot: 'pink' },
+            { name: 'React.js', dot: 'neutral', lead: true },
+            { name: 'Next.js', dot: 'neutral', lead: true },
+            { name: 'TypeScript', dot: 'neutral', lead: true },
+            { name: 'React Query', dot: 'neutral' },
+            { name: 'TailwindCSS', dot: 'neutral' },
+            { name: 'Storybook', dot: 'neutral' },
             { name: 'Redux Toolkit' },
             { name: 'Zustand' },
             { name: 'TanStack Table' },
@@ -194,56 +179,56 @@ export const skillCategories: SkillCategory[] = [
     {
         id: 'backend',
         icon: Server,
-        accent: 'secondary',
+        accent: 'neutral',
         skills: [
-            { name: 'Node.js', dot: 'secondary', lead: true },
-            { name: 'Ruby on Rails', dot: 'secondary', lead: true },
-            { name: 'Express.js', dot: 'primary' },
-            { name: 'REST APIs', dot: 'pink' },
-            { name: 'WebSockets (Socket.io / Pusher)', dot: 'cyan' },
+            { name: 'Node.js', dot: 'neutral', lead: true },
+            { name: 'Ruby on Rails', dot: 'neutral', lead: true },
+            { name: 'Express.js', dot: 'neutral' },
+            { name: 'REST APIs', dot: 'neutral' },
+            { name: 'WebSockets (Socket.io / Pusher)', dot: 'neutral' },
             { name: 'Background Jobs (Sidekiq)' },
-            { name: 'Nginx', dot: 'pink' },
+            { name: 'Nginx', dot: 'neutral' },
         ],
     },
     {
         id: 'data',
         icon: Database,
-        accent: 'tertiary',
+        accent: 'neutral',
         skills: [
-            { name: 'PostgreSQL', dot: 'tertiary', lead: true },
-            { name: 'Redis (Cache-aside)', dot: 'pink', lead: true },
-            { name: 'MySQL', dot: 'primary' },
-            { name: 'Elasticsearch', dot: 'secondary' },
+            { name: 'PostgreSQL', dot: 'neutral', lead: true },
+            { name: 'Redis (Cache-aside)', dot: 'neutral', lead: true },
+            { name: 'MySQL', dot: 'neutral' },
+            { name: 'Elasticsearch', dot: 'neutral' },
             { name: 'Query Optimization' },
         ],
     },
     {
         id: 'testing',
         icon: ListChecks,
-        accent: 'cyan',
+        accent: 'neutral',
         skills: [
-            { name: 'Jest', dot: 'cyan', lead: true },
-            { name: 'React Testing Library', dot: 'cyan', lead: true },
-            { name: 'RSpec (Ruby)', dot: 'primary' },
-            { name: 'TDD / Unit Tests', dot: 'secondary' },
+            { name: 'Jest', dot: 'neutral', lead: true },
+            { name: 'React Testing Library', dot: 'neutral', lead: true },
+            { name: 'RSpec (Ruby)', dot: 'neutral' },
+            { name: 'TDD / Unit Tests', dot: 'neutral' },
             { name: 'Integration Tests' },
         ],
     },
     {
         id: 'practices',
         icon: Brain,
-        accent: 'pink',
+        accent: 'neutral',
         wide: true,
         skills: [
-            { name: 'Claude & GitHub Copilot', dot: 'pink', lead: true },
-            { name: 'Design Systems Architecture', dot: 'primary', lead: true },
-            { name: 'Design Patterns & Clean Architecture', dot: 'secondary' },
-            { name: 'CI/CD Pipelines', dot: 'tertiary' },
+            { name: 'Claude & GitHub Copilot', dot: 'neutral', lead: true },
+            { name: 'Design Systems Architecture', dot: 'neutral', lead: true },
+            { name: 'Design Patterns & Clean Architecture', dot: 'neutral' },
+            { name: 'CI/CD Pipelines', dot: 'neutral' },
             { name: 'Git & Trunk-based Dev' },
             { name: 'Jira & Linear' },
             { name: 'Scrum / Kanban' },
             { name: 'Docker' },
-            { name: 'Nginx', dot: 'pink' },
+            { name: 'Nginx', dot: 'neutral' },
         ],
     },
 ]
@@ -265,7 +250,7 @@ export type Role = {
 export const experience: Role[] = [
     {
         id: 'penzack',
-        accent: 'primary',
+        accent: 'accent',
         start: '09/2024',
         end: null,
         bulletCount: 5,
@@ -283,7 +268,7 @@ export const experience: Role[] = [
     },
     {
         id: 'kirvano',
-        accent: 'secondary',
+        accent: 'neutral',
         start: '12/2022',
         end: '09/2024',
         bulletCount: 3,
@@ -300,7 +285,7 @@ export const experience: Role[] = [
     },
     {
         id: 'cloudfox',
-        accent: 'pink',
+        accent: 'neutral',
         start: '06/2021',
         end: '11/2022',
         bulletCount: 3,
@@ -317,7 +302,7 @@ export const experience: Role[] = [
     },
     {
         id: 'laager',
-        accent: 'tertiary',
+        accent: 'neutral',
         start: '12/2020',
         end: '06/2021',
         bulletCount: 3,
@@ -333,7 +318,7 @@ export const experience: Role[] = [
     },
     {
         id: 'elaw',
-        accent: 'cyan',
+        accent: 'neutral',
         start: '02/2019',
         end: '08/2020',
         bulletCount: 3,
@@ -356,13 +341,13 @@ export const education: Degree[] = [
     {
         id: 'computerScience',
         icon: GraduationCap,
-        accent: 'primary',
+        accent: 'neutral',
         period: '2018 - 2022',
     },
     {
         id: 'technical',
         icon: Terminal,
-        accent: 'secondary',
+        accent: 'neutral',
         period: '2015 - 2016',
     },
 ]
@@ -370,8 +355,8 @@ export const education: Degree[] = [
 export type Language = { id: string; level: number; accent: Accent }
 
 export const languages: Language[] = [
-    { id: 'portuguese', level: 100, accent: 'tertiary' },
-    { id: 'english', level: 75, accent: 'primary' },
+    { id: 'portuguese', level: 100, accent: 'neutral' },
+    { id: 'english', level: 75, accent: 'neutral' },
 ]
 
 /* -------------------------------------------------------------------------- */
@@ -392,7 +377,7 @@ export type Project = {
 export const projects: Project[] = [
     {
         id: 'planus',
-        accent: 'primary',
+        accent: 'neutral',
         href: 'https://www.planus.app.br/',
         year: '2026',
         stack: {
@@ -419,21 +404,21 @@ export const channels: Channel[] = [
     {
         id: 'email',
         icon: AtSign,
-        accent: 'primary',
+        accent: 'neutral',
         href: `mailto:${siteConfig.email}`,
         external: false,
     },
     {
         id: 'linkedin',
         icon: LinkedinIcon,
-        accent: 'secondary',
+        accent: 'neutral',
         href: siteConfig.linkedin,
         external: true,
     },
     {
         id: 'github',
         icon: GithubIcon,
-        accent: 'pink',
+        accent: 'neutral',
         href: siteConfig.github,
         external: true,
     },

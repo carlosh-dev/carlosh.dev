@@ -1,7 +1,7 @@
-import { accentClass, type Accent } from '@/lib/content'
+import type { Accent } from '@/lib/content'
 import { cn } from '@/lib/cn'
 
-/** Pill mono com ponto de sintaxe — usado na grade de competências. */
+/** Pílula de tecnologia com ponto de tom — usada na grade de competências. */
 export default function TechBadge({
     label,
     dot,
@@ -14,8 +14,8 @@ export default function TechBadge({
     return (
         <span
             className={cn(
-                'glass-inset inline-flex items-center gap-1.5 rounded-md border border-border-subtle px-3 py-1 font-mono text-label-code',
-                lead && dot ? accentClass[dot].text : 'text-on-surface',
+                'inline-flex items-center gap-1.5 rounded-full border border-border-subtle bg-white/5 px-3 py-1 text-label-code',
+                'text-on-surface',
                 !dot && 'text-on-surface-variant'
             )}
         >
@@ -24,7 +24,7 @@ export default function TechBadge({
                     aria-hidden
                     className={cn(
                         'size-1.5 shrink-0 rounded-full',
-                        accentClass[dot].dot
+                        lead ? 'bg-accent' : 'bg-white/40'
                     )}
                 />
             ) : null}

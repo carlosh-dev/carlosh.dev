@@ -6,25 +6,14 @@ import type { ReactNode } from 'react'
  * este objeto e espalhá-lo nas chamadas de `t.rich()`.
  */
 export const richTags = {
-    /**
-     * Destaque forte, em branco. 700 é o bold real da Sansation — a face não
-     * tem 600, e pedir 600 faria o browser engordar o 400 por conta própria.
-     */
+    /** Destaque forte, em branco. */
     b: (chunks: ReactNode) => (
-        <strong className="font-bold text-white">{chunks}</strong>
+        <strong className="font-semibold text-white">{chunks}</strong>
     ),
-    /**
-     * Nome de tecnologia em violeta primário. Sem peso: a face não tem 500, e
-     * neste sistema quem marca tecnologia é a cor, não o peso. Subir para 700
-     * colocaria três blocos pesados no mesmo parágrafo do hero.
-     */
-    v: (chunks: ReactNode) => <span className="text-primary">{chunks}</span>,
-    /** Nome de tecnologia em violeta secundário. Mesma regra do `v`. */
-    s: (chunks: ReactNode) => <span className="text-secondary">{chunks}</span>,
-    /** Trecho com gradiente (usado no h1 do hero). */
-    g: (chunks: ReactNode) => (
-        <span className="bg-gradient-to-r from-primary via-secondary to-accent-pink bg-clip-text text-transparent">
-            {chunks}
-        </span>
-    ),
+    /** Tecnologia do núcleo da stack, em lime. */
+    v: (chunks: ReactNode) => <span className="text-accent">{chunks}</span>,
+    /** Tecnologia de apoio, em branco. */
+    s: (chunks: ReactNode) => <span className="text-white">{chunks}</span>,
+    /** Trecho de ênfase do h1 do hero. Cor chapada, sem gradiente. */
+    g: (chunks: ReactNode) => <span className="text-accent">{chunks}</span>,
 }

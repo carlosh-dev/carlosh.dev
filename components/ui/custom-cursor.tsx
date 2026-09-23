@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 
-/* Mesmo alvo que já ganha o anel violeta ao passar o mouse em qualquer
+/* Mesmo alvo que já ganha o anel lime ao passar o mouse em qualquer
    outro lugar do sistema (nav, cards, chips) — o cursor só amplia um
    sinal que a página já dá, não inventa um novo. */
 const INTERACTIVE_SELECTOR =
