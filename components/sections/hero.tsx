@@ -16,7 +16,11 @@ export default function Hero() {
             id="inicio"
             className="relative flex items-center min-h-screen w-full overflow-hidden pb-16 pt-28 lg:pb-24 lg:pt-36"
         >
-            <div aria-hidden className="hero-field absolute inset-0 -z-10">
+            <div
+                aria-hidden
+                data-parallax="0.4"
+                className="hero-field absolute inset-0 -z-10"
+            >
                 <FaultyTerminal
                     className="hero-terminal-field pointer-events-none absolute inset-0 size-full overflow-hidden"
                     scale={2.5}
@@ -36,7 +40,10 @@ export default function Hero() {
 
             <Container>
                 <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
-                    <div className="flex flex-col items-start lg:col-span-7">
+                    <div
+                        data-parallax="0.12"
+                        className="flex flex-col items-start lg:col-span-7"
+                    >
                         <h1 className="text-balance text-display uppercase font-stretch-semi-condensed text-white">
                             {t.rich('headline', richTags)}
                         </h1>
@@ -59,7 +66,10 @@ export default function Hero() {
                     </div>
 
                     <div className="relative flex justify-center lg:col-span-5 lg:justify-end">
-                        <div className="relative w-full max-w-70 animate-float sm:max-w-[320px] lg:max-w-1000">
+                        <div
+                            data-parallax="-0.08"
+                            className="relative w-full max-w-70 animate-float sm:max-w-[320px] lg:max-w-1000"
+                        >
                             <div className="overflow-hidden rounded-md border border-border-active bg-surface-card shadow-[0_24px_64px_-16px_rgb(0_0_0/0.8)]">
                                 <div
                                     aria-hidden

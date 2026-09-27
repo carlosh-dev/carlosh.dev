@@ -18,6 +18,7 @@ export default function SectionHeading({
 
     return (
         <div
+            data-parallax="0.06"
             className={cn(
                 'flex flex-col',
                 centered
