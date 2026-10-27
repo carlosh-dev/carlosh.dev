@@ -148,7 +148,7 @@ export const pillars: Pillar[] = [
 /*  Competências                                                               */
 /* -------------------------------------------------------------------------- */
 
-export type Skill = { name: string; dot?: Accent; lead?: boolean }
+export type Skill = { name: string }
 
 export type SkillCategory = {
     id: string
@@ -367,15 +367,17 @@ export const languages: Language[] = [
 /*  Projetos                                                                   */
 /* -------------------------------------------------------------------------- */
 
-/** As duas metades saem rotuladas: num projeto solo, o alcance é a prova. */
-export const stackSides = ['frontend', 'backend'] as const
+/** As metades saem rotuladas: num projeto solo, o alcance é a prova. */
+export const stackSides = ['frontend', 'backend', 'native'] as const
 
 export type Project = {
     id: string
     accent: Accent
     href: string
     year: string
-    stack: Record<(typeof stackSides)[number], string[]>
+    /** Troca o selo "no ar" pelo de código aberto. */
+    openSource?: boolean
+    stack: Partial<Record<(typeof stackSides)[number], string[]>>
 }
 
 export const projects: Project[] = [
@@ -388,6 +390,16 @@ export const projects: Project[] = [
             frontend: ['Next.js', 'React', 'TypeScript', 'TailwindCSS'],
             // Na ordem do caminho de uma requisição, não na de digitação.
             backend: ['Node.js', 'Express.js', 'PostgreSQL', 'Redis', 'Nginx'],
+        },
+    },
+    {
+        id: 'toNotch',
+        accent: 'neutral',
+        href: 'https://github.com/carlosh-dev/to-notch',
+        year: '2026',
+        openSource: true,
+        stack: {
+            native: ['Swift', 'SwiftUI', 'AppKit'],
         },
     },
 ]
