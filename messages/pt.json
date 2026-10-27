@@ -202,12 +202,14 @@
     },
     "projects": {
         "eyebrow": "05 // Projetos",
-        "title": "Produto autoral em produção.",
-        "description": "Fora do trabalho em produto de terceiros, mantenho um produto próprio no ar — da modelagem de dados à interface.",
+        "title": "Produtos autorais, do web ao desktop.",
+        "description": "Fora do trabalho em produto de terceiros, mantenho projetos próprios — um produto web no ar e um app open source para macOS.",
         "liveBadge": "No ar",
+        "openSourceBadge": "Open source",
         "audienceLabel": "Para quem",
         "frontendLabel": "Frontend",
         "backendLabel": "Backend",
+        "nativeLabel": "Nativo",
         "items": {
             "planus": {
                 "name": "Planus",
@@ -215,6 +217,13 @@
                 "audience": "Casais e famílias que dividem as contas",
                 "description": "O Planus é uma plataforma financeira para casais e famílias que dividem as contas. Em vez de registrar o que já foi gasto, ele projeta os próximos meses: contas recorrentes e despesas previstas viram uma previsão mensal, o orçamento é definido em conjunto por categoria, e a comparação entre previsto e orçado mostra com antecedência onde o mês fecha no azul ou no vermelho — o bastante para decidir uma viagem ou uma reserva sabendo o impacto antes de assumi-la.",
                 "cta": "Visitar o Planus"
+            },
+            "toNotch": {
+                "name": "to-notch",
+                "role": "App open source",
+                "audience": "Quem usa MacBook e quer as tarefas sempre à vista",
+                "description": "O to-notch é um app open source para macOS que transforma o notch do MacBook numa lista de tarefas. Ao passar o mouse, mostra a próxima pendência; um clique abre a lista completa, com edição, descrição, reordenação por arrastar e uma barra de progresso logo abaixo do notch. Roda sem ícone no Dock, abre com o sistema e, em monitores sem notch, ocupa uma faixa no centro da barra de menus.",
+                "cta": "Ver código no GitHub"
             }
         }
     },

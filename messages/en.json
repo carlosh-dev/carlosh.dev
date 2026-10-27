@@ -202,12 +202,14 @@
     },
     "projects": {
         "eyebrow": "05 // Projects",
-        "title": "A product of my own, in production.",
-        "description": "Beyond the work I do on other people's products, I keep one of my own running — from the data model to the interface.",
+        "title": "Products of my own, from web to desktop.",
+        "description": "Beyond the work I do on other people's products, I keep projects of my own — a web product in production and an open source macOS app.",
         "liveBadge": "Live",
+        "openSourceBadge": "Open source",
         "audienceLabel": "Built for",
         "frontendLabel": "Frontend",
         "backendLabel": "Backend",
+        "nativeLabel": "Native",
         "items": {
             "planus": {
                 "name": "Planus",
@@ -215,6 +217,13 @@
                 "audience": "Couples and families who share the bills",
                 "description": "Planus is a financial platform for couples and families who share the bills. Instead of recording what has already been spent, it projects the months ahead: recurring bills and expected expenses become a monthly forecast, the budget is set together by category, and comparing forecast against budget shows in advance whether the month closes in the black or in the red — enough to decide on a trip or a deposit knowing the impact before committing to it.",
                 "cta": "Visit Planus"
+            },
+            "toNotch": {
+                "name": "to-notch",
+                "role": "Open source app",
+                "audience": "MacBook users who want their tasks always in sight",
+                "description": "to-notch is an open source macOS app that turns the MacBook's notch into a to-do list. Hover to see the next pending task; click to open the full list, with editing, descriptions, drag-to-reorder and a progress bar right below the notch. It runs without a Dock icon, launches at login and, on screens without a notch, uses a strip in the center of the menu bar.",
+                "cta": "View code on GitHub"
             }
         }
     },
