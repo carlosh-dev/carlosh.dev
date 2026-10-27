@@ -53,8 +53,6 @@ export default function Skills() {
                                     <TechBadge
                                         key={skill.name}
                                         label={skill.name}
-                                        dot={skill.dot}
-                                        lead={skill.lead}
                                     />
                                 ))}
                             </div>
