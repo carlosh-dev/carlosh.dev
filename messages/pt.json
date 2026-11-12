@@ -17,17 +17,11 @@
         }
     },
     "hero": {
-        "headline": "Arquitetura de software para produtos que <g>escalam</g>.",
-        "subheadline": "Software Engineer especialista em <v>React, Next.js e TypeScript</v> e <s>Node.js</s> quando o problema é no back-end.",
+        "headline": "Front-ends que sustentam produtos em <g>escala</g>.",
+        "subheadline": "Software Engineer especialista em <v>React, Next.js e TypeScript</v>. Arquiteto front-ends do zero e levo até produção, com <s>Node.js e Ruby on Rails</s> no back-end quando o produto pede.",
         "ctaPrimary": "Ver experiência",
         "ctaSecondary": "Entrar em contato",
-        "portraitAlt": "Retrato de Carlos Henrique, Software Engineer",
-        "stats": {
-            "years": { "value": "5+", "label": "anos" },
-            "users": { "value": "100k+", "label": "usuários" },
-            "rerenders": { "value": "−50%", "label": "re-renders" },
-            "availability": "disponível"
-        }
+        "portraitAlt": "Retrato de Carlos Henrique, Software Engineer"
     },
     "metrics": {
         "title": "Indicadores de impacto",
