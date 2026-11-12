@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { ArrowDown } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
-import FaultyTerminal from '@/components/hero/faulty-terminal'
+import HeroBackground from '@/components/hero/hero-background'
 import ButtonLink from '@/components/ui/button-link'
 import Container from '@/components/ui/container'
 import { richTags } from '@/lib/rich-tags'
@@ -21,21 +21,7 @@ export default function Hero() {
                 data-parallax="0.4"
                 className="hero-field absolute inset-0 -z-10"
             >
-                <FaultyTerminal
-                    className="hero-terminal-field pointer-events-none absolute inset-0 size-full overflow-hidden"
-                    scale={2.5}
-                    gridMul={[2, 1]}
-                    digitSize={1.2}
-                    timeScale={1}
-                    scanlineIntensity={1}
-                    glitchAmount={1}
-                    flickerAmount={1}
-                    noiseAmp={1}
-                    curvature={0}
-                    tint="#bbe851"
-                    mouseStrength={0.5}
-                    brightness={0.2}
-                />
+                <HeroBackground />
             </div>
 
             <Container>
