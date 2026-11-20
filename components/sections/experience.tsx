@@ -9,6 +9,9 @@ import { accentClass, experience } from '@/lib/content'
 import { cn } from '@/lib/cn'
 import { richTags } from '@/lib/rich-tags'
 
+/** "09/2024" → "2024-09", o formato que `<time dateTime>` entende. */
+const isoMonth = (date: string) => date.split('/').reverse().join('-')
+
 export default function Experience() {
     const t = useTranslations('experience')
 
@@ -23,17 +26,12 @@ export default function Experience() {
                 />
 
                 <ol
-                    className="stack-cards relative pl-6 sm:pl-8"
+                    // Trilho da timeline no ::before: um <ol> só aceita <li> como filho.
+                    className="stack-cards relative pl-6 before:absolute before:bottom-6 before:left-3 before:top-3 before:w-px before:-translate-x-1/2 before:bg-white/15 sm:pl-8"
                     style={
                         { '--count': experience.length } as React.CSSProperties
                     }
                 >
-                    {/* Trilho da timeline */}
-                    <span
-                        aria-hidden
-                        className="absolute bottom-6 left-3 top-3 w-px -translate-x-1/2 bg-white/15"
-                    />
-
                     {experience
                         .toReversed()
                         .map(
@@ -92,7 +90,21 @@ export default function Experience() {
                                                 </p>
                                             </div>
                                             <p className="self-start rounded-full border border-border-subtle px-3 py-1 text-label-code text-on-surface-variant sm:self-auto">
-                                                {start} - {end ?? t('present')}
+                                                <time
+                                                    dateTime={isoMonth(start)}
+                                                >
+                                                    {start}
+                                                </time>{' '}
+                                                -{' '}
+                                                {end ? (
+                                                    <time
+                                                        dateTime={isoMonth(end)}
+                                                    >
+                                                        {end}
+                                                    </time>
+                                                ) : (
+                                                    t('present')
+                                                )}
                                             </p>
                                         </div>
 

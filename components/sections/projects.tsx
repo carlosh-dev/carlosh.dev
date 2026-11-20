@@ -10,6 +10,7 @@ import { cn } from '@/lib/cn'
 
 export default function Projects() {
     const t = useTranslations('projects')
+    const tA11y = useTranslations('a11y')
 
     return (
         <section id="projetos" className="relative w-full py-16 lg:py-24">
@@ -132,7 +133,13 @@ export default function Projects() {
                                             rel="noopener noreferrer"
                                             className="group/btn flex h-12 items-center justify-between gap-2 rounded-full border border-border-subtle pl-6 pr-1.5 text-body-sm font-medium text-on-surface transition-colors duration-300 hover:border-border-active hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                                         >
-                                            {t(`items.${id}.cta`)}
+                                            <span>
+                                                {t(`items.${id}.cta`)}
+                                                <span className="sr-only">
+                                                    {' '}
+                                                    {tA11y('newTab')}
+                                                </span>
+                                            </span>
                                             <span
                                                 aria-hidden
                                                 className="flex size-9 items-center justify-center rounded-full border border-border-subtle transition-colors duration-300 group-hover/btn:border-accent group-hover/btn:bg-accent group-hover/btn:text-on-accent"

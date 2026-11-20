@@ -13,6 +13,7 @@ import { channels } from '@/lib/content'
  */
 export default function Contact() {
     const t = useTranslations('contact')
+    const tA11y = useTranslations('a11y')
 
     return (
         <section id="contato" className="w-full py-24 lg:py-32">
@@ -57,7 +58,10 @@ export default function Contact() {
                                     })}
                                     className="group grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1 rounded-2xl border border-border-subtle bg-surface-raised px-5 py-5 transition-colors duration-300 ease-out-expo hover:border-accent hover:bg-accent focus-visible:border-accent focus-visible:bg-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:grid-cols-[4rem_1fr_auto_auto] sm:px-8 sm:py-7"
                                 >
-                                    <span className="hidden text-label-code text-outline transition-colors duration-300 group-hover:text-on-accent/60 group-focus-visible:text-on-accent/60 sm:block">
+                                    <span
+                                        aria-hidden
+                                        className="hidden text-label-code text-outline transition-colors duration-300 group-hover:text-on-accent/60 group-focus-visible:text-on-accent/60 sm:block"
+                                    >
                                         ({String(index + 1).padStart(2, '0')})
                                     </span>
 
@@ -72,6 +76,11 @@ export default function Contact() {
                                         <span className="block truncate text-headline-lg text-white transition-colors duration-300 group-hover:text-on-accent group-focus-visible:text-on-accent">
                                             {t(`channels.${id}.value`)}
                                         </span>
+                                        {external ? (
+                                            <span className="sr-only">
+                                                {tA11y('newTab')}
+                                            </span>
+                                        ) : null}
                                     </span>
 
                                     <span className="hidden text-body-sm text-on-surface-variant transition-colors duration-300 group-hover:text-on-accent/70 group-focus-visible:text-on-accent/70 md:block">

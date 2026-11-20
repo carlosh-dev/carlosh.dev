@@ -4,7 +4,7 @@ import { useTransition } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 
 import { setLocale } from '@/app/actions/set-locale'
-import { locales } from '@/i18n/config'
+import { localeInfo, locales } from '@/i18n/config'
 import { cn } from '@/lib/cn'
 
 /**
@@ -32,7 +32,10 @@ export default function LocaleSwitcher() {
                     key={locale}
                     type="button"
                     disabled={isPending || locale === active}
-                    aria-current={locale === active ? 'true' : undefined}
+                    aria-pressed={locale === active}
+                    // A sigla visível fica no nome (WCAG 2.5.3); o idioma por extenso, na própria língua.
+                    aria-label={`${locale} (${localeInfo[locale].name})`}
+                    lang={localeInfo[locale].tag}
                     onClick={() => startTransition(() => setLocale(locale))}
                     className={cn(
                         'flex h-8 items-center rounded-full px-2.5 text-label-code uppercase transition-colors',
