@@ -1,4 +1,11 @@
 {
+    "meta": {
+        "title": "Carlos Henrique — Software Engineer | React & Next.js",
+        "description": "Software Engineer with 5+ years in React, Next.js and TypeScript: front-end architecture, Design Systems and Web Vitals for SaaS products with 100k+ users."
+    },
+    "a11y": {
+        "newTab": "(opens in a new tab)"
+    },
     "nav": {
         "skip": "Skip to content",
         "logo": "Home",
@@ -6,6 +13,7 @@
         "closeMenu": "Close navigation menu",
         "cta": "Get in Touch",
         "language": "Language",
+        "primary": "Main navigation",
         "items": {
             "inicio": "Home",
             "sobre": "About",

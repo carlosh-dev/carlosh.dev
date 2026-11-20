@@ -2,6 +2,8 @@ import portrait from '@/public/carlos.jpg'
 
 export const siteConfig = {
     name: 'Carlos Henrique',
+    /** Origem canônica: base do `metadataBase`, do sitemap e do JSON-LD. */
+    url: 'https://carlosh.dev',
     // TODO: preencher com os canais reais antes de publicar.
     email: 'contato.carlosh@outlook.com',
     linkedin: 'https://www.linkedin.com/in/carlosh-dev/',

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Archivo } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getTranslations } from 'next-intl/server'
@@ -7,6 +7,8 @@ import SiteFooter from '@/components/layout/site-footer'
 import SiteHeader from '@/components/layout/site-header'
 import CustomCursor from '@/components/ui/custom-cursor'
 import SmoothScroll from '@/components/ui/smooth-scroll'
+import { isLocale, localeInfo } from '@/i18n/config'
+import { siteConfig } from '@/lib/site-config'
 import './globals.css'
 
 // Uma família só. O eixo de largura vem junto para os títulos apertados;
@@ -18,16 +20,39 @@ const archivo = Archivo({
     display: 'swap',
 })
 
-export const metadata: Metadata = {
-    title: 'Carlos Henrique - Software Engineer',
-    description:
-        'Software Engineer com mais de 5 anos de experiência em React, Next.js, TypeScript, Node.js e Ruby on Rails. Arquitetura de software, Web Vitals e produtos SaaS de alto tráfego.',
-    openGraph: {
-        title: 'Carlos Henrique - Software Engineer',
-        description:
-            'Arquitetura de software, Web Vitals e produtos SaaS de alto tráfego.',
-        type: 'website',
-    },
+export async function generateMetadata(): Promise<Metadata> {
+    const locale = await getLocale()
+    const t = await getTranslations('meta')
+    const title = t('title')
+    const description = t('description')
+
+    return {
+        metadataBase: new URL(siteConfig.url),
+        title,
+        description,
+        applicationName: siteConfig.name,
+        authors: [{ name: siteConfig.name, url: siteConfig.url }],
+        creator: siteConfig.name,
+        alternates: { canonical: '/' },
+        openGraph: {
+            type: 'profile',
+            firstName: 'Carlos',
+            lastName: 'Henrique',
+            username: 'carlosh-dev',
+            url: '/',
+            siteName: siteConfig.name,
+            title,
+            description,
+            locale: isLocale(locale) ? localeInfo[locale].og : undefined,
+        },
+        twitter: { card: 'summary_large_image', title, description },
+        robots: { index: true, follow: true },
+    }
+}
+
+export const viewport: Viewport = {
+    themeColor: '#000000',
+    colorScheme: 'dark',
 }
 
 export default async function RootLayout({
@@ -40,7 +65,7 @@ export default async function RootLayout({
 
     return (
         <html
-            lang={locale}
+            lang={isLocale(locale) ? localeInfo[locale].tag : locale}
             className={`${archivo.variable} h-full`}
         >
             <body className="bg-surface-base font-sans text-body-md text-on-surface antialiased">
