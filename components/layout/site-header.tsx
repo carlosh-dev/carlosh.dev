@@ -18,6 +18,7 @@ export default function SiteHeader() {
     const [lifted, setLifted] = useState(false)
 
     const navRef = useRef<HTMLElement | null>(null)
+    const toggleRef = useRef<HTMLButtonElement | null>(null)
     const linkRefs = useRef(new Map<NavItem, HTMLAnchorElement>())
     const [marker, setMarker] = useState<{ x: number; w: number } | null>(null)
     /* Só depois da primeira medida o lozango pode animar — sem isso ele
@@ -94,12 +95,15 @@ export default function SiteHeader() {
         return () => observer.disconnect()
     }, [measure])
 
-    /* Fecha o menu mobile com Esc e trava a rolagem do fundo. */
+    /* Fecha o menu mobile com Esc (devolvendo o foco ao botão que o abriu)
+       e trava a rolagem do fundo. */
     useEffect(() => {
         if (!menuOpen) return
 
         const onKeyDown = (event: KeyboardEvent) => {
-            if (event.key === 'Escape') setMenuOpen(false)
+            if (event.key !== 'Escape') return
+            setMenuOpen(false)
+            toggleRef.current?.focus()
         }
 
         document.addEventListener('keydown', onKeyDown)
@@ -157,7 +161,8 @@ export default function SiteHeader() {
                 >
                     <a
                         href="#inicio"
-                        aria-label={t('logo')}
+                        // O texto visível abre o nome (WCAG 2.5.3); o destino vem depois.
+                        aria-label={`carlosh-dev, ${t('logo')}`}
                         className={cn(
                             'group flex shrink-0 items-center rounded-full',
                             focusRing
@@ -175,7 +180,7 @@ export default function SiteHeader() {
 
                     <nav
                         ref={navRef}
-                        aria-label={t('logo')}
+                        aria-label={t('primary')}
                         className="relative hidden flex-1 items-center justify-center gap-1 lg:flex xl:flex-none xl:justify-start"
                     >
                         <span
@@ -228,6 +233,7 @@ export default function SiteHeader() {
                         <LocaleSwitcher />
 
                         <button
+                            ref={toggleRef}
                             type="button"
                             onClick={() => setMenuOpen((open) => !open)}
                             aria-expanded={menuOpen}
@@ -261,7 +267,7 @@ export default function SiteHeader() {
                     hidden={!menuOpen}
                     className="header-capsule header-capsule-panel pointer-events-auto mt-2 origin-top animate-panel-in rounded-[1.875rem] border border-border-subtle p-2 lg:hidden"
                 >
-                    <nav aria-label={t('openMenu')}>
+                    <nav aria-label={t('primary')}>
                         <ul className="flex flex-col">
                             {navItems.map((id) => (
                                 <li key={id}>

@@ -24,6 +24,7 @@ const socials = [
 export default function SiteFooter() {
     const t = useTranslations('footer')
     const tContact = useTranslations('contact.channels')
+    const tA11y = useTranslations('a11y')
 
     return (
         <footer className="w-full border-t border-border-subtle">
@@ -43,7 +44,11 @@ export default function SiteFooter() {
                             <li key={id}>
                                 <a
                                     href={href}
-                                    aria-label={tContact(`${id}.value`)}
+                                    aria-label={
+                                        external
+                                            ? `${tContact(`${id}.value`)} ${tA11y('newTab')}`
+                                            : tContact(`${id}.value`)
+                                    }
                                     {...(external && {
                                         target: '_blank',
                                         rel: 'noopener noreferrer',

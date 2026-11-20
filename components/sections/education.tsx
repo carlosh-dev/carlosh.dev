@@ -53,6 +53,9 @@ export default function Education() {
                                             aria-valuenow={level}
                                             aria-valuemin={0}
                                             aria-valuemax={100}
+                                            aria-valuetext={t(
+                                                `languages.${id}.level`
+                                            )}
                                             aria-label={t(
                                                 `languages.${id}.name`
                                             )}
